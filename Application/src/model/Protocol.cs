@@ -10,6 +10,8 @@ namespace Application.src.model
     {
 
         // ToDo - add all the correct fields contained in the bytes!
+        public string serviceName
+        { get; }
         public double speed
         { get; }
         public double heartrate
@@ -20,8 +22,10 @@ namespace Application.src.model
         { get; }
         public int currentPower
         { get; }
-        public Protocol(byte[] bytes)
+        public Protocol(string serviceName, byte[] bytes)
         {
+
+            this.serviceName = serviceName;
 
             switch (BitConverter.ToInt32( bytes,4))
             {

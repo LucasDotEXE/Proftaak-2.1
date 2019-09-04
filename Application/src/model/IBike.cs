@@ -10,9 +10,8 @@ namespace Application.src.model
     interface IBike
     {
 
-        IObserver observer { get; set; }
+        IApplication observer { get; }
 
-        Task startConnection(); // async
-        void sendData(object sender, BLESubscriptionValueChangedEventArgs e);
+        void startConnection(); // async
     }
 }

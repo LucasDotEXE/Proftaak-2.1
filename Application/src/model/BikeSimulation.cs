@@ -11,14 +11,14 @@ namespace Application.src.model
     {
 
         // atributes
-        public IProgram observer
+        public IApplication observer
         { get; }
 
         public List<string[]> protocols;
         public int iterator;
 
         // constructor
-        public BikeSimulation(IProgram observer)
+        public BikeSimulation(IApplication observer)
         {
 
             this.observer = observer;
@@ -29,6 +29,12 @@ namespace Application.src.model
 
         // methods
         public async void startConnection()
+        {
+
+            new Thread(new ThreadStart(loop));
+        }
+
+        private void loop()
         {
 
             while (true)
@@ -55,7 +61,7 @@ namespace Application.src.model
 
             this.observer.receiveProtocol(new Protocol(
                 this.protocols.ElementAt(this.iterator)[0],
-
+                new byte[] { 22, 45, 12 }
             )); 
         }
 

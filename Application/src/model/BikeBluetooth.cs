@@ -12,21 +12,21 @@ namespace Application.src.model
     class BikeBluetooth : IBike
     {
 
-        public IObserver observer
+        public IApplication observer
         { get; }
 
         private BLE bleBike;
         private BLE bleHeart;
 
         // constructer
-        public BikeBluetooth(IObserver observer)
+        public BikeBluetooth(IApplication observer)
         {
 
             this.observer = observer;
         }
 
         // connection
-        public async Task startConnection()
+        public async void startConnection()
         {
 
             int errorCode = 0;
@@ -78,15 +78,10 @@ namespace Application.src.model
                 Console.WriteLine($"Service: {service}");
         }
 
-        // interface implementations
-        public void sendData(object sender, BLESubscriptionValueChangedEventArgs e)
+        private void sendData(object sender, BLESubscriptionValueChangedEventArgs e)
         {
 
-            this.observer.receiveProtocol(new Protocol(
-                e.ServiceName,
-                BitConverter.ToString(e.Data).Replace("-", " "),
-                Encoding.UTF8.GetString(e.Data)
-            ));
+            this.observer.receiveProtocol(new Protocol(e.ServiceName, e.Data));
         }
     }
 }
