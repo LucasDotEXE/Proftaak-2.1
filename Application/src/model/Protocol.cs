@@ -10,15 +10,33 @@ namespace Application.src.model
     {
 
         // ToDo - add all the correct fields contained in the bytes!
-        private string serviceName;
-
-        public double speed;
-        public double heartrate;
-
-        public Protocol(string serviceName, string bytes, string encoding)
+        public double speed
+        { get; }
+        public double heartrate
+        { get; }   
+        public double distance
+        { get; }
+        public int acumilatedPower
+        { get; }
+        public int currentPower
+        { get; }
+        public Protocol(byte[] bytes)
         {
 
-            this.serviceName = serviceName;
+            switch (BitConverter.ToInt32( bytes,4))
+            {
+                case 0x10:
+                    speed = BitConverter.ToDouble(bytes,9) + BitConverter.ToDouble(bytes, 8);
+                    distance = BitConverter.ToDouble(bytes, 7);
+                    break;
+                case 0x14:  break; 
+                case 0x19:
+                    acumilatedPower= BitConverter.ToInt32(bytes,8) + BitConverter.ToInt32(bytes, 7);
+                    currentPower = BitConverter.ToInt32(bytes, 10) + BitConverter.ToInt32(bytes, 9);
+                    break; 
+            }
+
+            // ToDo - add the decription of the bytes!
         }
     }
 }
