@@ -10,15 +10,15 @@ namespace Application.src.model
     {
 
         // ToDo - add all the correct fields contained in the bytes!
-        public double speed
-        { get; }
-        public double heartrate
-        { get; }
+        private string serviceName;
 
-        public Protocol(string bytes)
+        public double speed;
+        public double heartrate;
+
+        public Protocol(string serviceName, string bytes, string encoding)
         {
 
-            // ToDo - add the decription of the bytes!
+            this.serviceName = serviceName;
         }
     }
 }
