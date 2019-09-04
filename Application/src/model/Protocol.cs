@@ -13,10 +13,27 @@ namespace Application.src.model
         public double speed
         { get; }
         public double heartrate
+        { get; }   
+        public double distance
         { get; }
-
-        public Protocol(string bytes)
+        public int acumilatedPower
+        { get; }
+        public int currentPower
+        { get; }
+        public Protocol(byte[] bytes)
         {
+            switch (BitConverter.ToInt32( bytes[4]))
+            {
+                case 0x10:
+                    speed = BitConverter.ToDouble(bytes[9]+bytes[8]);
+                    distance = BitConverter.ToDouble(bytes[7]);
+                    break;
+                case 0x14:  break; 
+                case 0x19:
+                    acumilatedPower= BitConverter.ToInt32(bytes[8]+bytes[7]);
+                    currentPower = BitConverter.ToInt32(bytes[10]+bytes[9]);
+                    break; 
+            }
 
             // ToDo - add the decription of the bytes!
         }

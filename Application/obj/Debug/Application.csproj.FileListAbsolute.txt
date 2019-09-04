@@ -1,0 +1,2 @@
+C:\Users\tjall\Source\Repos\LucasDotEXE\Proftaak-2.1\Application\obj\Debug\Application.csprojAssemblyReference.cache
+C:\Users\tjall\Source\Repos\LucasDotEXE\Proftaak-2.1\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
