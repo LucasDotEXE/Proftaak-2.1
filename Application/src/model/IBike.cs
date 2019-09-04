@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Avans.TI.BLE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,9 @@ namespace Application.src.model
     interface IBike
     {
 
-        void sendData();
+        IObserver observer { get; set; }
+
+        Task startConnection(); // async
+        void sendData(object sender, BLESubscriptionValueChangedEventArgs e);
     }
 }
