@@ -8,6 +8,18 @@ namespace Test
     {
         static void Main(string[] args)
         {
+            BikeSimulatorPower power = new BikeSimulatorPower();
+            BikeSimulatorSpeed speed = new BikeSimulatorSpeed();
+
+            Protocol bikedecoder = new Protocol("test bike decode");
+            power.subscibe(bikedecoder);
+            speed.subscibe(bikedecoder);
+            power.turnOn(1);
+            speed.turnOn(1);
+
+
+            Console.ReadLine();
+            /*
             byte[] bytes = { 0xa4, 0x09, 0x4e, 0x05, 0x10, 0x19, 0xa4, 0x69, 0xC6, 0x02, 0xff, 0x24, 0xf9 };
             Protocol protocol = new Protocol("test", bytes);
             System.Console.WriteLine(BitConverter.ToString(bytes));
@@ -18,6 +30,7 @@ namespace Test
                 $" acumulatedPower: {protocol.acumilatedPower}," +
                 $" current power: {protocol.currentPower}");
             System.Console.Read();
+            */
         }
     }
 }

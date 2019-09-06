@@ -4,35 +4,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Timers;
 
-class Program
-{
-
-    static void Main(string[] args)
-    {
-        Printer bikePrinter = new Printer("Bike Printer");
-        Printer heartPrinter = new Printer("HeartRate Printer");
-
-        testSim bikeSim = new testSim();
-        testSim heartSim = new testSim();
-
-
-        bikeSim.subscibe(bikePrinter);
-        heartSim.subscibe(heartPrinter);
-
-        bikeSim.turnOn(2);
-        heartSim.turnOn(4);
-
-
-        Console.ReadLine();
-    }
-
-}
 
 class testSim : Simulator
 {
     protected override byte[] generateData()
     {
-        return "it works";
+        return Encoding.UTF8.GetBytes("it works");
     }
 }
 
@@ -40,7 +17,18 @@ class BikeSimulatorPower : Simulator
 {
     protected override byte[] generateData()
     {
-        throw new NotImplementedException();
+        byte[] array = new byte[11];
+
+        array[4] = 0x19;
+
+        array[7] = 4;  //acumilatedPower
+        array[8] = 4; 
+
+        array[9] = 3; // currentPower
+        array[10] = 5;
+
+
+        return array;
     }
 
     private String dataToString()
@@ -52,7 +40,22 @@ class BikeSimulatorSpeed : Simulator
 {
     protected override byte[] generateData()
     {
-        throw new NotImplementedException();
+        byte[] array = new byte[11];
+        array[4] = 0x10; // Identifier
+
+        if (base.simulationData.indexer >= base.simulationData.effortCurve.Count)
+        {
+            base.simulationData.indexer = 0;
+        }
+        byte[] speed = BitConverter.GetBytes(base.simulationData.effortCurve[base.simulationData.indexer] * 10 + 100);
+        base.simulationData.indexer++;
+
+        array[8] = speed[0]; //will be added to get speed
+        array[9] = speed[1];
+
+        array[7] = 0x24; //distance
+
+        return array;
     }
 }
 
@@ -65,6 +68,11 @@ class HeartSimulator : Simulator
         byte SensorContactSupportLocal = 0;
         byte EnergyExpandedIncluded = 0;
         byte RRIntervalIncluded = 0;
+
+        if (base.simulationData.indexer >= base.simulationData.effortCurve.Count)
+        {
+            base.simulationData.indexer = 0;
+        }
 
 
         int BPM = base.simulationData.effortCurve[base.simulationData.indexer] * 10 + 90;

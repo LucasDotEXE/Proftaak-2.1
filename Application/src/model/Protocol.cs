@@ -1,6 +1,6 @@
 ﻿namespace Application.src.model
 {
-    class Protocol
+    class Protocol : observing.Observer<byte[]>
     {
 
         // ToDo - add all the correct fields contained in the bytes!
@@ -16,6 +16,12 @@
         { get; set; }
         public int currentPower
         { get; set; }
+
+        public Protocol(string serviceName)
+        {
+            this.serviceName = serviceName;
+        }
+
         public Protocol(string serviceName, byte[] bytes)
         {
             this.serviceName = serviceName;
@@ -35,6 +41,7 @@
         }
         public void updateProtocol(byte[] bytes)
         {
+            
             switch (bytes[4])
             {
                 case 0x10:
@@ -47,7 +54,15 @@
                     currentPower = bytes[10] + bytes[9];
                     break;
             }
+
+            
             // ToDo - add the decription of the bytes!
+        }
+
+        public override void update(byte[] content)
+        {
+            updateProtocol(content);
+            //System.Console.WriteLine($"Speed: {speed}, Distance: {distance}, acumPower: {acumilatedPower}, currPower: {currentPower}");
         }
     }
 

@@ -52,6 +52,7 @@
     <Compile Include="src\model\BikeBluetooth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\model\BikeSimulation.cs" />
+    <Compile Include="src\model\HeartDecoder.cs" />
     <Compile Include="src\model\Simulators.cs" />
     <Compile Include="src\model\IBike.cs" />
     <Compile Include="src\model\Protocol.cs" />

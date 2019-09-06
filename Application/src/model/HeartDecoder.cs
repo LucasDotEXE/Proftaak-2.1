@@ -1,4 +1,7 @@
-class Heartdecoder
+using System;
+using System.Linq;
+
+class Heartdecoder : observing.Observer<byte[]>
 {
     private bool HeartRateValueTypeIs16 { get; set; } //0 = UINT8 and 1 = UINT16
     private bool SensorContactSupportNetwork { get; set; } //0=NotSupported 1=Supported
@@ -21,7 +24,7 @@ class Heartdecoder
         this.name = name;
     }
 
-    public void update(byte[] data)
+    public void updateData(byte[] data)
     {
         var binary = ToBinary(data);
         String[] split = binary.Split();
@@ -84,4 +87,8 @@ class Heartdecoder
         return string.Join(" ", data.Select(byt => Convert.ToString(byt, 2).PadLeft(8, '0')));
     }
 
+    public override void update(byte[] content)
+    {
+        updateData(content);
+    }
 }
