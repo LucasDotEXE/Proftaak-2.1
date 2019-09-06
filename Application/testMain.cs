@@ -8,6 +8,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
+            /*
             BikeSimulatorPower power = new BikeSimulatorPower();
             BikeSimulatorSpeed speed = new BikeSimulatorSpeed();
 
@@ -16,6 +17,13 @@ namespace Test
             speed.subscibe(bikedecoder);
             power.turnOn(1);
             speed.turnOn(1);
+            */
+            HeartSimulator heartsim = new HeartSimulator();
+            Heartdecoder heartDecoder = new Heartdecoder("test heard decode");
+
+            heartsim.subscibe(heartDecoder);
+
+            heartsim.turnOn(1);
 
 
             Console.ReadLine();

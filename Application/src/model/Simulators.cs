@@ -63,11 +63,11 @@ class HeartSimulator : Simulator
 {
     protected override byte[] generateData()
     {
-        byte HeartRateValueTypeIs16 = 0;
-        byte SensorContactSupportNetwork = 0;
-        byte SensorContactSupportLocal = 0;
-        byte EnergyExpandedIncluded = 0;
-        byte RRIntervalIncluded = 0;
+        byte HeartRateValueTypeIs16 = 1;
+        byte SensorContactSupportNetwork = 1;
+        byte SensorContactSupportLocal = 1;
+        byte EnergyExpandedIncluded = 1;
+        byte RRIntervalIncluded = 1;
 
         if (base.simulationData.indexer >= base.simulationData.effortCurve.Count)
         {
@@ -79,20 +79,22 @@ class HeartSimulator : Simulator
         int EnergyExpanded = base.simulationData.effortCurve[base.simulationData.indexer] * 10 + 20;
         base.simulationData.indexer++;
 
-        byte[] array = new byte[5] { 
+        byte[] array = new byte[9] {
             HeartRateValueTypeIs16,
             SensorContactSupportNetwork,
             SensorContactSupportLocal,
             EnergyExpandedIncluded,
             RRIntervalIncluded,
-    };
+            4,                  //BPM 1stbit
+            4,                  //BPM 2ndbit
+            3,                  //Expand 1stbit
+            7                   //Expand 2ndbit
+        };
 
 
 
-        String boolvals = array.ToString();
-        boolvals += " " + (BitConverter.GetBytes(BPM) + " " + BitConverter.GetBytes(EnergyExpanded));
 
-        return Encoding.ASCII.GetBytes(boolvals); // kon geen anderen manier vinden om het naar string te krijgen
+        return array; // kon geen anderen manier vinden om het naar string te krijgen
     }
 }
 

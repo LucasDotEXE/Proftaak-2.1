@@ -82,6 +82,57 @@ class Heartdecoder : observing.Observer<byte[]>
 
     }
 
+    private void updateDataTemp(byte[] array)
+    {
+        if (array[0] == 0)
+        {
+            HeartRateValueTypeIs16 = false;
+        }
+        else if (array[0] == 1)
+        {
+            HeartRateValueTypeIs16 = true;
+        }
+
+        if (array[1] == 0)
+        {
+            SensorContactSupportNetwork = false;
+        }
+        else if (array[1] == 1)
+        {
+            SensorContactSupportNetwork = true;
+        }
+
+        if (array[2] == 0)
+        {
+            SensorContactSupportLocal = false;
+        }
+        else if (array[2] == 1)
+        {
+            SensorContactSupportLocal = true;
+        }
+
+        if (array[3] == 0)
+        {
+            EnergyExpandedIncluded = false;
+        }
+        else if (array[3] == 1)
+        {
+            EnergyExpandedIncluded = true;
+        }
+
+        if (array[4] == 0)
+        {
+            RRIntervalIncluded = false;
+        }
+        else if (array[4] == 1)
+        {
+            RRIntervalIncluded = true;
+        }
+
+        this.BPM = array[5] + array[6];
+        this.EnergyExpanded = array[7] + array[8];
+    }
+
     public static String ToBinary(Byte[] data)
     {
         return string.Join(" ", data.Select(byt => Convert.ToString(byt, 2).PadLeft(8, '0')));
@@ -89,6 +140,7 @@ class Heartdecoder : observing.Observer<byte[]>
 
     public override void update(byte[] content)
     {
-        updateData(content);
+        updateDataTemp(content);
+        System.Console.WriteLine($"BPM: {BPM}, EnergieExpanded: {EnergyExpanded}");
     }
 }
