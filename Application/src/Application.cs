@@ -6,17 +6,19 @@ namespace Application.src
     class Application : IApplication
     {
 
-        /*static void Main(string[] args)
+        static void Main(string[] args)
         {
 
-            BikeBluetooth bike = new BikeBluetooth(new Application());
+            IBike bike = new BikeSimulation(new Application());
             bike.startConnection();
-        }*/
+            
+            Console.Read();
+        }
 
         public void receiveProtocol(Protocol protocol)
         {
 
-            Console.WriteLine(protocol.serviceName);
+            Console.WriteLine(protocol);
         }
     }
 }

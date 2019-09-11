@@ -12,6 +12,6 @@ namespace Application.src.model
 
         IApplication observer { get; }
 
-        void startConnection(); // async
+        void startConnection();
     }
 }

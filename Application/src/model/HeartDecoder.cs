@@ -3,7 +3,8 @@ using System.Linq;
 
 class Heartdecoder : observing.Observer<byte[]>
 {
-    private bool HeartRateValueTypeIs16 { get; set; } //0 = UINT8 and 1 = UINT16
+
+    private bool HeartRateValueTypeIs16 { get; set; } // 0 = UINT8 and 1 = UINT16
     private bool SensorContactSupportNetwork { get; set; } //0=NotSupported 1=Supported
     private bool SensorContactSupportLocal { get; set; } //0=NotSupported 1=Supported
     private bool EnergyExpandedIncluded { get; set; } //0=LeftOut 1=Included
@@ -29,6 +30,7 @@ class Heartdecoder : observing.Observer<byte[]>
         var binary = ToBinary(data);
         String[] split = binary.Split();
         String boolvals = split[0];
+
         //ADJUSTS THE BOOLEAN VALUES FOR THE DATA LOAD
         if (boolvals[0].Equals("0"))
         {
