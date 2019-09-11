@@ -6,7 +6,7 @@ namespace Test
 {
     class testMain
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             /*
             BikeSimulatorPower power = new BikeSimulatorPower();
@@ -17,7 +17,7 @@ namespace Test
             speed.subscibe(bikedecoder);
             power.turnOn(1);
             speed.turnOn(1);
-            */
+            
             HeartSimulator heartsim = new HeartSimulator();
             Heartdecoder heartDecoder = new Heartdecoder("test heard decode");
 
@@ -38,7 +38,7 @@ namespace Test
                 $" acumulatedPower: {protocol.acumilatedPower}," +
                 $" current power: {protocol.currentPower}");
             System.Console.Read();
-            */
-        }
+            
+        }*/
     }
 }

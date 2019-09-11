@@ -19,3 +19,10 @@ D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\bin\Debug\App
 D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\bin\Debug\BLELibrary.dll
 D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\obj\Debug\Application.csproj.CopyComplete
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\bin\Debug\Application.exe.config
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\bin\Debug\Application.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\bin\Debug\Application.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\bin\Debug\BLELibrary.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\obj\Debug\Application.csproj.CopyComplete
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\obj\Debug\Application.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\obj\Debug\Application.pdb

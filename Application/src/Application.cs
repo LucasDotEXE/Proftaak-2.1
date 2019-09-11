@@ -11,12 +11,13 @@ namespace Application.src
 
             IBike bike = new BikeSimulation(new Application());
             bike.startConnection();
+            
+            Console.Read();
         }
 
         public void receiveProtocol(Protocol protocol)
         {
 
-            Console.WriteLine("TEST!");
             Console.WriteLine(protocol);
         }
     }
