@@ -1,0 +1,20 @@
+C:\Users\tjall\Source\Repos\LucasDotEXE\Proftaak-2.1\Application\obj\Debug\Application.csprojAssemblyReference.cache
+C:\Users\tjall\Source\Repos\LucasDotEXE\Proftaak-2.1\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Program Files\1gitprojects\Proftaak-2.1\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Program Files\1gitprojects\Proftaak-2.1\Application\bin\Debug\Application.exe.config
+C:\Program Files\1gitprojects\Proftaak-2.1\Application\bin\Debug\Application.exe
+C:\Program Files\1gitprojects\Proftaak-2.1\Application\bin\Debug\Application.pdb
+C:\Program Files\1gitprojects\Proftaak-2.1\Application\bin\Debug\BLELibrary.dll
+C:\Program Files\1gitprojects\Proftaak-2.1\Application\obj\Debug\Application.csproj.CopyComplete
+C:\Program Files\1gitprojects\Proftaak-2.1\Application\obj\Debug\Application.exe
+C:\Program Files\1gitprojects\Proftaak-2.1\Application\obj\Debug\Application.pdb
+C:\Program Files\1gitprojects\Proftaak-2.1\Application\obj\Debug\Application.csprojAssemblyReference.cache
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\obj\Debug\Application.csprojAssemblyReference.cache
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\obj\Debug\Application.exe
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\obj\Debug\Application.pdb
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\bin\Debug\Application.exe.config
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\bin\Debug\Application.exe
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\bin\Debug\Application.pdb
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\bin\Debug\BLELibrary.dll
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\obj\Debug\Application.csproj.CopyComplete

@@ -4,6 +4,10 @@
     "\\src",
     "\\src\\model"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\src\\model\\BikeBluetooth.cs",
+=======
+  "SelectedNode": "\\Application.sln",
+>>>>>>> protocol
   "PreviewInSolutionExplorer": false
 }
