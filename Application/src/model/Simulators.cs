@@ -1,4 +1,6 @@
-﻿using observing;
+﻿#define fd
+
+using observing;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,6 +29,11 @@ class BikeSimulatorPower : Simulator
         array[9] = 3; // currentPower
         array[10] = 5;
 
+        #region
+#if (DEBUG)
+        Console.WriteLine($"DEBUG -> BikePowerSim Data== identifier:{array[4]}, acumPower:{array[7] + array[8]}, currPower:{array[9] + array[10]}");
+#endif
+        #endregion Debug
 
         return array;
     }
@@ -54,7 +61,11 @@ class BikeSimulatorSpeed : Simulator
         array[9] = speed[1];
 
         array[7] = 0x24; //distance
-
+        #region
+#if DEBUG
+        Console.WriteLine($"DEBUG -> BikeSpeedSim Data== identifier:{array[4]}, speed:{speed[0] + speed[1]}, distance:{array[7]}");
+#endif
+        #endregion
         return array;
     }
 }
@@ -74,7 +85,6 @@ class HeartSimulator : Simulator
             base.simulationData.indexer = 0;
         }
 
-
         int BPM = base.simulationData.effortCurve[base.simulationData.indexer] * 10 + 90;
         int EnergyExpanded = base.simulationData.effortCurve[base.simulationData.indexer] * 10 + 20;
         base.simulationData.indexer++;
@@ -92,7 +102,11 @@ class HeartSimulator : Simulator
         };
 
 
-
+        #region
+#if (DEBUG)
+        Console.WriteLine($"DEBUG -> HeartSim Data: {array[0]}{array[1]}{array[2]} {array[3]}{array[4]}{array[5]} {array[6]}{array[7]}{array[8]}");
+#endif
+        #endregion Debug
 
         return array; // kon geen anderen manier vinden om het naar string te krijgen
     }

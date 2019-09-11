@@ -21,9 +21,17 @@ namespace Test
             HeartSimulator heartsim = new HeartSimulator();
             Heartdecoder heartDecoder = new Heartdecoder("test heard decode");
 
+            BikeSimulatorPower bikePow = new BikeSimulatorPower();
+            BikeSimulatorSpeed bikeSped = new BikeSimulatorSpeed();
+            Protocol bike = new Protocol("bike");
+
+            bikePow.subscibe(bike);
+            bikeSped.subscibe(bike);
             heartsim.subscibe(heartDecoder);
 
             heartsim.turnOn(1);
+            bikePow.turnOn(1);
+            bikeSped.turnOn(1);
 
 
             Console.ReadLine();

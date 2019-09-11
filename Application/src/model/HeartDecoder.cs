@@ -141,6 +141,8 @@ class Heartdecoder : observing.Observer<byte[]>
     public override void update(byte[] content)
     {
         updateDataTemp(content);
+#if (DEBUG)
         System.Console.WriteLine($"BPM: {BPM}, EnergieExpanded: {EnergyExpanded}");
+#endif
     }
 }
