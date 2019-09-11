@@ -69,12 +69,12 @@ namespace Application.src.model
         {
 
             this.protocols = new List<string[]>();
-            this.protocols.Add(new string[] { "", "", "" });
-            this.protocols.Add(new string[] { "", "", "" });
-            this.protocols.Add(new string[] { "", "", "" });
-            this.protocols.Add(new string[] { "", "", "" });
-            this.protocols.Add(new string[] { "", "", "" });
-            this.protocols.Add(new string[] { "", "", "" });
+            this.protocols.Add(new string[] { "", "" });
+            this.protocols.Add(new string[] { "", "" });
+            this.protocols.Add(new string[] { "", "" });
+            this.protocols.Add(new string[] { "", "" });
+            this.protocols.Add(new string[] { "", "" });
+            this.protocols.Add(new string[] { "", "" });
         }
     }
 }
