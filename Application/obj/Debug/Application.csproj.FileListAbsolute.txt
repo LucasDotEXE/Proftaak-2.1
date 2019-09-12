@@ -26,3 +26,14 @@ C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Applica
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\obj\Debug\Application.csproj.CopyComplete
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\obj\Debug\Application.exe
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\Application\obj\Debug\Application.pdb
+D:\tjall\Documents\Proftaak-2.1\Application\obj\Debug\Application.csprojAssemblyReference.cache
+D:\tjall\Documents\Proftaak-2.1\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+D:\tjall\Documents\Proftaak-2.1\Application\bin\Debug\Application.exe.config
+D:\tjall\Documents\Proftaak-2.1\Application\bin\Debug\Application.exe
+D:\tjall\Documents\Proftaak-2.1\Application\bin\Debug\Application.pdb
+D:\tjall\Documents\Proftaak-2.1\Application\bin\Debug\BLELibrary.dll
+D:\tjall\Documents\Proftaak-2.1\Application\bin\Debug\Newtonsoft.Json.dll
+D:\tjall\Documents\Proftaak-2.1\Application\bin\Debug\Newtonsoft.Json.xml
+D:\tjall\Documents\Proftaak-2.1\Application\obj\Debug\Application.csproj.CopyComplete
+D:\tjall\Documents\Proftaak-2.1\Application\obj\Debug\Application.exe
+D:\tjall\Documents\Proftaak-2.1\Application\obj\Debug\Application.pdb
