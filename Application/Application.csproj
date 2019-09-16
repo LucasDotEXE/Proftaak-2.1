@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\Application.cs" />
+    <Compile Include="src\ServerCommands.cs" />
     <Compile Include="src\IApplication.cs" />
     <Compile Include="src\IProgram.cs" />
     <Compile Include="src\model\BikeBluetooth.cs" />
