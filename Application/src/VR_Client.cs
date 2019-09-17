@@ -48,8 +48,6 @@ namespace VR_Client
         private readonly string host = "145.48.6.10";
         private readonly int port = 6666;
 
-        private TcpListener listen;
-
         public TcpClient client { get; }
         public NetworkStream dStream { get; }
         //setting up the client
@@ -103,18 +101,22 @@ namespace VR_Client
             dStream.Flush();
         }
 
-        public string receive()
+         public string receive()
         {
+            string data = "";
             //you first receive package length then package, this is stated in docs
             byte[] bytesToRead = new byte[client.ReceiveBufferSize];
             int bytesRead = dStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
             string length = Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
             Console.WriteLine(length);
-            bytesToRead = new byte[client.ReceiveBufferSize];
-            bytesRead = dStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
-            string data = Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
-
-            return data;
+            while (dStream.DataAvailable)
+            {
+                bytesToRead = new byte[client.ReceiveBufferSize];
+                bytesRead = dStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
+                data += Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
+                Console.WriteLine(data);
+            }
+            return data.Trim();
         }
         public void close()
         {
