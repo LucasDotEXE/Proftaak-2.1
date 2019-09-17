@@ -101,22 +101,26 @@ namespace VR_Client
             dStream.Flush();
         }
 
-         public string receive()
+        public string receive()
         {
             string data = "";
-            //you first receive package length then package, this is stated in docs
-            byte[] bytesToRead = new byte[client.ReceiveBufferSize];
-            int bytesRead = dStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
-            string length = Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
-            Console.WriteLine(length);
-            while (dStream.DataAvailable)
+            int messageLength = 4;
+            do
             {
-                bytesToRead = new byte[client.ReceiveBufferSize];
-                bytesRead = dStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
-                data += Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
-                Console.WriteLine(data);
-            }
+                byte[] bytesToRead = new byte[messageLength];
+                int bytesRead = dStream.Read(bytesToRead, 0, messageLength);
+                Console.WriteLine("amount of bytes: " + bytesRead);
+                if (bytesRead > 4)
+                    data += Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
+                else
+                {
+                    int l = BitConverter.ToInt32(bytesToRead, 0);
+                    Console.WriteLine("length: " + l);
+                    messageLength = l;
+                }
+            } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
             return data.Trim();
+        }
         }
         public void close()
         {
