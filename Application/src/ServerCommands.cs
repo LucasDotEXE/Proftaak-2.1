@@ -1,5 +1,4 @@
-﻿
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using CommandHelperObjects;
@@ -8,12 +7,12 @@ namespace Commands
 {
     class Scene
     {
-        private readonly static String idPrefix = "scene/";
+        protected readonly static String idPrefix = "scene/";
         public static String get()
         {
             var get = new
             {
-                id = "scene/get"
+                id = idPrefix + "get"
             };
             return JsonConvert.SerializeObject(get);
         }
@@ -22,7 +21,7 @@ namespace Commands
         {
             var reset = new
             {
-                id = "scene/reset",
+                id = idPrefix +  "reset",
                 data = new int[0]
             };
             return JsonConvert.SerializeObject(reset);
@@ -32,7 +31,7 @@ namespace Commands
         {
             var save = new
             {
-                id = "scene/save",
+                id = idPrefix +  "save",
                 data = new
                 {
                     filename = fileName,
@@ -46,7 +45,7 @@ namespace Commands
         {
             var load = new
             {
-                id = "scene/load",
+                id = idPrefix +  "load",
                 data = new
                 {
                     filename = fileName
@@ -59,7 +58,7 @@ namespace Commands
         {
             var rayCast = new
             {
-                id = $"{idPrefix}raycast",
+                id = idPrefix + "raycast",
                 data = new
                 {
                     start = new[] { start.Item1, start.Item2, start.Item3 },
@@ -72,11 +71,12 @@ namespace Commands
 
         public class node
         {
+            private readonly static String idPrefix = Scene.idPrefix + "node/";
             public static String add(String name, String parent, Tuple<double, double, double> position, int scale, Tuple<double, double, double> rotation, String fileName)
             {
                 var add = new
                 {
-                    id = "scene/node/add",
+                    id = idPrefix + "add",
                     data = new
                     {
                         name = name,
@@ -122,6 +122,10 @@ namespace Commands
             {
                 var update = new
                 {
+
+                    id = idPrefix + "update",
+                    data = new 
+                {
                     id = id,
                     parent = parent,
                     transform = new
@@ -130,7 +134,8 @@ namespace Commands
                         scale = scale,
                         rotation = rotation
                     }
-                };
+                }
+            };
                 return JsonConvert.SerializeObject(update);
             }
 
@@ -236,7 +241,7 @@ namespace Commands
             {
                 var delete = new
                 {
-                    id = "scene/terain/delete",
+                    id = idPrefix + "delete",
                     data = new
                     {
 
@@ -407,9 +412,14 @@ namespace Commands
         }
     }
 
+
+}
+
+namespace Commands
+{
     class Route
     {
-        private static readonly String idPrefix = "Route/";
+        private static readonly String idPrefix = "route/";
 
         public static String add(List<RouteNode> nodes)
         {
@@ -502,7 +512,10 @@ namespace Commands
             return JsonConvert.SerializeObject(show);
         }
     }
+}
 
+namespace Commands
+{
     class Engine
     {
         public static String get(GetType type)
@@ -560,12 +573,20 @@ namespace Commands
             return JsonConvert.SerializeObject(pause);
         }
     }
-
-
 }
 
 namespace CommandHelperObjects
 {
+    class HelpMethods
+    {
+        public static String lowerAndRemoveSpace(String input)
+        {
+            String magic = input.ToLower();
+            magic = magic.Replace(" ", "");
+            return magic;
+        }
+    }
+
     class RouteNode
     {
         private int[] pos { get; set; }
