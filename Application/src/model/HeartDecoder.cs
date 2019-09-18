@@ -25,119 +25,48 @@ class Heartdecoder : observing.Observer<byte[]>
         this.name = name;
     }
 
-    public void updateData(byte[] data)
+    private void updateDataTemp(byte[] data)
     {
-        var binary = ToBinary(data);
-        String[] split = binary.Split();
-        String boolvals = split[0];
-
-        //ADJUSTS THE BOOLEAN VALUES FOR THE DATA LOAD
-        if (boolvals[0].Equals("0"))
-        {
-            HeartRateValueTypeIs16 = false;
-        }
-        else if (boolvals[0].Equals("1"))
-        {
-            HeartRateValueTypeIs16 = true;
-        }
-
-        if (boolvals[1].Equals("0"))
-        {
-            SensorContactSupportNetwork = false;
-        }
-        else if (boolvals[1].Equals("1"))
-        {
-            SensorContactSupportNetwork = true;
-        }
-
-        if (boolvals[2].Equals("0"))
-        {
-            SensorContactSupportLocal = false;
-        }
-        else if (boolvals[2].Equals("1"))
-        {
-            SensorContactSupportLocal = true;
-        }
-
-        if (boolvals[3].Equals("0"))
-        {
-            EnergyExpandedIncluded = false;
-        }
-        else if (boolvals[3].Equals("1"))
-        {
-            EnergyExpandedIncluded = true;
-        }
-
-        if (boolvals[4].Equals("0"))
-        {
-            RRIntervalIncluded = false;
-        }
-        else if (boolvals[4].Equals("1"))
-        {
-            RRIntervalIncluded = true;
-        }
-
-        String fullString = BitConverter.ToString(data);
-        String[] dataStringArray = fullString.Split();
-        BPM = int.Parse(dataStringArray[1], System.Globalization.NumberStyles.HexNumber);
-        EnergyExpanded = int.Parse(dataStringArray[2], System.Globalization.NumberStyles.HexNumber);
+        int[] bv = boolsplitter(hex2binary(data));
+        HeartRateValueTypeIs16 = Convert.ToBoolean(bv[0]);
+        SensorContactSupportLocal = Convert.ToBoolean(bv[1]);
+        SensorContactSupportNetwork = Convert.ToBoolean(bv[2]);
+        EnergyExpandedIncluded = Convert.ToBoolean(bv[3]);
+        RRIntervalIncluded = Convert.ToBoolean(bv[4]);
+        BPM = data[1];
+        Console.WriteLine(BPM);
+        
 
     }
+     
 
-    private void updateDataTemp(byte[] array)
+    public static string ByteArrayToString(byte[] data)
     {
-        if (array[0] == 0)
-        {
-            HeartRateValueTypeIs16 = false;
-        }
-        else if (array[0] == 1)
-        {
-            HeartRateValueTypeIs16 = true;
-        }
-
-        if (array[1] == 0)
-        {
-            SensorContactSupportNetwork = false;
-        }
-        else if (array[1] == 1)
-        {
-            SensorContactSupportNetwork = true;
-        }
-
-        if (array[2] == 0)
-        {
-            SensorContactSupportLocal = false;
-        }
-        else if (array[2] == 1)
-        {
-            SensorContactSupportLocal = true;
-        }
-
-        if (array[3] == 0)
-        {
-            EnergyExpandedIncluded = false;
-        }
-        else if (array[3] == 1)
-        {
-            EnergyExpandedIncluded = true;
-        }
-
-        if (array[4] == 0)
-        {
-            RRIntervalIncluded = false;
-        }
-        else if (array[4] == 1)
-        {
-            RRIntervalIncluded = true;
-        }
-
-        this.BPM = array[5] + array[6];
-        this.EnergyExpanded = array[7] + array[8];
+        return BitConverter.ToString(data).Replace("-", "");
     }
+
 
     public static String ToBinary(Byte[] data)
     {
         return string.Join(" ", data.Select(byt => Convert.ToString(byt, 2).PadLeft(8, '0')));
+    }
+
+    private string hex2binary(byte[] data)
+    {
+
+        string stringbyte = ByteArrayToString(data);
+        Console.WriteLine(stringbyte);
+        return Convert.ToString(Convert.ToInt32(stringbyte.Substring(0, 2), 16), 2);
+    }
+
+    private static int[] boolsplitter(string binvalue)
+    {
+        int[] vals = new int[binvalue.Length];
+        for (int i = 0; i < binvalue.Length; i++)
+        {
+            vals[i] = Convert.ToInt32(binvalue.Substring(i, 1));
+        }
+        return vals;
     }
 
     public override void update(byte[] content)
@@ -145,4 +74,5 @@ class Heartdecoder : observing.Observer<byte[]>
         updateDataTemp(content);
         System.Console.WriteLine($"BPM: {BPM}, EnergieExpanded: {EnergyExpanded}");
     }
+
 }
