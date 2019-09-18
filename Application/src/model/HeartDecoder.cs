@@ -12,6 +12,7 @@ class Heartdecoder : observing.Observer<byte[]>
     private int BPM { get; set; } //Heartbeats per minute
     private int EnergyExpanded { get; set; } // Energy Expanded in Joules
     private String name { get; set; }
+    private int TotalEnergyExpanded { get; set; }
 
     public Heartdecoder(String name)
     {
@@ -22,6 +23,7 @@ class Heartdecoder : observing.Observer<byte[]>
         RRIntervalIncluded = false;
         BPM = 0;
         EnergyExpanded = 0;
+        TotalEnergyExpanded = 0;
         this.name = name;
     }
 
@@ -34,9 +36,12 @@ class Heartdecoder : observing.Observer<byte[]>
         EnergyExpandedIncluded = Convert.ToBoolean(bv[3]);
         RRIntervalIncluded = Convert.ToBoolean(bv[4]);
         BPM = data[1];
-        Console.WriteLine(BPM);
-        
-
+        if (EnergyExpandedIncluded)
+        {
+            EnergyExpanded = data[2];
+            TotalEnergyExpanded = TotalEnergyExpanded + data[2];
+        }
+        //Console.WriteLine(BPM);
     }
      
 
