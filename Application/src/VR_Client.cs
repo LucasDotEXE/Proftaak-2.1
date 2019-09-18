@@ -126,7 +126,7 @@ namespace VR_Client
             } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
             return data.Trim();
         }
-        }
+        
         public void close()
         {
             //closes all connections
