@@ -28,12 +28,18 @@ namespace Application.src.model.bike
         }
 
         // connection
-        public async void startConnection()
+        public void startConnection()
+        {
+
+            new Thread(new ThreadStart(this.buildConnection)).Start();
+        }
+
+        private async void buildConnection()
         {
 
             int errorCode = 0;
 
-            this.buildConnection();
+            this.prepareConnection();
             this.drawDevices();
 
             errorCode = await bleBike.OpenDevice("Tacx Flux 01249");
@@ -52,9 +58,9 @@ namespace Application.src.model.bike
             bleHeart.SubscriptionValueChanged += this.sendData;
 
             await bleHeart.SubscribeToCharacteristic("HeartRateMeasurement");
-        }
+        } 
 
-        private void buildConnection()
+        private void prepareConnection()
         {
 
             this.bleBike = new BLE();

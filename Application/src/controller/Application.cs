@@ -1,4 +1,6 @@
 ﻿using Application.src.controller.interfaces;
+using Application.src.model.bike;
+using Application.src.model.entity;
 using System;
 
 namespace Application.src.controller
@@ -9,7 +11,7 @@ namespace Application.src.controller
         static void Main(string[] args)
         {
 
-            IBike bike = new BikeSimulation(new Application());
+            IBike bike = new BikeBluetooth(new Application());
             bike.startConnection();
             
             Console.Read();
