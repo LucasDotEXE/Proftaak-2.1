@@ -1,0 +1,16 @@
+﻿<Window x:Class="GUI_VR_interfacing.ControlPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_VR_interfacing"
+        mc:Ignorable="d"
+        Title="ControlPanel" Height="450" Width="800">
+    <Grid>
+        <Label Content="Time:" HorizontalAlignment="Left" Margin="664,10,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="TimeOfDay" HorizontalAlignment="Left" Margin="592,41,0,0" VerticalAlignment="Top" Width="182"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="163"/>
+        <Label Content="Preset" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
