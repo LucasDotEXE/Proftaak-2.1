@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Timers;
 
-namespace Application.src.model 
+namespace Application.src.model.bike
 {
 
     class testSim : Simulator

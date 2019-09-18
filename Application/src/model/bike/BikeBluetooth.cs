@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.src.controller.interfaces;
+using Application.src.model.entity;
 using Avans.TI.BLE;
 
-namespace Application.src.model
+namespace Application.src.model.bike
 {
 
     class BikeBluetooth : IBike

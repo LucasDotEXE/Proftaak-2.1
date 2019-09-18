@@ -1,7 +1,7 @@
-﻿using Application.src.model;
+﻿using Application.src.controller.interfaces;
 using System;
 
-namespace Application.src
+namespace Application.src.controller
 {
     class Application : IApplication
     {

@@ -46,21 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\Application.cs" />
-    <Compile Include="src\IApplication.cs" />
+    <Compile Include="src\controller\Application.cs" />
+    <Compile Include="src\controller\interfaces\IApplication.cs" />
     <Compile Include="src\IProgram.cs" />
-    <Compile Include="src\model\BikeBluetooth.cs" />
+    <Compile Include="src\model\bike\BikeBluetooth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\model\BikeSimulation.cs" />
-    <Compile Include="src\model\HeartDecoder.cs" />
-    <Compile Include="src\model\Simulators.cs" />
-    <Compile Include="src\model\IBike.cs" />
-    <Compile Include="src\model\Protocol.cs" />
+    <Compile Include="src\model\bike\BikeSimulation.cs" />
+    <Compile Include="src\model\heart\HeartDecoder.cs" />
+    <Compile Include="src\model\bike\BikeSimulatorLucas.cs" />
+    <Compile Include="src\controller\interfaces\IBike.cs" />
+    <Compile Include="src\model\entity\Protocol.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="testMain.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\model\resistance\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

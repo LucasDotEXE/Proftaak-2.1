@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.src
+namespace Application.src.controller.interfaces
 {
     interface IApplication
     {
