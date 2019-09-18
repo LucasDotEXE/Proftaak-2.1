@@ -93,6 +93,11 @@ namespace VR_Client
         {
             //you need to send package length then package, this is stated in docs
             string json = JsonConvert.SerializeObject(msg);
+            sendJson(json);
+        }
+
+        public void sendJson(String json)
+        {
             byte[] packet = Encoding.UTF8.GetBytes(json);
             byte[] length = BitConverter.GetBytes(packet.Length);
             dStream.Write(length, 0, length.Length);
@@ -121,7 +126,7 @@ namespace VR_Client
             } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
             return data.Trim();
         }
-        }
+        
         public void close()
         {
             //closes all connections

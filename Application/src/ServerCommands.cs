@@ -449,7 +449,7 @@ namespace Commands
                     }
                 }
             };
-            return JsonConvert.SerializeObject(update);
+            return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(update));
         }
 
         public static String delete(String id)
@@ -462,7 +462,7 @@ namespace Commands
                     id = id
                 }
             };
-            return JsonConvert.SerializeObject(update);
+            return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(update));
         }
 
         public static String follow(String routeID, String nodeID, double speed, double ofset, Rotate rotate, double smoothing, bool followHeight, Tuple<double, double, double> rotateOfset, Tuple<double, double, double> positionOffset)
@@ -483,7 +483,7 @@ namespace Commands
                     positionOffset = new[] { positionOffset.Item1, positionOffset.Item2, positionOffset.Item3 }
                 }
             };
-            return JsonConvert.SerializeObject(follew);
+            return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(follew));
         }
         public static String followSpeed(String id, double speed)
         {
@@ -496,7 +496,7 @@ namespace Commands
                     speed = speed
                 }
             };
-            return JsonConvert.SerializeObject(speedFollow);
+            return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(speedFollow));
         }
 
         public static String show(bool showLine)
@@ -509,7 +509,7 @@ namespace Commands
                     show = showLine
                 }
             };
-            return JsonConvert.SerializeObject(show);
+            return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(show));
         }
     }
 }
@@ -528,7 +528,7 @@ namespace Commands
                     type = type
                 }
             };
-            return JsonConvert.SerializeObject(get);
+            return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(get));
         }
 
         public static String setCallBack(ButtonType buttonType, HandType handType)
@@ -544,7 +544,7 @@ namespace Commands
 
                 }
             };
-            return JsonConvert.SerializeObject(setCallBack);
+            return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(setCallBack));
         }
 
         public static String play()
@@ -557,7 +557,7 @@ namespace Commands
 
                 }
             };
-            return JsonConvert.SerializeObject(play);
+            return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(play));
         }
 
         public static String pause()
@@ -570,7 +570,7 @@ namespace Commands
 
                 }
             };
-            return JsonConvert.SerializeObject(pause);
+            return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(pause));
         }
     }
 }
@@ -581,9 +581,7 @@ namespace CommandHelperObjects
     {
         public static String lowerAndRemoveSpace(String input)
         {
-            String magic = input.ToLower();
-            magic = magic.Replace(" ", "");
-            return magic;
+            return input.Replace(" ", "").ToLower();
         }
     }
 
