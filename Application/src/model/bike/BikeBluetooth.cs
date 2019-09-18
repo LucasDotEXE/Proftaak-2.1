@@ -17,6 +17,7 @@ namespace Application.src.model.bike
         public IApplication observer
         { get; }
 
+        private bool isConnected;
         private BLE bleBike;
         private BLE bleHeart;
 
@@ -24,6 +25,7 @@ namespace Application.src.model.bike
         public BikeBluetooth(IApplication observer)
         {
 
+            this.isConnected = false;
             this.observer = observer;
         }
 
@@ -32,6 +34,11 @@ namespace Application.src.model.bike
         {
 
             new Thread(new ThreadStart(this.buildConnection)).Start();
+        }
+
+        public void setResistance(int persentage)
+        {
+
         }
 
         private async void buildConnection()
@@ -58,6 +65,8 @@ namespace Application.src.model.bike
             bleHeart.SubscriptionValueChanged += this.sendData;
 
             await bleHeart.SubscribeToCharacteristic("HeartRateMeasurement");
+
+            this.isConnected = true;
         } 
 
         private void prepareConnection()
