@@ -39,6 +39,15 @@ namespace Application.src.model.bike
         public void setResistance(int persentage)
         {
 
+            if (this.isConnected)
+            {
+
+                byte[] bytes = new byte[8];
+                bytes[0] = 0x30;
+                bytes[7] = Convert.ToByte(persentage % 201);
+
+                this.bleBike.send(bytes);
+            }
         }
 
         private async void buildConnection()

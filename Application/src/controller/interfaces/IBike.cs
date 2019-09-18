@@ -13,5 +13,6 @@ namespace Application.src.controller.interfaces
         IApplication observer { get; }
 
         void startConnection();
+        void setResistance(int percentage);
     }
 }
