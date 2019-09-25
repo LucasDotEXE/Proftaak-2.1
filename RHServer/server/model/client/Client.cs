@@ -71,6 +71,8 @@ namespace RHServer.server.model.client
         public void sendObservers(string message)
         {
 
+            this.sendMessage(message);
+
             foreach (ClientObserver observer in this.observers)
                 observer.sendMessage(message);
         }
@@ -97,13 +99,6 @@ namespace RHServer.server.model.client
                 this.data = AccountManager.login(credentials[0], credentials[1], Convert.ToBoolean(credentials[2]));
 
             this.sendMessage(Config.loginPreset + (this.data != null));
-        }
-
-        public void save()
-        {
-
-            if (this.data != null)
-                AccountManager.save();
         }
     }
 }
