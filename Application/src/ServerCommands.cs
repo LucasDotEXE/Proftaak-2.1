@@ -21,7 +21,7 @@ namespace Commands
         {
             var reset = new
             {
-                id = idPrefix +  "reset",
+                id = idPrefix + "reset",
                 data = new int[0]
             };
             return JsonConvert.SerializeObject(reset);
@@ -31,7 +31,7 @@ namespace Commands
         {
             var save = new
             {
-                id = idPrefix +  "save",
+                id = idPrefix + "save",
                 data = new
                 {
                     filename = fileName,
@@ -45,7 +45,7 @@ namespace Commands
         {
             var load = new
             {
-                id = idPrefix +  "load",
+                id = idPrefix + "load",
                 data = new
                 {
                     filename = fileName
@@ -54,14 +54,14 @@ namespace Commands
             return JsonConvert.SerializeObject(load);
         }
 
-        public static String rayCast(Tuple<double, double, double> start, Tuple<double, double, double> direction, bool phisics)
+        public static String rayCast(Tripple<double> start, Tripple<double> direction, bool phisics)
         {
             var rayCast = new
             {
                 id = idPrefix + "raycast",
                 data = new
                 {
-                    start = new[] { start.Item1, start.Item2, start.Item3 },
+                    start = new[] { start.val[0], start.val[1], start.val[2] },
                     direction = direction,
                     phisics = phisics
                 }
@@ -72,7 +72,7 @@ namespace Commands
         public class node
         {
             private readonly static String idPrefix = Scene.idPrefix + "node/";
-            public static String add(String name, String parent, Tuple<double, double, double> position, int scale, Tuple<double, double, double> rotation, String fileName)
+            public static String add(String name, String parent, Tripple<double> position, int scale, Tripple<double> rotation, String fileName)
             {
                 var add = new
                 {
@@ -85,9 +85,9 @@ namespace Commands
                         {
                             transform = new
                             {
-                                position = new[] { position.Item1, position.Item2, position.Item3 },
+                                position = position.val,
                                 scale = scale,
-                                rotation = new[] { rotation.Item1, rotation.Item2, rotation.Item3 }
+                                rotation = rotation.val
                             },
                             model = new
                             {
@@ -118,24 +118,24 @@ namespace Commands
                 return JsonConvert.SerializeObject(add);
             }
 
-            public static String update(String id, String parent, Tuple<double, double, double> position, int scale, Tuple<double, double, double> rotation)
+            public static String update(String id, String parent, Tripple<double> position, int scale, Tripple<double> rotation)
             {
                 var update = new
                 {
 
                     id = idPrefix + "update",
-                    data = new 
-                {
-                    id = id,
-                    parent = parent,
-                    transform = new
+                    data = new
                     {
-                        position = position,
-                        scale = scale,
-                        rotation = rotation
+                        id = id,
+                        parent = parent,
+                        transform = new
+                        {
+                            position = position.val,
+                            scale = scale,
+                            rotation = rotation.val
+                        }
                     }
-                }
-            };
+                };
                 return JsonConvert.SerializeObject(update);
             }
 
@@ -412,11 +412,6 @@ namespace Commands
         }
     }
 
-
-}
-
-namespace Commands
-{
     class Route
     {
         private static readonly String idPrefix = "route/";
@@ -512,10 +507,7 @@ namespace Commands
             return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(show));
         }
     }
-}
 
-namespace Commands
-{
     class Engine
     {
         public static String get(GetType type)
@@ -575,6 +567,7 @@ namespace Commands
     }
 }
 
+
 namespace CommandHelperObjects
 {
     class HelpMethods
@@ -590,11 +583,34 @@ namespace CommandHelperObjects
         private int[] pos { get; set; }
         private int[] dir { get; set; }
 
-        public RouteNode(Tuple<int, int, int> pos, Tuple<int, int, int> dir)
+        public RouteNode(Tripple<int> pos , Tripple<int> dir )
         {
-            this.pos = new int[] { pos.Item1, pos.Item2, pos.Item3 };
-            this.dir = new int[] { dir.Item1, dir.Item2, dir.Item3 };
+            this.pos = new int[] { pos.val[0], pos.val[1], pos.val[2] };
+            this.dir = new int[] { dir.val[0], dir.val[1], dir.val[2] };
         }
+
+        public static List<RouteNode> genRouteNodeList()
+        {
+            List<RouteNode> nodes = new List<RouteNode>();
+
+            nodes.Add(new RouteNode(new Tripple<int>(0, 0, 0), new Tripple<int>(5, 0, -5)));
+            nodes.Add(new RouteNode(new Tripple<int>(50, 0, 1), new Tripple<int>(5, 0, 5)));
+            nodes.Add(new RouteNode(new Tripple<int>(50, 0, 50), new Tripple<int>(-5, 0, 5)));
+            nodes.Add(new RouteNode(new Tripple<int>(0, 0, 50), new Tripple<int>(-5, 0, -5)));
+           
+            return nodes;
+        }
+    }
+
+    class Tripple<T>
+    {
+        public T[] val { get; set; }
+
+        public Tripple(T x, T y,T z)
+        {
+            this.val = new T[3] { x, y, z };
+        }
+
     }
     enum Rotate { NONE, XZ, XYZ }
     enum GetType { HEAD, HANDLEFT, HANDRIGHT, BUTTON }
@@ -618,6 +634,27 @@ namespace CommandHelperObjects
         public RGBA(Tuple<double, double, double, double> rgba)
         {
             this.rgba = new double[] { rgba.Item1, rgba.Item2, rgba.Item3, rgba.Item4 };
+        }
+    }
+
+    class heightMap
+    {
+        public static int[] getBlankHightMap(int x,int y)
+        {
+            return new int[x * y];
+        }
+
+        public static int[] getSlopedHightMap(int x, int y, int maxHight)
+        {
+            int[] map = new int[x * y];
+            for (int i = 0; i < x; i++)
+            {
+                for (int o = 0; o < y; o++)
+                {
+                    map[i * x + o] = o / y * maxHight;
+                }
+            }
+            return map;
         }
     }
 }

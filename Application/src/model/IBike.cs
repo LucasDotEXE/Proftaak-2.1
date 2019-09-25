@@ -10,7 +10,7 @@ namespace Application.src.model
     interface IBike
     {
 
-        IApplication observer { get; }
+        observing.Observer<Protocol> observer { get; }
 
         void startConnection();
     }

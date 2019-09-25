@@ -37,3 +37,5 @@ D:\tjall\Documents\Proftaak-2.1\Application\bin\Debug\Newtonsoft.Json.xml
 D:\tjall\Documents\Proftaak-2.1\Application\obj\Debug\Application.csproj.CopyComplete
 D:\tjall\Documents\Proftaak-2.1\Application\obj\Debug\Application.exe
 D:\tjall\Documents\Proftaak-2.1\Application\obj\Debug\Application.pdb
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\bin\Debug\Newtonsoft.Json.dll
+D:\Git Kraken Repo's\Own Project\Log Book\Proftaak-2.1\Application\bin\Debug\Newtonsoft.Json.xml

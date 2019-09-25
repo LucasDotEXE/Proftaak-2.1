@@ -12,7 +12,10 @@ namespace GUI_VR_interfacing
     /// </summary>
     public partial class MainWindow : Window
     {
-        Client client = new Client();
+        private static Client client = new Client();
+
+        internal static Client Client { get => client; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,7 +27,7 @@ namespace GUI_VR_interfacing
             if (SessionComboBox.SelectedItem != null)
             {
                 Data d = (Data)SessionComboBox.SelectedItem;
-                client.createTunnel(d.id);
+                Client.createTunnel(d.id);
                 Console.WriteLine("Connected!");
             }
             TextBlock.Text = "Please select a Session first!";
@@ -38,7 +41,7 @@ namespace GUI_VR_interfacing
 
         private void refresh()
         {
-            List<JObject> l = client.getSessionList();
+            List<JObject> l = Client.getSessionList();
             List<Data> sessions = new List<Data>();
             foreach (JObject o in l)
             {
@@ -51,4 +54,4 @@ namespace GUI_VR_interfacing
 
     }
 }
-}
+

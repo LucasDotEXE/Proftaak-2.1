@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\VrEnvirement.cs" />
     <Compile Include="src\Application.cs" />
     <Compile Include="src\ServerCommands.cs" />
     <Compile Include="src\IApplication.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="src\model\Protocol.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="src\VR_Client.cs" />
+    <Compile Include="Syxstem\Tuple.cs" />
     <Compile Include="testMain.cs" />
   </ItemGroup>
   <ItemGroup>

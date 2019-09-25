@@ -23,5 +23,12 @@ namespace GUI_VR_interfacing
         {
             InitializeComponent();
         }
+
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow.Client.client.Client;
+        }
     }
 }

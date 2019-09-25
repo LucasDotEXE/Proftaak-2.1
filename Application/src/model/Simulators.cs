@@ -7,18 +7,9 @@ using System.Timers;
 namespace Application.src.model 
 {
 
-    class testSim : Simulator
-    {
-    
-        protected override byte[] generateData()
-        {
-            return Encoding.UTF8.GetBytes("it works");
-        }
-    }
-
     class BikeSimulatorPower : Simulator
     {
-        protected override byte[] generateData()
+        protected override Protocol generateData()
         {
             byte[] array = new byte[11];
 
@@ -31,7 +22,7 @@ namespace Application.src.model
             array[10] = 5;
 
 
-            return array;
+            return new Protocol("BikeSimulatorPower", array);
         }
 
         private String dataToString()
@@ -43,7 +34,7 @@ namespace Application.src.model
     class BikeSimulatorSpeed : Simulator
     {
 
-        protected override byte[] generateData()
+        protected override Protocol generateData()
         {
             byte[] array = new byte[11];
             array[4] = 0x10; // Identifier
@@ -60,13 +51,13 @@ namespace Application.src.model
 
             array[7] = 0x24; //distance
 
-            return array;
+            return new Protocol("BikeSpeedSim", array);
         }
     }
 
     class HeartSimulator : Simulator
     {
-        protected override byte[] generateData()
+        protected override Protocol generateData()
         {
             byte HeartRateValueTypeIs16 = 1;
             byte SensorContactSupportNetwork = 1;
@@ -99,7 +90,7 @@ namespace Application.src.model
 
 
 
-            return array; // kon geen anderen manier vinden om het naar string te krijgen
+            return new Protocol("heart sim", array); // kon geen anderen manier vinden om het naar string te krijgen
         }
     }
 
@@ -128,17 +119,17 @@ namespace Application.src.model
         }
     }
 
-    abstract class Simulator : Subject<byte[]>
+    abstract class Simulator : Subject<Protocol>
     {
     
         private Timer timer;
-        abstract protected byte[] generateData();
+        abstract protected Protocol generateData();
         protected SimulationData simulationData { get; } = new SimulationData();
 
-        public void turnOn(int sec)
+        public void turnOn()
         {
 
-            timer = new System.Timers.Timer(sec * 1000);
+            timer = new System.Timers.Timer(1000);
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
             timer.Enabled = true;

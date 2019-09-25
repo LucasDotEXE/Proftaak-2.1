@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Avans.TI.BLE;
+using observing;
 
 namespace Application.src.model
 {
@@ -14,6 +15,8 @@ namespace Application.src.model
 
         public IApplication observer
         { get; }
+
+        Observer<Protocol> IBike.observer => throw new NotImplementedException();
 
         private BLE bleBike;
         private BLE bleHeart;

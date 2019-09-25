@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
@@ -64,6 +64,11 @@ namespace GUI_VR_interfacing
         {
             //you need to send package length then package, this is stated in docs
             string json = JsonConvert.SerializeObject(msg);
+            send(json);
+        }
+
+        public void send(String json)
+        {
             byte[] packet = Encoding.UTF8.GetBytes(json);
             byte[] length = BitConverter.GetBytes(packet.Length);
             dStream.Write(length, 0, length.Length);

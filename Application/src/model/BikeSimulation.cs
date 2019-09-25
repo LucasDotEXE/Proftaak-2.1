@@ -11,14 +11,14 @@ namespace Application.src.model
     {
 
         // atributes
-        public IApplication observer
+        public observing.Observer<Protocol> observer
         { get; }
 
         public List<Tuple<string, byte[]>> protocols;
         public int iterator;
 
         // constructor
-        public BikeSimulation(IApplication observer)
+        public BikeSimulation(observing.Observer<Protocol> observer)
         {
 
             this.observer = observer;
@@ -59,7 +59,7 @@ namespace Application.src.model
         private void sendData()
         {
 
-            this.observer.receiveProtocol(new Protocol(
+            this.observer.update(new Protocol(
                 this.protocols.ElementAt(this.iterator).Item1,
                 this.protocols.ElementAt(this.iterator).Item2
             )); 
