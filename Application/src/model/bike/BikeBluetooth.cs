@@ -44,9 +44,9 @@ namespace Application.src.model.bike
 
                 byte[] bytes = new byte[8];
                 bytes[0] = 0x30;
-                bytes[7] = Convert.ToByte(persentage % 201);
+                bytes[7] = Convert.ToByte(Math.Abs(persentage % 201));
 
-                this.bleBike.send(bytes);
+                //this.bleBike.send(bytes);
             }
         }
 
