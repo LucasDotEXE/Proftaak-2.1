@@ -4,7 +4,6 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 
-
 namespace GUI_VR_interfacing
 {
     /// <summary>
@@ -26,8 +25,10 @@ namespace GUI_VR_interfacing
                 client.createTunnel(d);
                 Console.WriteLine("Connected!");
                 ControlPanel control = new ControlPanel();
+                control.DataContext = this;
+                control.start(client);
                 control.Show();
-                this.Close();
+                Close();
             }
             TextBlock.Text = "Please select a Session first!";
         }

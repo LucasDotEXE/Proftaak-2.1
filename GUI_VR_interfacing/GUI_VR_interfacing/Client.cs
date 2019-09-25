@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
+
 namespace GUI_VR_interfacing
 {
     class Client : DataReceived
@@ -39,19 +40,30 @@ namespace GUI_VR_interfacing
                 {
                     byte[] bytesToRead = new byte[messageLength];
                     int bytesRead = dStream.Read(bytesToRead, 0, messageLength);
-                    Console.WriteLine("amount of bytes: " + bytesRead);
                     if (bytesRead > 4)
                         data += Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
                     else
                     {
                         int l = BitConverter.ToInt32(bytesToRead, 0);
-                        Console.WriteLine("length: " + l);
                         messageLength = l;
                     }
                 } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
-                Console.WriteLine(data);
-                dataReceived(data);
+                //Console.WriteLine(data);
+                if (data != "") dataReceived(data);
             }
+        }
+
+        internal void sendJson(string p)
+        {
+            var get = JsonConvert.DeserializeObject(p);
+            var prefix = new { id = "tunnel/send", data = new { dest = sessionID, data = get } };
+            string d = JsonConvert.SerializeObject(prefix);
+
+            byte[] packet = Encoding.UTF8.GetBytes(d);
+            byte[] length = BitConverter.GetBytes(packet.Length);
+            dStream.Write(length, 0, length.Length);
+            dStream.Write(packet, 0, packet.Length);
+            //Console.WriteLine($"sending : {p}");
         }
 
         public void askForSessionList()
@@ -107,29 +119,36 @@ namespace GUI_VR_interfacing
 
         public void dataReceived(string rData)
         {
-            JToken dat = JToken.Parse(rData);
-
-            switch (dat["id"].ToString())
+            JToken dat = null;
+            try
             {
-                case "session/list":
-                    foreach (JToken o in dat["data"])
-                    {
-                        Console.WriteLine(o.ToString());
-                        sessions.Add(new { id = o["id"], user = o["clientinfo"]["user"] });
-                    }
-                    break;
-                case "tunnel/send":
-                    //do stuff
-                    break;
-                case "tunnel/create":
-                    if (dat["data"]["status"].ToString() == "ok")
-                        sessionID = dat["data"]["id"].ToString();
-                    else Console.WriteLine("Error, Tunnel can't be created!");
-                    break;
-                default:
-                    Console.WriteLine("Whoopa alles is kapot!");
-                    break;
+                dat = JToken.Parse(rData);
             }
+            catch { Console.WriteLine("message was  incorrect Json"); }
+
+
+            if (dat != null)
+                switch (dat["id"].ToString())
+                {
+                    case "session/list":
+                        foreach (JToken o in dat["data"])
+                        {
+                            Console.WriteLine(o.ToString());
+                            sessions.Add(new { id = o["id"], user = o["clientinfo"]["user"] });
+                        }
+                        break;
+                    case "tunnel/send":
+                        //do stuff
+                        break;
+                    case "tunnel/create":
+                        if (dat["data"]["status"].ToString() == "ok")
+                            sessionID = dat["data"]["id"].ToString();
+                        else Console.WriteLine("Error, Tunnel can't be created!");
+                        break;
+                    default:
+                        Console.WriteLine("Whoopa alles is kapot!");
+                        break;
+                }
         }
     }
 }

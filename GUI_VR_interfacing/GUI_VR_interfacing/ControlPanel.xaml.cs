@@ -7,15 +7,29 @@ namespace GUI_VR_interfacing
     /// </summary>
     public partial class ControlPanel : Window
     {
+        Client _client;
+
+
+
         public ControlPanel()
         {
             InitializeComponent();
         }
 
-
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void GenbuttonClicked(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        internal void start(Client client)
+        {
+            _client = client;
+            VREnviorment.init(_client);
+        }
+
+        private void valChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            VREnviorment.changeTime(_client, (int)(TimeOfDay.Value * 2.4));
         }
     }
 }
