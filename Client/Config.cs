@@ -13,6 +13,8 @@ namespace RHCClient.helpers
         public const string host = "127.0.0.1";
         public const int port = 6969;
 
+        // paths
+        public const string jsonPath = "Accounts.txt";
 
         // message presets
         public const string loginPreset = "L";   // server: L[name]:[password]:[true/false]    client: L[true/false]
