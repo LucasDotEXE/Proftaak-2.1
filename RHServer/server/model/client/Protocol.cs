@@ -16,11 +16,15 @@ namespace RHServer.server.model.client
         public int acumilatedPower { get; set; }
         public int currentPower { get; set; }
 
-        public Protocol(string serviceName, byte[] bytes)
+        public static Protocol newProtocol(string serviceName, byte[] bytes)
         {
 
-            this.serviceName = serviceName;
-            this.updateProtocol(bytes);
+            Protocol protocol = new Protocol();
+
+            protocol.serviceName = serviceName;
+            protocol.updateProtocol(bytes);
+
+            return protocol;
         }
 
         public void updateProtocol(byte[] bytes)
@@ -40,7 +44,7 @@ namespace RHServer.server.model.client
             }
         }
 
-        public override void update(byte[] content)
+        public void update(byte[] content)
         {
 
             updateProtocol(content);

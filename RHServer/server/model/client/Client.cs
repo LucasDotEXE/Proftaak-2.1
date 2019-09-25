@@ -1,4 +1,5 @@
-﻿using RHServer.server.controller;
+﻿using Newtonsoft.Json;
+using RHServer.server.controller;
 using RHServer.server.model.helpers;
 using RHServer.server.model.json;
 using System;
@@ -11,14 +12,13 @@ using System.Threading.Tasks;
 
 namespace RHServer.server.model.client
 {
-    class Client
+    class Client : ClientObserver
     {
 
         // attributes
-        private List<Client> clients;
-        private ClientData data = null;
-
         private Server server;
+        public ClientData data = null;
+        private List<ClientObserver> observers = new List<ClientObserver>();
 
         private Thread thread;
         private TcpClient client;
@@ -27,9 +27,8 @@ namespace RHServer.server.model.client
         // constructor
         public Client(Server server, TcpClient client)
         {
-            this.server = server;
 
-            this.clients = new List<Client>();
+            this.server = server;
 
             this.thread = new Thread(handleClientConnection);
             this.thread.Start(client);
@@ -55,6 +54,37 @@ namespace RHServer.server.model.client
         {
 
             TCPHelper.sendText(this.stream, message);
+        }
+
+        public void receiveProtocol(string json)
+        {
+
+            Protocol protocol = JsonConvert.DeserializeObject<Protocol>(json);
+
+            if (this.data != null)
+                this.data.protocols.Add(protocol);
+
+            this.sendObservers(Config.clientRequestPreset + json);
+        }
+
+        // observers
+        public void sendObservers(string message)
+        {
+
+            foreach (ClientObserver observer in this.observers)
+                observer.sendMessage(message);
+        }
+
+        public void subscribe(ClientObserver observer)
+        {
+
+            this.observers.Add(observer);
+        }
+
+        public void unsubscribe(ClientObserver observer)
+        {
+
+            this.observers.Remove(observer);
         }
 
         // account

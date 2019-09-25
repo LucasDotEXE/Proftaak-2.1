@@ -17,8 +17,9 @@ namespace RHServer.server.model.helpers
         public const string jsonPath      = "Accounts.txt";
 
         // message presets
-        public const string loginPreset   = "L";   // server: L[name]:[password]:[true/false]    client: L[true/false]
-        public const string messagePreset = "M";   // server: M[message]                         client: M[message]
-        public const string requestPreset = "R";   // server: R[json_id_list]                    client: R[json_data_list]
+        public const string loginPreset         = "L";   // server: L[name]:[password]:[true/false]    client: L[true/false]
+        public const string messagePreset       = "M";   // server: M[message]                         client: M[message]
+        public const string clientRequestPreset = "C";   // server: C[json_protocol]                   client: C[json_protocol]
+        public const string docterRequestPreset = "D";   // server: D[json_id_list]                    client: D[json_clientData_list]
     }
 }

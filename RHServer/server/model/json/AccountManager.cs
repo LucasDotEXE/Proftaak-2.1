@@ -48,6 +48,7 @@ namespace RHServer.server.model.json
             return (id + 1);
         }
 
+        // methods
         public static void writeClients()
         {
 
@@ -58,12 +59,18 @@ namespace RHServer.server.model.json
             }
         }
 
+        public static string getClients()
+        {
+
+            return JsonConvert.SerializeObject(clients);
+        }
+
         // file io
         public static void save()
         {
 
             if (File.Exists(Config.jsonPath) && clients.Count() != 0)
-                File.WriteAllText(Config.jsonPath, JsonConvert.SerializeObject(clients));
+                File.WriteAllText(Config.jsonPath, getClients());
         }
 
         private static void load()

@@ -59,6 +59,38 @@ namespace RHServer.server.controller
             }
         }
 
+        // docter
+        private void docterRequest(Client client, string receivedMessage)
+        {
+
+            if (receivedMessage.Length == 0)
+                client.sendMessage(Config.docterRequestPreset + AccountManager.getClients());
+            else
+                this.subscribeClientTo(client, this.parseIds(receivedMessage));
+        }
+
+        private void subscribeClientTo(ClientObserver ClientObserver, List<int> ids)
+        {
+
+            foreach (Client client in this.clients)
+                if (ids.Contains(client.data.id))
+                    client.subscribe(ClientObserver);
+                else
+                    client.unsubscribe(ClientObserver);
+        }
+
+        private List<int> parseIds(string receivedIds)
+        {
+
+            string[] stringIds = receivedIds.Split(':');
+            List<int> ids = new List<int>();
+
+            foreach (string id in stringIds)
+                ids.Add(Convert.ToInt32(id));
+
+            return ids;
+        }
+
         // messaging
         public void receiveMessage(Client client, string receivedMessage)
         {
@@ -69,10 +101,10 @@ namespace RHServer.server.controller
             switch (preset)
             {
 
-                case Config.loginPreset:         client.login(message);                          break;
-                //case Config.messagePreset:       client.sendAll(message);                        break;
-                //case Config.clientRequestPreset: client.sendAll(AccountManager.getById(message)) break;
-                //case Config.DocterRequestPreset: client.sendAll(AccountManager.getById(message)) break;
+                case Config.loginPreset:         client.login(message);                                  break;
+                case Config.messagePreset:       client.sendObservers(Config.messagePreset + message);   break;
+                case Config.clientRequestPreset: client.receiveProtocol(message);                        break;
+                case Config.docterRequestPreset: this.docterRequest(client, message);                    break;
             }
         }
     }
