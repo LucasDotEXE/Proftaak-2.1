@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RHCClient
+namespace ConsoleApp1
 {
     class Program
     {
