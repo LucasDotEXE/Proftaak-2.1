@@ -1,11 +1,11 @@
 ﻿using Application.src.model;
 using System;
 
-namespace Application.src
+/*namespace Application.src
 {
     class Program : IProgram
     {
-        /*
+        
          public static void Main(string[] args)
          {
             
@@ -17,11 +17,11 @@ namespace Application.src
              //bike.startConnection();
         
     } 
-    */
+    
         public void receiveProtocol(Protocol protocol)
         {
 
             Console.WriteLine(protocol.serviceName);
         }
     }
-}
+}*/

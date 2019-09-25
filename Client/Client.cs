@@ -2,18 +2,11 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using RHCClient.helpers;
 using System.Threading;
+using Client;
 
-namespace RHCClient
+namespace Client
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
 
     public class SocketClient
     {
@@ -28,10 +21,10 @@ namespace RHCClient
         public void StartClient()
         {
             try
-            {  
+            {
                 hostIP = Dns.GetHostEntry(Config.host);
                 ipAddress = hostIP.AddressList[0];
-                remoteEP = new IPEndPoint(ipAddress, Config.port); 
+                remoteEP = new IPEndPoint(ipAddress, Config.port);
                 sendsocket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 new Thread(receiveMessage).Start();
             }

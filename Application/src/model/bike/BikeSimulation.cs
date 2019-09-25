@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+/*
 namespace Application.src.model.bike
 {
     class BikeSimulation : IBike
@@ -91,3 +91,4 @@ namespace Application.src.model.bike
         }
     }
 }
+*/

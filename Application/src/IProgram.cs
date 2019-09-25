@@ -1,5 +1,5 @@
 ﻿using Application.src.model;
-
+/*
 namespace Application.src
 {
     interface IProgram
@@ -8,3 +8,4 @@ namespace Application.src
         void receiveProtocol(Protocol protocol);
     }
 }
+*/

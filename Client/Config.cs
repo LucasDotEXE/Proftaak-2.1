@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RHCClient.helpers
+namespace Client
 {
     class Config
     {
@@ -12,9 +12,6 @@ namespace RHCClient.helpers
         // connection
         public const string host = "127.0.0.1";
         public const int port = 6969;
-
-        // paths
-        public const string jsonPath = "Accounts.txt";
 
         // message presets
         public const string loginPreset = "L";   // server: L[name]:[password]:[true/false]    client: L[true/false]

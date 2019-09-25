@@ -1,0 +1,11 @@
+D:\School\Projects\Proftaak-2.1\RHCClient\obj\Debug\netcoreapp2.1\RHCClient.csprojAssemblyReference.cache
+D:\School\Projects\Proftaak-2.1\RHCClient\obj\Debug\netcoreapp2.1\RHCClient.csproj.CoreCompileInputs.cache
+D:\School\Projects\Proftaak-2.1\RHCClient\obj\Debug\netcoreapp2.1\RHCClient.AssemblyInfoInputs.cache
+D:\School\Projects\Proftaak-2.1\RHCClient\obj\Debug\netcoreapp2.1\RHCClient.AssemblyInfo.cs
+D:\School\Projects\Proftaak-2.1\RHCClient\bin\Debug\netcoreapp2.1\RHCClient.deps.json
+D:\School\Projects\Proftaak-2.1\RHCClient\bin\Debug\netcoreapp2.1\RHCClient.runtimeconfig.json
+D:\School\Projects\Proftaak-2.1\RHCClient\bin\Debug\netcoreapp2.1\RHCClient.runtimeconfig.dev.json
+D:\School\Projects\Proftaak-2.1\RHCClient\bin\Debug\netcoreapp2.1\RHCClient.dll
+D:\School\Projects\Proftaak-2.1\RHCClient\bin\Debug\netcoreapp2.1\RHCClient.pdb
+D:\School\Projects\Proftaak-2.1\RHCClient\obj\Debug\netcoreapp2.1\RHCClient.dll
+D:\School\Projects\Proftaak-2.1\RHCClient\obj\Debug\netcoreapp2.1\RHCClient.pdb
