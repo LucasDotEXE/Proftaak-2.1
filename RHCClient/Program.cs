@@ -41,6 +41,12 @@ namespace RHCClient
             }
         }
 
+        public void sendMessage(string message)
+        {
+            sendsocket.Send(Encoding.ASCII.GetBytes(message));
+        }
+
+
         public void receiveMessage()
         {
             try
