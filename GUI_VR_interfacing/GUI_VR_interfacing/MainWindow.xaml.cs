@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,33 +17,40 @@ namespace GUI_VR_interfacing
         {
             InitializeComponent();
             refresh();
-
         }
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
             if (SessionComboBox.SelectedItem != null)
             {
-                client.createTunnel(selected);
+                string d = JToken.Parse(JsonConvert.SerializeObject(SessionComboBox.SelectedItem))["id"].ToString();
+                client.createTunnel(d);
                 Console.WriteLine("Connected!");
+                ControlPanel control = new ControlPanel();
+                control.Show();
+                this.Close();
             }
             TextBlock.Text = "Please select a Session first!";
         }
 
         private void SelectSessionHandler(object sender, SelectionChangedEventArgs e)
         {
-            Data d = (Data)SessionComboBox.SelectedItem;
-            TextBlock.Text = "User : " + d.user;
+            string d = JToken.Parse(JsonConvert.SerializeObject(SessionComboBox.SelectedItem))["user"].ToString();
+            TextBlock.Text = "User : " + d;
         }
 
         private void refresh()
         {
-            client.AskSessionList();
-            
+            client.askForSessionList();
+
             SessionComboBox.ItemsSource = client.sessions;
             SessionComboBox.DisplayMemberPath = "id";
-            DG_sessions.ItemsSource = sessions;
+            DG_sessions.ItemsSource = client.sessions;
         }
 
+
+        private void BRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            refresh();
+        }
     }
-}
 }
