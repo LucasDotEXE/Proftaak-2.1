@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.src.model
+namespace Application.src.controller.interfaces
 {
     interface IBike
     {
@@ -13,5 +13,6 @@ namespace Application.src.model
         IApplication observer { get; }
 
         void startConnection();
+        void setResistance(int percentage);
     }
 }

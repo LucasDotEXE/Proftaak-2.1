@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Application.src.controller.interfaces;
+using Application.src.model.entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.src.model
+namespace Application.src.model.bike
 {
     class BikeSimulation : IBike
     {

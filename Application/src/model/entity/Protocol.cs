@@ -1,4 +1,4 @@
-﻿namespace Application.src.model
+﻿namespace Application.src.model.entity
 {
     class Protocol : observing.Observer<byte[]>
     {

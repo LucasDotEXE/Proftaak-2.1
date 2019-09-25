@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.src.controller.interfaces;
+using Application.src.model.entity;
 using Avans.TI.BLE;
 
-namespace Application.src.model
+namespace Application.src.model.bike
 {
 
     class BikeBluetooth : IBike
@@ -15,6 +17,7 @@ namespace Application.src.model
         public IApplication observer
         { get; }
 
+        private bool isConnected;
         private BLE bleBike;
         private BLE bleHeart;
 
@@ -22,16 +25,37 @@ namespace Application.src.model
         public BikeBluetooth(IApplication observer)
         {
 
+            this.isConnected = false;
             this.observer = observer;
         }
 
         // connection
-        public async void startConnection()
+        public void startConnection()
+        {
+
+            new Thread(new ThreadStart(this.buildConnection)).Start();
+        }
+
+        public void setResistance(int persentage)
+        {
+
+            if (this.isConnected)
+            {
+
+                byte[] bytes = new byte[8];
+                bytes[0] = 0x30;
+                bytes[7] = Convert.ToByte(Math.Abs(persentage % 201));
+
+                //this.bleBike.send(bytes);
+            }
+        }
+
+        private async void buildConnection()
         {
 
             int errorCode = 0;
 
-            this.buildConnection();
+            this.prepareConnection();
             this.drawDevices();
 
             errorCode = await bleBike.OpenDevice("Tacx Flux 01249");
@@ -50,9 +74,11 @@ namespace Application.src.model
             bleHeart.SubscriptionValueChanged += this.sendData;
 
             await bleHeart.SubscribeToCharacteristic("HeartRateMeasurement");
-        }
 
-        private void buildConnection()
+            this.isConnected = true;
+        } 
+
+        private void prepareConnection()
         {
 
             this.bleBike = new BLE();
