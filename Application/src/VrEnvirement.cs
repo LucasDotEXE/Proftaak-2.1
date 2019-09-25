@@ -1,7 +1,6 @@
-﻿using VR_Client.VR_Client;
-using CommandHelperObjects;
-using System;
+﻿using CommandHelperObjects;
 using System.Collections.Generic;
+using VR_Client;
 
 namespace Application
 {
@@ -14,7 +13,7 @@ namespace Application
             Commands.Scene.get(); //see if the groundpane is among it 
             changeTime(vrClient, 100);
             changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
-            add3DModdel(vrClient, 
+                add3DModdel(vrClient, 
                 name: "test",
                 parent: null,
                 pos: new Tripple<double>(3, 3, 3),

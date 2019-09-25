@@ -9,7 +9,7 @@ namespace VR_Client
 {
     class Client_Connecting
     {
-        /*
+        
                 static void Main(string[] args)
                 {
 
@@ -51,7 +51,7 @@ namespace VR_Client
                     Console.Read();
                 }
             }
-            */
+            
     }
     namespace VR_Client
     {
@@ -148,6 +148,6 @@ namespace VR_Client
             }
         }
     }
-}
+
 
 

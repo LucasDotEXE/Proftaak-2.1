@@ -460,7 +460,7 @@ namespace Commands
             return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(update));
         }
 
-        public static String follow(String routeID, String nodeID, double speed, double ofset, Rotate rotate, double smoothing, bool followHeight, Tuple<double, double, double> rotateOfset, Tuple<double, double, double> positionOffset)
+        public static String follow(String routeID, String nodeID, double speed, double ofset, Rotate rotate, double smoothing, bool followHeight, Tripple<double> rotateOfset, Tripple<double> positionOffset)
         {
             var follew = new
             {
@@ -474,8 +474,8 @@ namespace Commands
                     rotate = rotate,
                     smoothing = smoothing,
                     followHeight = followHeight,
-                    rotateOffset = new[] { rotateOfset.Item1, rotateOfset.Item2, rotateOfset.Item3 },
-                    positionOffset = new[] { positionOffset.Item1, positionOffset.Item2, positionOffset.Item3 }
+                    rotateOffset = rotateOfset.val,
+                    positionOffset = positionOffset.val
                 }
             };
             return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(follew));

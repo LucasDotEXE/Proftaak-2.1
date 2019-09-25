@@ -5,7 +5,7 @@ namespace Application.src
 {
     class Application : observing.Observer<Protocol>
     {
-
+        /*
         static void Main(string[] args)
         {
             Application thisApp = new Application();
@@ -25,6 +25,7 @@ namespace Application.src
 
             Console.Read();
         }
+        */
 
         public override void update(Protocol content)
         {
