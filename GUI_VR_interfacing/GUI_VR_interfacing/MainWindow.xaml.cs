@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -7,11 +8,10 @@ using System.Windows.Controls;
 
 namespace GUI_VR_interfacing
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
+        string selected = "";
         private static Client client = new Client();
 
         internal static Client Client { get => client; }
@@ -20,14 +20,13 @@ namespace GUI_VR_interfacing
         {
             InitializeComponent();
             refresh();
-
         }
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
         {
             if (SessionComboBox.SelectedItem != null)
             {
                 Data d = (Data)SessionComboBox.SelectedItem;
-                Client.createTunnel(d.id);
+                client.createTunnel(d.id);
                 Console.WriteLine("Connected!");
             }
             TextBlock.Text = "Please select a Session first!";
@@ -35,13 +34,13 @@ namespace GUI_VR_interfacing
 
         private void SelectSessionHandler(object sender, SelectionChangedEventArgs e)
         {
-            Data d = (Data)SessionComboBox.SelectedItem;
-            TextBlock.Text = "User : " + d.user;
+            selected = JToken.Parse(JsonConvert.SerializeObject(SessionComboBox.SelectedItem))["id"].ToString();
+            TextBlock.Text = JToken.Parse(JsonConvert.SerializeObject(SessionComboBox.SelectedItem))["user"].ToString();
         }
 
         private void refresh()
         {
-            List<JObject> l = Client.getSessionList();
+            List<JObject> l = client.getSessionList();
             List<Data> sessions = new List<Data>();
             foreach (JObject o in l)
             {
@@ -49,9 +48,14 @@ namespace GUI_VR_interfacing
             }
             SessionComboBox.ItemsSource = sessions;
             SessionComboBox.DisplayMemberPath = "id";
-            DG_sessions.ItemsSource = sessions;
+            DG_sessions.ItemsSource = client.sessions;
+            DG_sessions.DisplayMemberPath = "id";
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            refresh();
+        }
     }
 }
 

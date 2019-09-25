@@ -4,13 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace GUI_VR_interfacing
 {
-    class Client
+    class Client : DataRetriever
     {
         private readonly string host = "145.48.6.10";
         private readonly int port = 6666;
+        public List<dynamic> sessions = new List<dynamic>();
+        public string connectedID { get; set; } = "";
 
         public TcpClient client { get; }
 
@@ -22,42 +25,44 @@ namespace GUI_VR_interfacing
             client = new TcpClient(host, port);
             dStream = client.GetStream();
             Console.WriteLine($"client connected? = {client.Connected}");
+            new Thread(new ThreadStart(readingData)).Start();
         }
 
-        public List<JObject> getSessionList()
+        private void readingData()
         {
-            JObject ReceivedJsonObject;
-            String receivedJsonString;
-        retry:
-            //sends data
-            send(new { id = "session/list" });
-            // calls receive method to get server response
-            receivedJsonString = receive();
-            //create json object from the message 
-            try
+            while (true)
             {
-                Console.WriteLine(receivedJsonString);
-                ReceivedJsonObject = JObject.Parse(receivedJsonString);
+                string data = "";
+                int messageLength = 4;
+                do
+                {
+                    byte[] bytesToRead = new byte[messageLength];
+                    int bytesRead = dStream.Read(bytesToRead, 0, messageLength);
+                    Console.WriteLine("amount of bytes: " + bytesRead);
+                    if (bytesRead > 4)
+                        data += Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
+                    else
+                    {
+                        int l = BitConverter.ToInt32(bytesToRead, 0);
+                        Console.WriteLine("length: " + l);
+                        messageLength = l;
+                    }
+                } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
+                Console.WriteLine(data);
+                if (data != "") dataReceived(data);
             }
-            catch
-            {
-                goto retry;
-            }
+        }
 
-            JArray data = (JArray)ReceivedJsonObject["data"];
-            List<JObject> sessionList = data.ToObject<List<JObject>>();
-            return sessionList;
+        public void AskSessionList()
+        {
+            sessions = new List<dynamic>();
+            send(new { id = "session/list" });
         }
 
         public void createTunnel(string pin)
         {
             dynamic a = new { id = "tunnel/create", data = new { session = pin, key = "" } };
             send(a);
-            string resp = receive();
-            Console.WriteLine(resp);
-            JObject Jdata = JObject.Parse(resp);
-            string sessionID = Jdata["data"]["id"].ToString();
-            Console.WriteLine(Jdata["data"]["status"]);
         }
 
         public void send(dynamic msg)
@@ -76,7 +81,7 @@ namespace GUI_VR_interfacing
             Console.WriteLine($"sending : {json}");
         }
 
-        public string receive()
+        /*public string receive()
         {
             string data = "";
             int messageLength = 4;
@@ -94,14 +99,48 @@ namespace GUI_VR_interfacing
                     messageLength = l;
                 }
             } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
-            return data.Trim();
-        }
+            return data;
+        }*/
+
         public void close()
         {
             //closes all connections
             client.Close();
             dStream.Close();
             Console.WriteLine("Client closed!");
+        }
+
+        private void convertToSession(JToken Jsessions)
+        {
+            foreach (JToken a in Jsessions)
+            {
+                sessions.Add(new { id = a["id"], user = a["clientinfo"]["user"] });
+            }
+
+        }
+
+        public void dataReceived(string data)
+        {
+            JToken rData = JToken.Parse(data);
+            if (rData != null)
+                switch (rData["id"].ToString())
+                {
+                    case "session/list":
+                        convertToSession(rData["data"]);
+                        break;
+                    case "tunnel/create":
+                        if (rData["data"]["status"].ToString() != "error")
+                            connectedID = rData["data"]["id"].ToString();
+                        else
+                            Console.WriteLine(rData["data"]["status"].ToString());
+                        break;
+                    case "tunnel/send":
+                        //do something
+                        break;
+                    default:
+                        Console.WriteLine("Something went Wrong");
+                        break;
+                }
         }
     }
 }
