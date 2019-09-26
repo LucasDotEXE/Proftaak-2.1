@@ -1,4 +1,4 @@
-﻿using RHBase;
+﻿using RHBase.helper;
 using RHServer.server.model.client;
 using RHServer.server.model.json;
 using System;

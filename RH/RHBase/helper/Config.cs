@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RHBase
+namespace RHBase.helper
 {
     class Config
     {
