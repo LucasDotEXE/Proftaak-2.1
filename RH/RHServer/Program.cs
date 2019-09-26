@@ -13,7 +13,7 @@ namespace RHServer
         {
 
             Server server = new Server();
-            server.startServer();
+            server.startServer(args[0]);
         }
     }
 }

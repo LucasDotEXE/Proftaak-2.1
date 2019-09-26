@@ -6,6 +6,7 @@ using RHServer.server.model.json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Security;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -22,25 +23,24 @@ namespace RHServer.server.model.client
         private List<ClientObserver> observers = new List<ClientObserver>();
 
         private Thread thread;
-        private TcpClient client;
-        private NetworkStream stream;
+        private SslStream stream;
 
         // constructor
-        public Client(Server server, TcpClient client)
+        public Client(Server server, SslStream stream)
         {
 
             this.server = server;
+            this.stream = stream;
 
             this.thread = new Thread(handleClientConnection);
-            this.thread.Start(client);
+            this.thread.Start();
         }
 
         // connection
-        private void handleClientConnection(object obj)
+        private void handleClientConnection()
         {
 
-            this.client = obj as TcpClient;
-            this.stream = client.GetStream();
+            this.stream.AuthenticateAsServer(this.server.certificate, false, true);
 
             while (true)
             {
