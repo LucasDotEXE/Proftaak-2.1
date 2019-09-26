@@ -45,8 +45,6 @@ namespace RHBase.helper
 
                 throw e;
             }
-
-
         }
 
         // send
