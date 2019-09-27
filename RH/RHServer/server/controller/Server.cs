@@ -5,7 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Security;
 using System.Net.Sockets;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,12 +17,14 @@ namespace RHServer.server.controller
     class Server
     {
 
+        public X509Certificate certificate;
         private List<Client> clients;
 
         // constructor
         public void startServer()
         {
 
+            this.certificate = X509Certificate.CreateFromCertFile(Config.certificate);
             this.clients = new List<Client>();
 
             new Thread(new ThreadStart(catchClients)).Start();
@@ -41,13 +45,12 @@ namespace RHServer.server.controller
                     throw new Exception();
 
                 TcpListener listener = new TcpListener(ip, Config.port);
+                listener.Start();
 
                 while (true)
                 {
 
-                    TcpClient tcpClient = listener.AcceptTcpClient();
-
-                    this.clients.Add(new Client(this, tcpClient));
+                    this.clients.Add(new Client(this, listener.AcceptTcpClient()));
                 }
             }
             catch (Exception e)
