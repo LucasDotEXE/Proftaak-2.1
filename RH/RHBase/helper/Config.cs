@@ -8,6 +8,8 @@ namespace RHBase.helper
     {
 
         // connection
+        public const string certificate     = "RH";
+        public const string machineName     = certificate;
         public const string host            = "127.0.0.1";
         public const int port               = 6969;
 

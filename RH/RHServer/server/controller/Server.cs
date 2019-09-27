@@ -21,10 +21,10 @@ namespace RHServer.server.controller
         private List<Client> clients;
 
         // constructor
-        public void startServer(string certificateString)
+        public void startServer()
         {
 
-            this.certificate = X509Certificate.CreateFromCertFile(certificateString);
+            this.certificate = X509Certificate.CreateFromCertFile(Config.certificate);
             this.clients = new List<Client>();
 
             new Thread(new ThreadStart(catchClients)).Start();
@@ -50,9 +50,7 @@ namespace RHServer.server.controller
                 while (true)
                 {
 
-                    SslStream stream = new SslStream(listener.AcceptTcpClient().GetStream(), false);
-
-                    this.clients.Add(new Client(this, stream));
+                    this.clients.Add(new Client(this, listener.AcceptTcpClient()));
                 }
             }
             catch (Exception e)

@@ -9,7 +9,7 @@
     <Import_RootNamespace>RHBase</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)ClientBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ClientConnection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)helper\Config.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)helper\TCPHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Protocol.cs" />
