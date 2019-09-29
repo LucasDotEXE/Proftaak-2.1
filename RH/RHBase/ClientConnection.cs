@@ -44,7 +44,7 @@ namespace RHBase
                 while (true)
                 {
 
-                    this.receiveMessage(Encoding.ASCII.GetString(bytes, 0, this.socket.Receive(bytes)));
+                    //this.receiveMessage(Encoding.ASCII.GetString(bytes, 0, this.socket.Receive(bytes)));
 
                     Thread.Sleep(10);
                 }
