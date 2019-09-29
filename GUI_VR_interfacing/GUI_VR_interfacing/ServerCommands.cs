@@ -72,7 +72,7 @@ namespace Commands
         public class node
         {
             private readonly static String idPrefix = Scene.idPrefix + "node/";
-            public static String add(String name, String parent, Tripple<double> position, int scale, Tripple<double> rotation, String fileName)
+            public static String add(String name, Tripple<double> position, int scale, Tripple<double> rotation, String fileName)
             {
                 var add = new
                 {
@@ -80,7 +80,6 @@ namespace Commands
                     data = new
                     {
                         name = name,
-                        parent = parent,
                         components = new
                         {
                             transform = new
@@ -106,12 +105,7 @@ namespace Commands
                                 resolution = new[] { 512, 512 },
                                 background = new[] { 1, 1, 1, 1 },
                                 castShadow = true
-                            },
-                            water = new
-                            {
-                                size = new[] { 20, 20 },
-                                resolution = 0.1
-                            }
+                            },   
                         }
                     }
                 };

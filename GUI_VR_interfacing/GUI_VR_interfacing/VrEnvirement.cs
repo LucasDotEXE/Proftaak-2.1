@@ -8,27 +8,19 @@ namespace GUI_VR_interfacing
 
         public static void init(Client vrClient)
         {
-            //addTerain(vrClient, 256, 256);
-            //Commands.Scene.get(); //see if the groundpane is among it 
+            addTerain(vrClient, 256, 256);
+            Commands.Scene.get(); //see if the groundpane is among it 
             changeTime(vrClient, 0);
+            changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
             add3DModdel(vrClient,
                 name: "test",
-                parent: null,
-                pos: new Tripple<double>(1, 1, 1),
-                scale: 1,
-                rot: new Tripple<double>(0, 0, 0),
-                fileName: "Models/girl-brunette.blend");
-            // changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
-            add3DModdel(vrClient,
-                name: "test",
-                parent: null,
                 pos: new Tripple<double>(1, 1, 1),
                 scale: 1,
                 rot: new Tripple<double>(0, 0, 0),
                 fileName: "data/NetworkEngine/models/trees/fantasy/tree1.obj");
-            // addRoute(vrClient, RouteNode.genRouteNodeList());
+            addRoute(vrClient, RouteNode.genRouteNodeList());
 
-            //Commands.Route.show(true);
+            Commands.Route.show(true);
         }
 
         public static void addTerain(Client vrClient, int x, int y)
@@ -57,10 +49,10 @@ namespace GUI_VR_interfacing
                 );
         }
 
-        public static void add3DModdel(Client vrClient, string name, string parent, Tripple<double> pos, int scale, Tripple<double> rot, string fileName)
+        public static void add3DModdel(Client vrClient, string name, Tripple<double> pos, int scale, Tripple<double> rot, string fileName)
         {
             vrClient.addToQueue(Commands.Scene.node.add(
-                name, parent, pos, scale, rot, fileName
+                name, pos, scale, rot, fileName
                 ));
         }
 
