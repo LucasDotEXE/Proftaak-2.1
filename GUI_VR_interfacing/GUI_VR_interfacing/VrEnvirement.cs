@@ -11,6 +11,13 @@ namespace GUI_VR_interfacing
             //addTerain(vrClient, 256, 256);
             //Commands.Scene.get(); //see if the groundpane is among it 
             changeTime(vrClient, 0);
+            add3DModdel(vrClient,
+                name: "test",
+                parent: null,
+                pos: new Tripple<double>(1, 1, 1),
+                scale: 1,
+                rot: new Tripple<double>(0, 0, 0),
+                fileName: "Models/girl-brunette.blend");
             // changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
             add3DModdel(vrClient,
                 name: "test",
