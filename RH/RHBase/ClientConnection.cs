@@ -18,8 +18,12 @@ namespace RHBase
 
         protected void startConnection()
         {
+           
+        }
 
-
+        internal void stopConnection()
+        {
+            
         }
 
         private bool validateCertificate(SslPolicyErrors errors)
@@ -55,6 +59,8 @@ namespace RHBase
                 Console.WriteLine("Message Receiver crasched : {0}", e.ToString());
             }
         }
+
+        
 
         // overrides
         public abstract void receiveMessage(string message);
