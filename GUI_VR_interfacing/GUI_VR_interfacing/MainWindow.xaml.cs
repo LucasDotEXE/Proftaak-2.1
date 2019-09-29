@@ -15,6 +15,9 @@ namespace GUI_VR_interfacing
         public MainWindow()
         {
             InitializeComponent();
+            SessionComboBox.ItemsSource = client.sessions;
+            SessionComboBox.DisplayMemberPath = "user";
+            DG_sessions.ItemsSource = client.sessions;
             refresh();
         }
         private void ConnectButton_Click(object sender, RoutedEventArgs e)
@@ -42,21 +45,10 @@ namespace GUI_VR_interfacing
         private void refresh()
         {
             client.askForSessionList();
-
-            SessionComboBox.ItemsSource = client.sessions;
-            SessionComboBox.DisplayMemberPath = "user";
-            DG_sessions.ItemsSource = client.sessions;
         }
-
-
-        private void BRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            refresh();
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            refresh();
         }
     }
 }

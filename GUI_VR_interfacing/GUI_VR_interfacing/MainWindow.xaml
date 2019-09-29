@@ -12,6 +12,6 @@
         <Button x:Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="195,84,0,0" Click="ConnectButton_Click"/>
         <DataGrid x:Name="DG_sessions" HorizontalAlignment="Left" Height="336" Margin="323,57,0,0" VerticalAlignment="Top" Width="446"/>
         <TextBlock x:Name="TextBlock" HorizontalAlignment="Left" Margin="13,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="257" Text="Select your Session"/>
-        <Button Content="Refresh" Margin="13,84,0,0" Click="Button_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="77"/>
+        <Button x:Name="RefreshButton" Content="Refresh" Margin="13,84,0,0" Click="Button_Click" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="77"/>
     </Grid>
 </Window>

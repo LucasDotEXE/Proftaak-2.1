@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Windows;
 
 namespace GUI_VR_interfacing
@@ -9,20 +10,15 @@ namespace GUI_VR_interfacing
     public partial class ControlPanel : Window
     {
         Client _client;
-
-
-
         public ControlPanel()
         {
             InitializeComponent();
-            
         }
 
         private void GenbuttonClicked(object sender, RoutedEventArgs e)
         {
             update();
         }
-
         internal void start(Client client)
         {
             _client = client;
@@ -30,7 +26,6 @@ namespace GUI_VR_interfacing
             VREnviorment.init(_client);
             update();
         }
-
         private void valChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             VREnviorment.changeTime(_client,(TimeOfDay.Value));
@@ -38,6 +33,7 @@ namespace GUI_VR_interfacing
         private void update()
         {
             VREnviorment.getScene(_client);
+            ObjList.ItemsSource = _client.Nodes;
         }
     }
 }

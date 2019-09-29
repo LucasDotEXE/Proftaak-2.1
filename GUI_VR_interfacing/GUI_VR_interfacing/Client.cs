@@ -5,15 +5,16 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Collections.ObjectModel;
 
 
 namespace GUI_VR_interfacing
 {
-    class Client : DataReceived, IDisposable
+    class Client : DataReceived
     {
         private readonly string host = "145.48.6.10";
         private readonly int port = 6666;
-        public List<dynamic> sessions { get; set; } = new List<dynamic>();
+        public ObservableCollection<dynamic> sessions { get; set; } = new ObservableCollection<dynamic>();
         public string sessionID = "";
         private string lastMessage;
         private Queue<string> toBeSend = new Queue<string>();
@@ -21,7 +22,7 @@ namespace GUI_VR_interfacing
         public TcpClient client { get; }
 
         public NetworkStream dStream { get; }
-        private string temp = "";
+        public ObservableCollection<dynamic> Nodes = new ObservableCollection<dynamic>();
 
         //setting up the client
         public Client()
@@ -56,15 +57,15 @@ namespace GUI_VR_interfacing
                 int messageLength = 4;
                 do
                 {
-                        byte[] bytesToRead = new byte[messageLength];
-                        int bytesRead = dStream.Read(bytesToRead, 0, messageLength);
-                        if (bytesRead > 4)
-                            data += Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
-                        else
-                        {
-                            int l = BitConverter.ToInt32(bytesToRead, 0);
-                            messageLength = l;
-                        }
+                    byte[] bytesToRead = new byte[messageLength];
+                    int bytesRead = dStream.Read(bytesToRead, 0, messageLength);
+                    if (bytesRead > 4)
+                        data += Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
+                    else
+                    {
+                        int l = BitConverter.ToInt32(bytesToRead, 0);
+                        messageLength = l;
+                    }
                 } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
                 dStream.Flush();
                 if (data != "") dataReceived(data);
@@ -107,13 +108,12 @@ namespace GUI_VR_interfacing
 
         public void askForSessionList()
         {
-            sessions = new List<dynamic>();
+            sessions.Clear();
             toBeSend.Enqueue(JsonConvert.SerializeObject(new { id = "session/list" }));
         }
 
         public void createTunnel(string pin)
         {
-            temp = pin;
             string tun = JsonConvert.SerializeObject(new { id = "tunnel/create", data = new { session = pin, key = "" } });
             toBeSend.Enqueue(tun);
         }
@@ -139,11 +139,23 @@ namespace GUI_VR_interfacing
                     case "session/list":
                         foreach (JToken o in dat["data"])
                         {
-                            sessions.Add(new { id = o["id"], user = o["clientinfo"]["user"] });
+                            App.Current.Dispatcher.BeginInvoke((Action)delegate ()
+                            {
+                                sessions.Add(new { id = o["id"], user = o["clientinfo"]["user"] });
+                            });
                         }
                         break;
                     case "tunnel/send":
-                        Console.WriteLine(dat);
+
+                        if (dat["data"]["data"]["id"].ToString() == "scene/get")
+                            foreach (JToken o in dat["data"]["data"]["data"]["children"])
+                            {
+                                App.Current.Dispatcher.BeginInvoke((Action)delegate ()
+                                {
+                                    Nodes.Add(new { name = o["name"], uuid = o["uuid"] });
+                                });
+                            }
+
                         break;
                     case "tunnel/create":
                         if (dat["data"]["status"].ToString() == "ok")
