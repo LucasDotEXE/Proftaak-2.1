@@ -19,51 +19,35 @@ namespace DocterAplication
             PaswordBox.PasswordChar = '*';
         }
 
-        private void TreeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToolStripStatusLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void Login_Click(object sender, EventArgs e)
         {
-            String name = nameBox.Text;
-            String pasword = PaswordBox.Text;
-            //Program.docterClient.sendLoginRequest($"L{name}|{pasword}");
-            if (true)
+            if (Program.docterClient.isConnected)
             {
-                Program.docterClient.isConnected = true;
-                LoggedInStatus.Text = $"Logged in as: {name}";
-            } else
-            {
-                Program.docterClient.isConnected = false;
-                StatusStrip.Text = "Logged out";
+                Program.docterClient.disconnect();
+                LoggedInStatus.Text = "Not Logged In";
+                    Login.Text = "Login";
+
+                
+            } else {
+                String userName = nameBox.Text;
+                String pasword = PaswordBox.Text;
+                bool register = registerCheck.Checked;
+
+                if (Program.docterClient.connect(userName, pasword, register)) //the true has to be the responce from the server
+                {
+                    LoggedInStatus.Text = $"Logged in as: {userName}";
+                    Login.Text = "Logout";
+                }
+                else
+                {
+                    StatusStrip.Text = "Not Logged In";
+                }
             }
-            Console.WriteLine("stuff");
-        }
+                
 
-        private void StatuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
+            
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -99,29 +83,10 @@ namespace DocterAplication
             
         }
 
-        private void UserList_ItemCheck(object sender, EventArgs e)
-        {
-            updatePanel1();
-        }
 
         private void UserList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             updatePanel1();
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void Label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SpeedChart_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void NodeClicked(object sender, TreeNodeMouseClickEventArgs e)
@@ -133,6 +98,15 @@ namespace DocterAplication
             //SpeedChart.Series["Speed"].BorderWidth = 5;
             //SpeedChart.Series["Speed"].Points.AddXY("", 90);
             
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            if (!Program.docterClient.isConnected)
+                return;
+
+                Program.docterClient.disconnect();
+                StatusStrip.Text = "Not Logged In";
         }
     }
 }

@@ -5,17 +5,34 @@ namespace DocterAplication
     public class ClientData
     {
         private string name;
-        private List<HeartRateMeasurement> heartRateMeasurement;
-        private List<BikeSpeedMeasurement> bikeSpeedMeasurement;
-        private List<BikePowerMeasurement> bikePowerMeasurement;
+        private List<HeartRateMeasurement> heartRateMeasurements;
+        private List<BikeSpeedMeasurement> bikeSpeedMeasurements;
+        private List<BikePowerMeasurement> bikePowerMeasurements;
 
         public ClientData(string name)
         {
             this.name = name;
-            heartRateMeasurement = new List<HeartRateMeasurement>();
-            bikePowerMeasurement = new List<BikePowerMeasurement>();
-            bikeSpeedMeasurement = new List<BikeSpeedMeasurement>();
+            heartRateMeasurements = new List<HeartRateMeasurement>();
+            bikePowerMeasurements = new List<BikePowerMeasurement>();
+            bikeSpeedMeasurements = new List<BikeSpeedMeasurement>();
         }
+
+        public void addHeartRateMeasurement(HeartRateMeasurement measurement)
+        {
+            heartRateMeasurements.Add(measurement);
+        }
+
+        public void addBikePowerMeasurement(BikePowerMeasurement measurement)
+        {
+            bikePowerMeasurements.Add(measurement);
+        }
+
+        public void addBikeSpeedMeasurement(BikeSpeedMeasurement measurement)
+        {
+            bikeSpeedMeasurements.Add(measurement);
+        }
+
+
     }
 
     public class HeartRateMeasurement

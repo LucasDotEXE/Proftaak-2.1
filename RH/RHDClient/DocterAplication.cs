@@ -10,21 +10,37 @@ namespace DocterAplication
     {
         internal bool isConnected;
 
-        public List<ClientData> clientData;
+        public ClientData clientData;
 
         public DocterClient()
         {
             
         }
 
-        internal void sendLoginRequest(string message)
+        internal void sendLoginRequest(string userName, string password, bool newAcount)
         {
-            base.sendMessage("L" + message);
+            base.sendMessage($"L|{userName}|{password}|{newAcount.ToString()}");
         }
 
         public override void receiveMessage(string message)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        internal bool connect(string userName, string password, bool newAcount)
+        {
+            base.startConnection();
+            base.sendMessage($"L{userName}|{password}|{newAcount}");
+            //bool loginSucces = Boolean.Parse(/*gooi hier de responce*/);
+            isConnected = true; //moet naar loginSucces
+            //return loginSicces;
+            return true;
+        }
+
+        internal void disconnect()
+        {
+            base.stopConnection();
+            isConnected = false;
         }
     }
 }
