@@ -17,6 +17,7 @@ namespace DocterAplication
         {
             InitializeComponent();
             PaswordBox.PasswordChar = '*';
+            
         }
 
       
@@ -64,12 +65,11 @@ namespace DocterAplication
             }
         }
 
-        private void updatePanel1()
+        private void rebuildNameSelectionList()
         {
+            NameSelectionList.Nodes.Clear();
             this.BeginInvoke(new Action(() => {
-                NameSelectionList.Nodes.Clear();
-                CheckedItemCollection list = UserList.CheckedItems;
-                foreach (string item in list)
+                foreach (String item in UserList.CheckedItems)
                 {
                     NameSelectionList.Nodes.Add(item);
                 }
@@ -80,13 +80,28 @@ namespace DocterAplication
 
         private void RefreshPage()
         {
+            Program.docterClient.updateClientData();
+            UserList.Items.Clear();
+            foreach (ClientData data in Program.docterClient.clientData)
+            {
+                UserList.Items.Add(data.name);
+            }
             
         }
 
 
         private void UserList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            updatePanel1();
+            String updatedClient = UserList.Items[e.Index].ToString();            
+            if (e.NewValue.ToString().Equals("Checked"))
+            {
+                Program.docterClient.subscribe(updatedClient);
+            }
+            else
+            {
+                Program.docterClient.unSubscribe(updatedClient);
+            }
+            rebuildNameSelectionList();
         }
 
         private void NodeClicked(object sender, TreeNodeMouseClickEventArgs e)

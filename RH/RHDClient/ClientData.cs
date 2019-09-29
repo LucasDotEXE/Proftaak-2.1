@@ -4,7 +4,7 @@ namespace DocterAplication
 {
     public class ClientData
     {
-        private string name;
+        public string name;
         private List<HeartRateMeasurement> heartRateMeasurements;
         private List<BikeSpeedMeasurement> bikeSpeedMeasurements;
         private List<BikePowerMeasurement> bikePowerMeasurements;
