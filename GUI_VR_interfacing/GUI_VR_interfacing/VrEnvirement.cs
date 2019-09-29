@@ -12,15 +12,15 @@ namespace GUI_VR_interfacing
             //Commands.Scene.get(); //see if the groundpane is among it 
             changeTime(vrClient, 0);
             // changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
-            /* add3DModdel(vrClient,
-                 name: "test",
-                 parent: null,
-                 pos: new Tripple<double>(3, 3, 3),
-                 scale: 1,
-                 rot: new Tripple<double>(0, 0, 0),
-                 fileName: "FileName");
-             addRoute(vrClient, RouteNode.genRouteNodeList());
-             */
+            add3DModdel(vrClient,
+                name: "test",
+                parent: null,
+                pos: new Tripple<double>(1, 1, 1),
+                scale: 1,
+                rot: new Tripple<double>(0, 0, 0),
+                fileName: "data/NetworkEngine/models/trees/fantasy/tree1.obj");
+            // addRoute(vrClient, RouteNode.genRouteNodeList());
+
             //Commands.Route.show(true);
         }
 

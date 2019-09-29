@@ -53,5 +53,10 @@ namespace GUI_VR_interfacing
         {
             refresh();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

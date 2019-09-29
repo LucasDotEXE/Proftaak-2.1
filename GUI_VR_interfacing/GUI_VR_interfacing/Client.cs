@@ -90,6 +90,7 @@ namespace GUI_VR_interfacing
         internal void sendDataTunnel(string p)
         {
             string d = convertToMessage(p);
+            Console.WriteLine(d);
             if (lastMessage != d)
             {
                 lastMessage = d;
@@ -142,6 +143,7 @@ namespace GUI_VR_interfacing
                         }
                         break;
                     case "tunnel/send":
+                        Console.WriteLine(dat);
                         break;
                     case "tunnel/create":
                         if (dat["data"]["status"].ToString() == "ok")

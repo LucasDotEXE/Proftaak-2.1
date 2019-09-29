@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Windows;
 
 namespace GUI_VR_interfacing
 {
@@ -25,6 +26,7 @@ namespace GUI_VR_interfacing
         internal void start(Client client)
         {
             _client = client;
+            Thread.Sleep(1000);
             VREnviorment.init(_client);
             update();
         }
