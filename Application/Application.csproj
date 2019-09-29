@@ -72,5 +72,6 @@
   <ItemGroup>
     <Folder Include="src\VR_Client\" />
   </ItemGroup>
+  <Import Project="..\ClientRecources\ClientRecources.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

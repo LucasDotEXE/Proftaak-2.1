@@ -8,12 +8,11 @@ namespace DocterAplication
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
+        public static DocterClient docterClient;
+
         static void Main()
         {
+            docterClient = new DocterClient();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

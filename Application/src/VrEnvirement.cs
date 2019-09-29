@@ -4,7 +4,7 @@ using VR_Client;
 
 namespace Application
 {
-    class VrEnvirement
+    static class VrEnvirement
     {
 
         public static void innitialise(Client vrClient)

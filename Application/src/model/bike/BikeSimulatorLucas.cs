@@ -4,12 +4,21 @@ using System.Collections.Generic;
 using System.Text;
 using System.Timers;
 
-namespace Application.src.model 
+namespace Application.src.model.bike
 {
+
+    class testSim : Simulator
+    {
+    
+        protected override byte[] generateData()
+        {
+            return Encoding.UTF8.GetBytes("it works");
+        }
+    }
 
     class BikeSimulatorPower : Simulator
     {
-        protected override Protocol generateData()
+        protected override byte[] generateData()
         {
             byte[] array = new byte[11];
 
@@ -22,14 +31,19 @@ namespace Application.src.model
             array[10] = 5;
 
 
-            return new Protocol("BikeSimulatorPower", array);
+            return array;
+        }
+
+        private String dataToString()
+        {
+            throw new NotImplementedException();
         }
     }
 
     class BikeSimulatorSpeed : Simulator
     {
 
-        protected override Protocol generateData()
+        protected override byte[] generateData()
         {
             byte[] array = new byte[11];
             array[4] = 0x10; // Identifier
@@ -46,13 +60,13 @@ namespace Application.src.model
 
             array[7] = 0x24; //distance
 
-            return new Protocol("BikeSpeedSim", array);
+            return array;
         }
     }
 
     class HeartSimulator : Simulator
     {
-        protected override Protocol generateData()
+        protected override byte[] generateData()
         {
             byte HeartRateValueTypeIs16 = 1;
             byte SensorContactSupportNetwork = 1;
@@ -85,7 +99,7 @@ namespace Application.src.model
 
 
 
-            return new Protocol("heart sim", array); // kon geen anderen manier vinden om het naar string te krijgen
+            return array; // kon geen anderen manier vinden om het naar string te krijgen
         }
     }
 
@@ -114,17 +128,17 @@ namespace Application.src.model
         }
     }
 
-    abstract class Simulator : Subject<Protocol>
+    abstract class Simulator : Subject<byte[]>
     {
     
         private Timer timer;
-        abstract protected Protocol generateData();
+        abstract protected byte[] generateData();
         protected SimulationData simulationData { get; } = new SimulationData();
 
-        public void turnOn()
+        public void turnOn(int sec)
         {
 
-            timer = new System.Timers.Timer(1000);
+            timer = new System.Timers.Timer(sec * 1000);
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
             timer.Enabled = true;
