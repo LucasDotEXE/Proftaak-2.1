@@ -15,7 +15,6 @@ namespace RHBase
     abstract class ClientConnection
     {
 
-        private Hashtable certificateErrors = new Hashtable();
         private SslStream stream;
         private Thread thread;
 
