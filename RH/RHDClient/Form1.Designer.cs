@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 10D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(2D, 123D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(3D, 70D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 10D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(2D, 123D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(3D, 70D);
             this.Login = new System.Windows.Forms.Button();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LoggedInStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,7 +55,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BPMchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.Refresh = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.registerCheck = new System.Windows.Forms.CheckBox();
@@ -181,7 +180,6 @@
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.BPMchart, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -266,39 +264,29 @@
             // 
             // BPMchart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.BPMchart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.BPMchart.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.BPMchart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.BPMchart.Legends.Add(legend3);
             this.BPMchart.Location = new System.Drawing.Point(3, 292);
             this.BPMchart.Name = "BPMchart";
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            series2.Color = System.Drawing.Color.Red;
-            series2.Legend = "Legend1";
-            series2.MarkerBorderColor = System.Drawing.Color.Red;
-            series2.MarkerBorderWidth = 3;
-            series2.MarkerColor = System.Drawing.Color.Red;
-            series2.Name = "BPM";
-            dataPoint4.MarkerImageTransparentColor = System.Drawing.Color.Red;
-            series2.Points.Add(dataPoint4);
-            series2.Points.Add(dataPoint5);
-            series2.Points.Add(dataPoint6);
-            this.BPMchart.Series.Add(series2);
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series3.Color = System.Drawing.Color.Red;
+            series3.Legend = "Legend1";
+            series3.MarkerBorderColor = System.Drawing.Color.Red;
+            series3.MarkerBorderWidth = 3;
+            series3.MarkerColor = System.Drawing.Color.Red;
+            series3.Name = "BPM";
+            dataPoint7.MarkerImageTransparentColor = System.Drawing.Color.Red;
+            series3.Points.Add(dataPoint7);
+            series3.Points.Add(dataPoint8);
+            series3.Points.Add(dataPoint9);
+            this.BPMchart.Series.Add(series3);
             this.BPMchart.Size = new System.Drawing.Size(421, 286);
             this.BPMchart.TabIndex = 4;
             this.BPMchart.Text = "chart1";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(3, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(98, 21);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // Refresh
             // 
@@ -355,7 +343,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BPMchart)).EndInit();
@@ -391,7 +378,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataVisualization.Charting.Chart BPMchart;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox registerCheck;
     }
 }
