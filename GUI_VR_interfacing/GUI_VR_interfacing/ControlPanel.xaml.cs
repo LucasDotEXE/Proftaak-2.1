@@ -19,7 +19,7 @@ namespace GUI_VR_interfacing
 
         private void GenbuttonClicked(object sender, RoutedEventArgs e)
         {
-
+            update();
         }
 
         internal void start(Client client)

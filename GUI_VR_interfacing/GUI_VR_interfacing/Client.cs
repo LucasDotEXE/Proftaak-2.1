@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace GUI_VR_interfacing
 {
-    class Client : DataReceived
+    class Client : DataReceived, IDisposable
     {
         private readonly string host = "145.48.6.10";
         private readonly int port = 6666;
@@ -40,25 +40,22 @@ namespace GUI_VR_interfacing
                 if (toBeSend.Count > 0)
                 {
                     string data = toBeSend.Dequeue();
-                    Console.WriteLine("toBeSend: " + data);
                     if (data.Contains("scene") || data.Contains("route") && sessionID != "") sendDataTunnel(data);
-                    else if(data.Contains("scene") || data.Contains("route")) toBeSend.Enqueue(data);
+                    else if (data.Contains("scene") || data.Contains("route")) toBeSend.Enqueue(data);
                     else sendData(data);
+                    dStream.Flush();
                 }
             }
         }
 
         private void ServerReader()
         {
-            bool running = true;
-            while (running)
+            while (true)
             {
                 string data = "";
                 int messageLength = 4;
                 do
                 {
-                    try
-                    {
                         byte[] bytesToRead = new byte[messageLength];
                         int bytesRead = dStream.Read(bytesToRead, 0, messageLength);
                         if (bytesRead > 4)
@@ -68,38 +65,30 @@ namespace GUI_VR_interfacing
                             int l = BitConverter.ToInt32(bytesToRead, 0);
                             messageLength = l;
                         }
-                    }
-                    catch
-                    {
-                        Console.WriteLine("disconnected!");
-                    }
                 } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
-                //Console.WriteLine(data);
+                dStream.Flush();
                 if (data != "") dataReceived(data);
+                Thread.Sleep(1);
             }
         }
 
         internal void sendData(string p)
         {
-                byte[] packet = Encoding.UTF8.GetBytes(p);
-                byte[] length = BitConverter.GetBytes(packet.Length);
-                dStream.Write(length, 0, length.Length);
-                dStream.Write(packet, 0, packet.Length);
-                Console.WriteLine($"sending : {p}");
-            
+            byte[] packet = Encoding.UTF8.GetBytes(p);
+            byte[] length = BitConverter.GetBytes(packet.Length);
+            dStream.Write(length, 0, length.Length);
+            dStream.Write(packet, 0, packet.Length);
         }
         private string convertToMessage(string msg)
         {
             var get = JsonConvert.DeserializeObject(msg);
             var prefix = new { id = "tunnel/send", data = new { dest = sessionID, data = get } };
             string d = JsonConvert.SerializeObject(prefix);
-            Console.WriteLine(d);
             return d;
         }
 
         internal void sendDataTunnel(string p)
         {
-
             string d = convertToMessage(p);
             if (lastMessage != d)
             {
@@ -128,34 +117,11 @@ namespace GUI_VR_interfacing
             toBeSend.Enqueue(tun);
         }
 
-      
-
-        public string receive()
-        {
-            string data = "";
-            int messageLength = 4;
-            do
-            {
-                byte[] bytesToRead = new byte[messageLength];
-                int bytesRead = dStream.Read(bytesToRead, 0, messageLength);
-                Console.WriteLine("amount of bytes: " + bytesRead);
-                if (bytesRead > 4)
-                    data += Encoding.UTF8.GetString(bytesToRead, 0, bytesRead);
-                else
-                {
-                    int l = BitConverter.ToInt32(bytesToRead, 0);
-                    Console.WriteLine("length: " + l);
-                    messageLength = l;
-                }
-            } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
-            return data;
-        }
         public void close()
         {
             //closes all connections
             client.Close();
             dStream.Close();
-            Console.WriteLine("Client closed!");
         }
 
         public void dataReceived(string rData)
@@ -166,35 +132,30 @@ namespace GUI_VR_interfacing
                 dat = JToken.Parse(rData);
             }
             catch { Console.WriteLine("message was  incorrect Json"); }
-
-
             if (dat != null)
                 switch (dat["id"].ToString())
                 {
                     case "session/list":
                         foreach (JToken o in dat["data"])
                         {
-                            Console.WriteLine(o.ToString());
                             sessions.Add(new { id = o["id"], user = o["clientinfo"]["user"] });
                         }
                         break;
                     case "tunnel/send":
-                        Console.WriteLine(dat);
                         break;
                     case "tunnel/create":
                         if (dat["data"]["status"].ToString() == "ok")
                             sessionID = dat["data"]["id"].ToString();
-                        else
-                        {
-                            Console.WriteLine("retrying in 5 seconds!");
-                            Thread.Sleep(5000);
-                            createTunnel(temp);
-                        }
                         break;
                     default:
                         Console.WriteLine("Whoopa alles is kapot!");
                         break;
                 }
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }
