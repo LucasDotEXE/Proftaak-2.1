@@ -49,7 +49,7 @@ namespace RHBase.helper
         }
 
         // send
-        public static void sendText(SslStream stream, string message)
+        public static void writeText(SslStream stream, string message)
         {
 
             StreamWriter writer = new StreamWriter(stream, encoding);
@@ -57,7 +57,7 @@ namespace RHBase.helper
             writer.Flush();
         } 
 
-        public static void send(SslStream stream, string message)
+        public static void write(SslStream stream, string message)
         {
 
             try

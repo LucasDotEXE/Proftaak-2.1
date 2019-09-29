@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RHBase.helper;
 using RHServer.server.model.client;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,6 @@ namespace RHServer.server.model.json
     {
 
         // attributes
-        private static string jsonPath = "Accounts.txt";
         private static List<ClientData> clients = new List<ClientData>();
 
         // login
@@ -69,15 +69,15 @@ namespace RHServer.server.model.json
         public static void save()
         {
 
-            if (File.Exists(jsonPath) && clients.Count() != 0)
-                File.WriteAllText(jsonPath, getClients());
+            if (File.Exists(Config.serverAccountPath) && clients.Count() != 0)
+                File.WriteAllText(Config.serverAccountPath, getClients());
         }
 
         private static void load()
         {
 
-            if (File.Exists(jsonPath) && clients.Count() == 0)
-                clients = JsonConvert.DeserializeObject<List<ClientData>>(File.ReadAllText(jsonPath));
+            if (File.Exists(Config.serverAccountPath) && clients.Count() == 0)
+                clients = JsonConvert.DeserializeObject<List<ClientData>>(File.ReadAllText(Config.serverAccountPath));
         }
     }
 }

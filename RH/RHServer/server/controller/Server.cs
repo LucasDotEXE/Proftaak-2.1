@@ -24,12 +24,10 @@ namespace RHServer.server.controller
         public void startServer()
         {
 
-            this.certificate = X509Certificate.CreateFromCertFile(Config.certificate);
+            this.certificate = X509Certificate.CreateFromCertFile(Config.serverCertificatePath);
             this.clients = new List<Client>();
 
             new Thread(new ThreadStart(catchClients)).Start();
-
-            Console.Read();
         }
 
         // connection
