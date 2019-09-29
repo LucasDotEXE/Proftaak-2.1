@@ -35,8 +35,8 @@ namespace GUI_VR_interfacing
 
         private void SelectSessionHandler(object sender, SelectionChangedEventArgs e)
         {
-            string d = JToken.Parse(JsonConvert.SerializeObject(SessionComboBox.SelectedItem))["user"].ToString();
-            TextBlock.Text = "User : " + d;
+            string d = JToken.Parse(JsonConvert.SerializeObject(SessionComboBox.SelectedItem))["id"].ToString();
+            TextBlock.Text = "ID : " + d;
         }
 
         private void refresh()
@@ -44,7 +44,7 @@ namespace GUI_VR_interfacing
             client.askForSessionList();
 
             SessionComboBox.ItemsSource = client.sessions;
-            SessionComboBox.DisplayMemberPath = "id";
+            SessionComboBox.DisplayMemberPath = "user";
             DG_sessions.ItemsSource = client.sessions;
         }
 
