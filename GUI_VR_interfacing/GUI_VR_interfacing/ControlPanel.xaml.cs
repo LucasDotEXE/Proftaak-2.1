@@ -14,6 +14,7 @@ namespace GUI_VR_interfacing
         public ControlPanel()
         {
             InitializeComponent();
+            
         }
 
         private void GenbuttonClicked(object sender, RoutedEventArgs e)
@@ -25,11 +26,16 @@ namespace GUI_VR_interfacing
         {
             _client = client;
             VREnviorment.init(_client);
+            update();
         }
 
         private void valChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            VREnviorment.changeTime(_client, (int)(TimeOfDay.Value * 2.4));
+            VREnviorment.changeTime(_client,(TimeOfDay.Value));
+        }
+        private void update()
+        {
+            VREnviorment.getScene(_client);
         }
     }
 }

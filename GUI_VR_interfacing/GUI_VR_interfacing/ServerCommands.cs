@@ -374,7 +374,7 @@ namespace Commands
         {
             private static readonly String idPrefix = Scene.idPrefix + "skybox/";
 
-            public static String setTime(int time)
+            public static String setTime(double time)
             {
                 var setTime = new
                 {
@@ -583,7 +583,7 @@ namespace CommandHelperObjects
         private int[] pos { get; set; }
         private int[] dir { get; set; }
 
-        public RouteNode(Tripple<int> pos , Tripple<int> dir )
+        public RouteNode(Tripple<int> pos, Tripple<int> dir)
         {
             this.pos = new int[] { pos.val[0], pos.val[1], pos.val[2] };
             this.dir = new int[] { dir.val[0], dir.val[1], dir.val[2] };
@@ -597,7 +597,7 @@ namespace CommandHelperObjects
             nodes.Add(new RouteNode(new Tripple<int>(50, 0, 1), new Tripple<int>(5, 0, 5)));
             nodes.Add(new RouteNode(new Tripple<int>(50, 0, 50), new Tripple<int>(-5, 0, 5)));
             nodes.Add(new RouteNode(new Tripple<int>(0, 0, 50), new Tripple<int>(-5, 0, -5)));
-           
+
             return nodes;
         }
     }
@@ -606,7 +606,7 @@ namespace CommandHelperObjects
     {
         public T[] val { get; set; }
 
-        public Tripple(T x, T y,T z)
+        public Tripple(T x, T y, T z)
         {
             this.val = new T[3] { x, y, z };
         }
@@ -639,7 +639,7 @@ namespace CommandHelperObjects
 
     class heightMap
     {
-        public static int[] getBlankHightMap(int x,int y)
+        public static int[] getBlankHightMap(int x, int y)
         {
             return new int[x * y];
         }
