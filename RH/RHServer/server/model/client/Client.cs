@@ -80,7 +80,7 @@ namespace RHServer.server.model.client
             try
             {
 
-                TCPHelper.send(this.stream, message);
+                TCPHelper.write(this.stream, message);
             }
             catch (Exception e)
             {

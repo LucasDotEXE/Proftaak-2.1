@@ -1,4 +1,5 @@
 ﻿using RHBase;
+using RHBase.helper;
 using RHCClient.client.controller.interfaces;
 using RHCClient.client.model.bike;
 using System;
@@ -9,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace RHCClient.client.controller
 {
-    class Client : ClientBase
+    class Client : ClientConnection
     {
 
-        public void startClient()
+        public override void startClient()
         {
 
             this.startConnection();
