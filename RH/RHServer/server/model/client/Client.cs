@@ -41,12 +41,18 @@ namespace RHServer.server.model.client
         {
 
             TcpClient client = obj as TcpClient;
-            this.stream = new SslStream(client.GetStream(), false);
 
+            this.stream = new SslStream(client.GetStream(), false);
+            
             try
             {
 
                 this.stream.AuthenticateAsServer(this.server.certificate, false, true);
+
+                SSLHelper.DisplaySecurityLevel(this.stream);
+                SSLHelper.DisplaySecurityServices(this.stream);
+                SSLHelper.DisplayCertificateInformation(this.stream);
+                SSLHelper.DisplayStreamProperties(this.stream);
 
                 this.stream.ReadTimeout = 10;
                 this.stream.WriteTimeout = 10;
@@ -63,6 +69,7 @@ namespace RHServer.server.model.client
             {
 
                 Console.WriteLine("Exception: {0}", e.Message);
+
                 if (e.InnerException != null)
                     Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
             }
@@ -126,7 +133,7 @@ namespace RHServer.server.model.client
         public void login(string credentialString)
         {
 
-            string[] credentials = credentialString.Split(':');
+            string[] credentials = JsonConvert.DeserializeObject<string[]>(credentialString);
 
             if (credentials.Length == 3)
                 this.data = AccountManager.login(credentials[0], credentials[1], Convert.ToBoolean(credentials[2]));

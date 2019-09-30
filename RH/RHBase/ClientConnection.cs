@@ -41,6 +41,11 @@ namespace RHBase
             {
 
                 Console.WriteLine("Couldn't authenticate: {0}", e.StackTrace);
+
+                if (e.InnerException != null)
+                    Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
+
+                client.Close();
                 return;
             }
 

@@ -14,7 +14,7 @@ namespace RHBase.helper
         public const int port                       = 6969;
 
         // message presets
-        public const string loginPreset             = "L";   // server: L[name]|[password]|[true/false]    client: L[true/false]
+        public const string loginPreset             = "L";   // server: L[json(name, password, true/false) client: L[true/false]
         public const string messagePreset           = "M";   // server: M[message]                         client: M[message]
         public const string protocolPreset          = "P";   // server: P[json_protocol]                   client: P[json_protocol]
         public const string requestPreset           = "R";   // server: R[json_id_list]                    client: R[json_clientData_list]
