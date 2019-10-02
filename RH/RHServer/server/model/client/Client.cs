@@ -5,13 +5,10 @@ using RHServer.server.controller;
 using RHServer.server.model.account;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Authentication;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace RHServer.server.model.client
 {
@@ -43,7 +40,7 @@ namespace RHServer.server.model.client
             TcpClient client = obj as TcpClient;
 
             this.stream = new SslStream(client.GetStream(), false);
-            
+
             try
             {
 
@@ -54,8 +51,8 @@ namespace RHServer.server.model.client
                 SSLHelper.DisplayCertificateInformation(this.stream);
                 SSLHelper.DisplayStreamProperties(this.stream);
 
-                this.stream.ReadTimeout = 10;
-                this.stream.WriteTimeout = 10;
+                this.stream.ReadTimeout = 10000;
+                this.stream.WriteTimeout = 1000;
 
                 while (true)
                 {
@@ -65,7 +62,7 @@ namespace RHServer.server.model.client
                     Thread.Sleep(10);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("Exception: {0}\n name: {1}", e.Message, e.GetType().Name);
 

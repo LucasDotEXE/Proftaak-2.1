@@ -1,12 +1,6 @@
 ﻿using RHBase;
 using RHBase.helper;
-using RHCClient.client.controller.interfaces;
-using RHCClient.client.model.bike;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RHCClient.client.controller
 {
@@ -23,9 +17,10 @@ namespace RHCClient.client.controller
             //IBike bike = new BikeSimulatorLucas(this);
             //bike.startConnection();
 
-            Console.Read();
+
 
             this.sendMessage(Config.messagePreset + "Hallo Wereld!");
+            Console.Read();
         }
 
         // receivers

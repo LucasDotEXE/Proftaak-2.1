@@ -1,14 +1,9 @@
 ﻿using RHBase.helper;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace RHBase
 {
@@ -33,9 +28,9 @@ namespace RHBase
             this.stream = new SslStream(client.GetStream(), false, new RemoteCertificateValidationCallback(validateCertificate), null);
 
             try
-            {   
+            {
 
-                this.stream.AuthenticateAsClient(Config.serverName);            
+                this.stream.AuthenticateAsClient(Config.serverName, null, false);
             }
             catch (Exception e)
             {
@@ -60,7 +55,7 @@ namespace RHBase
 
             Console.WriteLine("Certificate errors: {0}", sslPolicyErrors);
 
-            return false;
+            return true;
         }
 
         // messaging
