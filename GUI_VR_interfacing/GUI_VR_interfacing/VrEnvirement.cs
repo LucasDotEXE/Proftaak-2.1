@@ -26,47 +26,44 @@ namespace GUI_VR_interfacing
 
         public static void addTerain(Client vrClient, int x, int y)
         {
-            vrClient.addToQueue(
+            vrClient.AddToQueue(
                             Commands.Scene.terrain.add(
                                 x, y, heightMap.getBlankHightMap(x, y)
                                 ));
         }
+        public static void deleteNode(Client vrClient, string name)
+        {
+            vrClient.AddToQueue(Commands.Scene.node.delete(name));
+        }
 
         public static void changeTime(Client vrClient, double time)
         {
-            vrClient.addToQueue(
+            vrClient.AddToQueue(
                 Commands.Scene.skybox.setTime(time)
                 );
         }
 
         public static void changeTerrain(Client vrClient, int[] heightMap, int x, int y)
         {
-            vrClient.addToQueue(
+            vrClient.AddToQueue(
                 Commands.Scene.terrain.delete()
                 );
 
-            vrClient.addToQueue(
+            vrClient.AddToQueue(
                 Commands.Scene.terrain.add(x, y, heightMap)
                 );
         }
 
-        public static void addLayer(Client vrClient, string id, string diffuseTexture, string normalTexture, int minHeight, int maxHeight, int fadeDist)
-        {
-            vrClient.addToQueue(Commands.Scene.node.addLayer(
-                id, diffuseTexture, normalTexture, minHeight, maxHeight, fadeDist
-                ));
-        }
-
         public static void add3DModdel(Client vrClient, string name, Tripple<double> pos, int scale, Tripple<double> rot, string fileName)
         {
-            vrClient.addToQueue(Commands.Scene.node.add(
+            vrClient.AddToQueue(Commands.Scene.node.add(
                 name, pos, scale, rot, fileName
                 ));
         }
 
         public static void addRoute(Client vrClient, List<RouteNode> routeNodes)
         {
-            vrClient.addToQueue(
+            vrClient.AddToQueue(
                 Commands.Route.add(
                     routeNodes
                     ));
@@ -74,14 +71,13 @@ namespace GUI_VR_interfacing
 
         public static void showRoute(Client vrclient, bool doShow)
         {
-            vrclient.addToQueue(
+            vrclient.AddToQueue(
                 Commands.Route.show(doShow)
                 );
         }
         public static void getScene(Client client)
         {
-            client.addToQueue(Commands.Scene.get());
+            client.AddToQueue(Commands.Scene.get());
         }
-    
     }
 }

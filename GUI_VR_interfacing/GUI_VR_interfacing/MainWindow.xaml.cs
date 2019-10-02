@@ -25,7 +25,7 @@ namespace GUI_VR_interfacing
             if (SessionComboBox.SelectedItem != null)
             {
                 string d = JToken.Parse(JsonConvert.SerializeObject(SessionComboBox.SelectedItem))["id"].ToString();
-                client.createTunnel(d);
+                client.CreateTunnel(d);
                 Console.WriteLine("Connected!");
                 ControlPanel control = new ControlPanel();
                 control.DataContext = this;
@@ -44,8 +44,7 @@ namespace GUI_VR_interfacing
 
         private void refresh()
         {
-            SessionComboBox.SelectedValue = null;
-            client.askForSessionList();
+            client.AskForSessionList();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

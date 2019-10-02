@@ -2,10 +2,10 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Collections.ObjectModel;
 
 
 namespace GUI_VR_interfacing
@@ -18,12 +18,12 @@ namespace GUI_VR_interfacing
         public string sessionID = "";
         private string lastMessage;
         private Queue<string> toBeSend = new Queue<string>();
-        public string selectedItemUUID { set; get; }
-        public Dictionary<string, string> nodes = new Dictionary<string, string>();
-        public ObservableCollection<dynamic> nodeInfo = new ObservableCollection<dynamic>();
+        public Dictionary<string, string> nodeDict = new Dictionary<string, string>();
+
         public TcpClient client { get; }
 
         public NetworkStream dStream { get; }
+        public ObservableCollection<dynamic> nodes = new ObservableCollection<dynamic>();
 
         //setting up the client
         public Client()
@@ -42,9 +42,9 @@ namespace GUI_VR_interfacing
                 if (toBeSend.Count > 0)
                 {
                     string data = toBeSend.Dequeue();
-                    if (data.Contains("scene") || data.Contains("route") && sessionID != "") sendDataTunnel(data);
+                    if (data.Contains("scene") || data.Contains("route") && sessionID != "") SendDataTunnel(data);
                     else if (data.Contains("scene") || data.Contains("route")) toBeSend.Enqueue(data);
-                    else sendData(data);
+                    else SendData(data);
                     dStream.Flush();
                 }
             }
@@ -69,19 +69,19 @@ namespace GUI_VR_interfacing
                     }
                 } while (Encoding.UTF8.GetBytes(data).Length < messageLength);
                 dStream.Flush();
-                if (data != "") dataReceived(data);
+                if (data != "") HandlePacket(data);
                 Thread.Sleep(1);
             }
         }
 
-        internal void sendData(string p)
+        internal void SendData(string p)
         {
             byte[] packet = Encoding.UTF8.GetBytes(p);
             byte[] length = BitConverter.GetBytes(packet.Length);
             dStream.Write(length, 0, length.Length);
             dStream.Write(packet, 0, packet.Length);
         }
-        private string convertToMessage(string msg)
+        private string ConvertToMessage(string msg)
         {
             var get = JsonConvert.DeserializeObject(msg);
             var prefix = new { id = "tunnel/send", data = new { dest = sessionID, data = get } };
@@ -89,9 +89,9 @@ namespace GUI_VR_interfacing
             return d;
         }
 
-        internal void sendDataTunnel(string p)
+        internal void SendDataTunnel(string p)
         {
-            string d = convertToMessage(p);
+            string d = ConvertToMessage(p);
             Console.WriteLine(d);
             if (lastMessage != d)
             {
@@ -102,31 +102,31 @@ namespace GUI_VR_interfacing
                 dStream.Write(packet, 0, packet.Length);
             }
         }
-        public void addToQueue(string toBeAdded)
+        public void AddToQueue(string toBeAdded)
         {
             toBeSend.Enqueue(toBeAdded);
         }
 
-        public void askForSessionList()
+        public void AskForSessionList()
         {
             sessions.Clear();
             toBeSend.Enqueue(JsonConvert.SerializeObject(new { id = "session/list" }));
         }
 
-        public void createTunnel(string pin)
+        public void CreateTunnel(string pin)
         {
             string tun = JsonConvert.SerializeObject(new { id = "tunnel/create", data = new { session = pin, key = "" } });
             toBeSend.Enqueue(tun);
         }
 
-        public void close()
+        public void Close()
         {
             //closes all connections
             client.Close();
             dStream.Close();
         }
 
-        public void dataReceived(string rData)
+        public void HandlePacket(string rData)
         {
             JToken dat = null;
             try
@@ -153,8 +153,8 @@ namespace GUI_VR_interfacing
                             {
                                 App.Current.Dispatcher.BeginInvoke((Action)delegate ()
                                 {
-                                    nodes.Add( o["name"].ToString(), o["uuid"].ToString() );
-                                    nodeInfo.Add(new { name = o["name"], uuid = o["uuid"] });
+                                    nodes.Add(new { name = o["name"], uuid = o["uuid"] });
+                                    nodeDict.Add(o["name"].ToString(), o["uuid"].ToString());
                                 });
                             }
 
@@ -169,9 +169,5 @@ namespace GUI_VR_interfacing
                 }
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
