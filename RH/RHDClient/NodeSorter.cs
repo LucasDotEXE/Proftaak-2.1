@@ -7,8 +7,8 @@ namespace DocterAplication
     {
         public int Compare(object x, object y)
         {
-            TreeNode tx = (TreeNode)x;
-            TreeNode ty = (TreeNode)y;
+            TreeNode tx = x as TreeNode;
+            TreeNode ty = y as TreeNode;
 
             if (tx.Name == null || ty.Name == null)
                 return 0;

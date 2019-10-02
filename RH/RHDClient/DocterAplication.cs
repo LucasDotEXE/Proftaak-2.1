@@ -12,6 +12,9 @@ namespace DocterAplication
 
         public List<ClientData> clientData;
 
+        public String name;
+        
+
         public DocterClient()
         {
             clientData = new List<ClientData>();
@@ -19,7 +22,7 @@ namespace DocterAplication
 
         internal void sendLoginRequest(string userName, string password, bool newAcount)
         {
-            base.sendMessage($"L{userName}|{password}|{newAcount.ToString()}");
+            //base.sendMessage(new string[] { userName, password, newAcount.ToString() });
         }
 
         internal void sendClientListRequest()
@@ -38,10 +41,12 @@ namespace DocterAplication
         }
 
         //temp message reciever has to be overridden
-        public T receiveMessage<T>(string message)
+        /*public T receiveMessage<T>(string message)
         {
-            throw new NotImplementedException();
+            return null;
+            
         }
+        */
 
         internal bool connect(string userName, string password, bool newAcount)
         {
@@ -49,6 +54,10 @@ namespace DocterAplication
             sendLoginRequest(userName, password, newAcount);
             //bool loginSucces = Boolean.Parse(recieveMessage("loginResponce"));
             isConnected = true; //moet naar loginSucces
+            if (isConnected)
+            {
+                this.name = userName; 
+            }
             //return loginSicces;
             return true;
         }
@@ -62,6 +71,7 @@ namespace DocterAplication
         internal void updateClientData()
         {
             sendClientListRequest();
+            /*
             foreach (String client in receiveMessage<List<String>>("loginResponce"))
             {
                 if (!clientDataContainsName(client))
@@ -69,6 +79,7 @@ namespace DocterAplication
                     clientData.Add(new ClientData(client));
                 }
             }
+            */
         }
 
         internal bool clientDataContainsName(string name)
@@ -88,6 +99,22 @@ namespace DocterAplication
         internal void unSubscribe(string client)
         {
             sendFollowRequest(client, false);
+        }
+
+        public ClientData getClientData(string selectedClientName)
+        {
+            foreach (ClientData data in this.clientData)
+            {
+                if (data.name.Equals(selectedClientName))
+                    return data;
+            }
+            return null;
+        }
+
+        internal void sendMessage(string clientName, string msg)
+        {
+            getClientData(clientName).messages.Add(msg);
+            base.sendMessage($"M{clientName}|msg");
         }
     }
 }
