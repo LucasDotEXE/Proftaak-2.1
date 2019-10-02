@@ -1,12 +1,13 @@
 ﻿using Application.src.model;
+using Newtonsoft.Json;
 using System;
-
+using System.Collections.Generic;
 
 namespace Test
 {
     class testMain
     {
-        /*static void Main(string[] args)
+        static void Main(string[] args)
         {
             /*
             BikeSimulatorPower power = new BikeSimulatorPower();
@@ -38,7 +39,20 @@ namespace Test
                 $" acumulatedPower: {protocol.acumilatedPower}," +
                 $" current power: {protocol.currentPower}");
             System.Console.Read();
+            */
+            test();
+            Console.ReadLine();
             
-        }*/
+        }
+        public static void test()
+        {
+            var myDict = new Dictionary<int, dynamic> { { 1, "Hello" }, { 2, "World" } };
+
+            myDict.Add(3, new int[] { 4, 2,3,4,5});
+
+            Console.WriteLine(JsonConvert.SerializeObject(myDict));
+        }
+            
+
     }
 }
