@@ -12,7 +12,8 @@
         <ComboBox HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="163"/>
         <Label Content="Preset" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
         <Button x:Name="GenButton" Content="Generate" HorizontalAlignment="Left" Margin="98,68,0,0" VerticalAlignment="Top" Width="75" Click="GenbuttonClicked"/>
-        <DataGrid x:Name="ObjList" HorizontalAlignment="Left" Height="385" Margin="221,15,0,0" VerticalAlignment="Top" Width="366"/>
+        <DataGrid x:Name="ObjList" HorizontalAlignment="Left" Height="385" Margin="221,15,0,0" VerticalAlignment="Top" Width="366" SelectionChanged="ObjList_SelectionChanged"/>
+        <Button Content="Grass" HorizontalAlignment="Left" Margin="642,104,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" RenderTransformOrigin="8.62,-5.987"/>
 
     </Grid>
 </Window>

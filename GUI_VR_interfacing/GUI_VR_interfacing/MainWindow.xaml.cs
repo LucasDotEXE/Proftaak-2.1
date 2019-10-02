@@ -44,6 +44,7 @@ namespace GUI_VR_interfacing
 
         private void refresh()
         {
+            SessionComboBox.SelectedValue = null;
             client.askForSessionList();
         }
         private void Button_Click(object sender, RoutedEventArgs e)

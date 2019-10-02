@@ -18,11 +18,12 @@ namespace GUI_VR_interfacing
         public string sessionID = "";
         private string lastMessage;
         private Queue<string> toBeSend = new Queue<string>();
-
+        public string selectedItemUUID { set; get; }
+        public Dictionary<string, string> nodes = new Dictionary<string, string>();
+        public ObservableCollection<dynamic> nodeInfo = new ObservableCollection<dynamic>();
         public TcpClient client { get; }
 
         public NetworkStream dStream { get; }
-        public ObservableCollection<dynamic> Nodes = new ObservableCollection<dynamic>();
 
         //setting up the client
         public Client()
@@ -146,13 +147,14 @@ namespace GUI_VR_interfacing
                         }
                         break;
                     case "tunnel/send":
-
+                        Console.WriteLine(dat);
                         if (dat["data"]["data"]["id"].ToString() == "scene/get")
                             foreach (JToken o in dat["data"]["data"]["data"]["children"])
                             {
                                 App.Current.Dispatcher.BeginInvoke((Action)delegate ()
                                 {
-                                    Nodes.Add(new { name = o["name"], uuid = o["uuid"] });
+                                    nodes.Add( o["name"].ToString(), o["uuid"].ToString() );
+                                    nodeInfo.Add(new { name = o["name"], uuid = o["uuid"] });
                                 });
                             }
 

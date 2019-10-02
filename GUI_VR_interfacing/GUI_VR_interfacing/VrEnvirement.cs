@@ -18,7 +18,7 @@ namespace GUI_VR_interfacing
                 scale: 1,
                 rot: new Tripple<double>(0, 0, 0),
                 fileName: "data/NetworkEngine/models/trees/fantasy/tree1.obj");
-                
+
             // addRoute(vrClient, RouteNode.genRouteNodeList());
 
             Commands.Route.show(true);
@@ -50,7 +50,14 @@ namespace GUI_VR_interfacing
                 );
         }
 
-        public static void add3DModdel(Client vrClient, string name,  Tripple<double> pos, int scale, Tripple<double> rot, string fileName)
+        public static void addLayer(Client vrClient, string id, string diffuseTexture, string normalTexture, int minHeight, int maxHeight, int fadeDist)
+        {
+            vrClient.addToQueue(Commands.Scene.node.addLayer(
+                id, diffuseTexture, normalTexture, minHeight, maxHeight, fadeDist
+                ));
+        }
+
+        public static void add3DModdel(Client vrClient, string name, Tripple<double> pos, int scale, Tripple<double> rot, string fileName)
         {
             vrClient.addToQueue(Commands.Scene.node.add(
                 name, pos, scale, rot, fileName
@@ -75,5 +82,6 @@ namespace GUI_VR_interfacing
         {
             client.addToQueue(Commands.Scene.get());
         }
+    
     }
 }
