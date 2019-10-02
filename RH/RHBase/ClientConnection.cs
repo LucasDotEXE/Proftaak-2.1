@@ -35,7 +35,7 @@ namespace RHBase
             try
             {   
 
-                this.stream.AuthenticateAsClient(Config.host);            
+                this.stream.AuthenticateAsClient(Config.serverName);            
             }
             catch (Exception e)
             {

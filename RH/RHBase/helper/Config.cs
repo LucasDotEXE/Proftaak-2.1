@@ -10,6 +10,7 @@ namespace RHBase.helper
     {
 
         // connection
+        public const string serverName              = "RHServer";
         public const string host                    = "127.0.0.1";
         public const int port                       = 6969;
 
@@ -20,9 +21,9 @@ namespace RHBase.helper
         public const string requestPreset           = "R";   // server: R[json_id_list]                    client: R[json_clientData_list]
 
         // paths
-        public static string basePath               = getBasePath();
-        public static string serverCertificatePath  = basePath + @"\RHServer\server\controller\RHCertificate.cer";
-        public static string serverAccountPath      = basePath + @"\RHServer\server\model\json\Account.txt";
+        public static string certificatePath        = getBasePath() + @"\RHServer\server\controller\certificate\cert.crt";
+        public static string certificateKey         = getBasePath() + @"\RHServer\server\controller\certificate\cert.key";
+        public static string serverAccountPath      = getBasePath() + @"\RHServer\server\model\account\Account.txt";
 
         private static string getBasePath()
         {

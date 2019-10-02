@@ -14,9 +14,6 @@ namespace RHServer
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Config.basePath);
-            Console.ReadLine();
-
             Server server = new Server();
             server.startServer();
         }

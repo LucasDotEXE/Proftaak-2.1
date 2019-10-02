@@ -2,7 +2,7 @@
 using RHBase;
 using RHBase.helper;
 using RHServer.server.controller;
-using RHServer.server.model.json;
+using RHServer.server.model.account;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +47,7 @@ namespace RHServer.server.model.client
             try
             {
 
-                this.stream.AuthenticateAsServer(this.server.certificate, false, true);
+                this.stream.AuthenticateAsServer(this.server.certificate, false, SslProtocols.Tls, true);
 
                 SSLHelper.DisplaySecurityLevel(this.stream);
                 SSLHelper.DisplaySecurityServices(this.stream);
@@ -67,8 +67,7 @@ namespace RHServer.server.model.client
             }
             catch(Exception e)
             {
-
-                Console.WriteLine("Exception: {0}", e.Message);
+                Console.WriteLine("Exception: {0}\n name: {1}", e.Message, e.GetType().Name);
 
                 if (e.InnerException != null)
                     Console.WriteLine("Inner exception: {0}", e.InnerException.Message);

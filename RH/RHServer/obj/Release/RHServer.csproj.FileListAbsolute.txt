@@ -1,0 +1,10 @@
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\bin\Release\RHServer.exe.config
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\bin\Release\RHServer.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\bin\Release\RHServer.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\bin\Release\Newtonsoft.Json.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\bin\Release\Newtonsoft.Json.xml
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\obj\Release\RHServer.csprojAssemblyReference.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\obj\Release\RHServer.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\obj\Release\RHServer.csproj.CopyComplete
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\obj\Release\RHServer.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHServer\obj\Release\RHServer.pdb

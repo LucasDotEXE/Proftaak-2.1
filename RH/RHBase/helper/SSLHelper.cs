@@ -32,6 +32,7 @@ namespace RHBase.helper
 
         public static void DisplayCertificateInformation(SslStream stream)
         {
+
             Console.WriteLine("Certificate revocation list checked: {0}", stream.CheckCertRevocationStatus);
 
             X509Certificate localCertificate = stream.LocalCertificate;
@@ -61,5 +62,17 @@ namespace RHBase.helper
                 Console.WriteLine("Remote certificate is null.");
             }
         }
+
+        private static void containCertBuild()
+        {
+
+            /*
+            makecert -sv RHCert.pvk -r -n "CN=RHServer" RHCert.cer
+            makecert -ic RHCert.cer -iv RHCert.pvk -n "CN=RHServer" -sv  RHTCert.pvk -pe -sky exchange RHTCert.cer
+            cert2spc RHTCert.cer RHTCert.spc
+            pvkimprt -pfx RHTCert.spc RHTCert.pvk
+            */
+        }
     }
 }
+

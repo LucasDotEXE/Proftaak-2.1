@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\RH",
+    "\\RH\\RHBase",
+    "\\RH\\RHBase\\helper",
+    "\\RH\\RHServer",
+    "\\RH\\RHServer\\server",
+    "\\RH\\RHServer\\server\\controller",
+    "\\RH\\RHServer\\server\\model",
+    "\\RH\\RHServer\\server\\model\\client",
+    "\\RH\\RHServer\\server\\model\\json"
   ],
-  "SelectedNode": "\\RH",
+  "SelectedNode": "\\RH\\RHServer\\server",
   "PreviewInSolutionExplorer": false
 }

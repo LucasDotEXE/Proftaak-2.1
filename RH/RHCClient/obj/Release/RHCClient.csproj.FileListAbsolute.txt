@@ -1,0 +1,9 @@
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\bin\Release\RHCClient.exe.config
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\bin\Release\RHCClient.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\bin\Release\RHCClient.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\bin\Release\BLELibrary.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\obj\Release\RHCClient.csprojAssemblyReference.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\obj\Release\RHCClient.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\obj\Release\RHCClient.csproj.CopyComplete
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\obj\Release\RHCClient.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\obj\Release\RHCClient.pdb

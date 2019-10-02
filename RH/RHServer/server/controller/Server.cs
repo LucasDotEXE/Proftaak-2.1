@@ -1,6 +1,7 @@
-﻿using RHBase.helper;
+﻿using Newtonsoft.Json;
+using RHBase.helper;
+using RHServer.server.model.account;
 using RHServer.server.model.client;
-using RHServer.server.model.json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +18,29 @@ namespace RHServer.server.controller
     class Server
     {
 
-        public X509Certificate certificate;
+        public X509Certificate2 certificate;
         private List<Client> clients;
 
         // constructor
         public void startServer()
         {
 
-            this.certificate = X509Certificate.CreateFromCertFile(Config.serverCertificatePath);
-            this.clients = new List<Client>();
+            try
+            {
 
-            new Thread(new ThreadStart(catchClients)).Start();
+                this.certificate = new X509Certificate2(Config.certificatePath, Config.certificateKey);
+                this.clients = new List<Client>();
+
+                new Thread(new ThreadStart(catchClients)).Start();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("Couldn't authenticate: {0}", e.StackTrace);
+
+                if (e.InnerException != null)
+                    Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
+            }
         }
 
         // connection
@@ -54,20 +67,24 @@ namespace RHServer.server.controller
             catch (Exception e)
             {
 
-                Console.WriteLine(String.Format("Client Catcher chrashed.\n{0}.\nIt will restart in 10 seconds!", e.StackTrace));
+                Console.WriteLine("Client Catcher Crashed: {0}, name: {1}", e.StackTrace, e.GetType().Name);
+
+                if (e.InnerException != null)
+                    Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
+
                 Thread.Sleep(10000);
                 this.catchClients();
             }
         }
 
-        // docter
+        // Request
         private void request(Client client, string receivedMessage)
         {
 
             if (receivedMessage.Length == 0)
                 client.sendMessage(Config.requestPreset + AccountManager.getClients());
             else
-                this.subscribeClientTo(client, this.parseIds(receivedMessage));
+                this.subscribeClientTo(client, JsonConvert.DeserializeObject<List<int>>(receivedMessage));
         }
 
         private void subscribeClientTo(ClientObserver ClientObserver, List<int> ids)
@@ -78,18 +95,6 @@ namespace RHServer.server.controller
                     client.subscribe(ClientObserver);
                 else
                     client.unsubscribe(ClientObserver);
-        }
-
-        private List<int> parseIds(string receivedIds)
-        {
-
-            string[] stringIds = receivedIds.Split(':');
-            List<int> ids = new List<int>();
-
-            foreach (string id in stringIds)
-                ids.Add(Convert.ToInt32(id));
-
-            return ids;
         }
 
         // messaging

@@ -8,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RHServer.server.model.json
+namespace RHServer.server.model.account
 {
+
     class AccountManager
     {
 
