@@ -62,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VRstandards.cs" />
     <Compile Include="ServerCommands.cs" />
     <Compile Include="VrEnvirement.cs" />
     <Page Include="ControlPanel.xaml">

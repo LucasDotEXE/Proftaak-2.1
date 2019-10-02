@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace GUI_VR_interfacing
 {
@@ -12,6 +13,7 @@ namespace GUI_VR_interfacing
     /// </summary>
     public partial class ControlPanel : Window
     {
+        string modelPath;
         Client _client;
         public ControlPanel()
         {
@@ -37,6 +39,8 @@ namespace GUI_VR_interfacing
         {
             VREnviorment.getScene(_client);
             ObjList.ItemsSource = _client.nodes;
+            ComboBox_Models.ItemsSource = VRstandards.GenerateModelPaths();
+            ComboBox_Models.DisplayMemberPath = "Key";
             ComboBox_SelectNode.ItemsSource = _client.nodes;
             ComboBox_SelectNode.DisplayMemberPath = "name";
             ComboBox_SelectNodeParent.ItemsSource = _client.nodes;
@@ -60,6 +64,11 @@ namespace GUI_VR_interfacing
             VREnviorment.deleteNode(_client, selected["uuid"].ToString());
             _client.nodes.Remove(dSelect);
             _client.nodeDict.Remove(selected["name"].ToString());
+        }
+
+        private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
