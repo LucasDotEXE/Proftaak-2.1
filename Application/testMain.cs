@@ -51,6 +51,8 @@ namespace Test
             myDict.Add(3, new int[] { 4, 2,3,4,5});
 
             Console.WriteLine(JsonConvert.SerializeObject(myDict));
+
+            CommandHelperObjects.Components.Component.getTerain();
         }
             
 

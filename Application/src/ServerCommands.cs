@@ -76,50 +76,23 @@ namespace Commands
         public class node
         {
             private readonly static String idPrefix = Scene.idPrefix + "node/";
-            public static String add([NotNull]String name, String parent, Tripple<double> position, int scale, Tripple<double> rotation, String fileName)
+            public static String add([NotNull]String name, [NotNull]dynamic component, [NotNull]String type, String parent = null, dynamic transform = null)
             {
-
-                var add = new
+                var add = new Dictionary<String, dynamic>
                 {
-                    id = idPrefix + "add",
-                    data = new
+                    { "id", $"{idPrefix}add"} };
+                var data = new Dictionary<String, dynamic> { {"name", name } };
+                if (parent != null)
+                    data.Add("parent", parent);
+                if (component != null)
+                {
+                    var components = new Dictionary<String, dynamic> { {type, component} };
+                    if (transform != null)
                     {
-                        name = name,
-                        parent = parent,
-                        components = new
-                        {
-                            transform = new
-                            {
-                                position = position.val,
-                                scale = scale,
-                                rotation = rotation.val
-                            },
-                            model = new
-                            {
-                                file = fileName,
-                                cullbackfaces = true,
-                                animated = false,
-                                animation = ""
-                            },
-                            terrain = new
-                            {
-                                smoothnormals = true
-                            },
-                            panel = new
-                            {
-                                size = new[] { 1, 1 },
-                                resolution = new[] { 512, 512 },
-                                background = new[] { 1, 1, 1, 1 },
-                                castShadow = true
-                            },
-                            water = new
-                            {
-                                size = new[] { 20, 20 },
-                                resolution = 0.1
-                            }
-                        }
+                        components.Add("trnasform", transform);
                     }
-                };
+                }
+            add.Add("data",data);
                 return JsonConvert.SerializeObject(add);
             }
 
@@ -143,7 +116,6 @@ namespace Commands
                 };
                 return JsonConvert.SerializeObject(update);
             }
-
             public static String delete(String id)
             {
                 var delete = new
@@ -157,7 +129,6 @@ namespace Commands
                 };
                 return JsonConvert.SerializeObject(delete);
             }
-
             public static String find(String name)
             {
                 var find = new
@@ -172,7 +143,6 @@ namespace Commands
                 return JsonConvert.SerializeObject(find);
 
             }
-
             public static String addLayer(String id, String diffuseTexture, String normalTexture, int minHeight, int maxHeight, int fadeDist)
             {
                 var addLayer = new
@@ -199,7 +169,6 @@ namespace Commands
                 };
                 return JsonConvert.SerializeObject(addLayer);
             }
-
             public static String delLayer()
             {
                 var delLayer = new
@@ -275,10 +244,6 @@ namespace Commands
                 return JsonConvert.SerializeObject(getHeight);
             }
         }
-
-
-
-
 
         public class panel
         {
@@ -582,6 +547,111 @@ namespace CommandHelperObjects
             return input.Replace(" ", "").ToLower();
         }
     }
+
+    namespace Components
+    {
+        class Component
+        {
+            public static dynamic getModel([NotNull] String fileName, bool cullback = false, bool animeted = false, String animation = null)
+            {
+                var model = new Dictionary<String, dynamic>() { { "file", fileName}, {"cullbackfaces", cullback }, { "animeted", animeted } };
+                if (animeted)
+                {
+                    model.Add("animetion", animation);
+                }
+                return model;
+            }
+            public static dynamic getTerain(bool smoothnormals = false)
+            {
+                return new
+                {
+                    smoothnormals = smoothnormals
+                };
+            }
+            public static dynamic getPanel(int[] size = null, int[] resolution = null,int[] background = null,bool castShadow = true)
+            {
+                var panel = new Dictionary<String, dynamic>();
+                if (size == null)
+                {
+
+                } else
+                {
+
+                }
+
+                if (resolution == null)
+                {
+
+                } else
+                {
+
+                }
+
+                if (background == null)
+                {
+
+                } else
+                {
+
+                }
+
+                return panel;
+            }
+            public static dynamic getWater()
+            {
+
+            }
+            public static dynamic getTransform(Tripple<double> position = null,int scale = 1,Tripple<double> rotation = null)
+            {
+                var transform = new Dictionary<String, dynamic>() { { "scale", scale } };
+                if (position == null)
+                {
+                    transform.Add("position", new Tripple<double>(0, 0, 0));
+                } else
+                {
+                    transform.Add("position", new Tripple<double>(position.val[0], position.val[1], position.val[2]));
+                }
+                if (rotation == null)
+                {
+                    transform.Add("rotation", new Tripple<double>(0, 0, 0));
+                } else
+                {
+                    transform.Add("rotation", new Tripple<double>(rotation.val[0], rotation.val[1], rotation.val[2]));
+                }
+                return transform;
+            }
+        }
+
+        class Panel : Component
+        {
+
+
+            public dynamic getDynamic()
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        class Water : Component
+        {
+            public dynamic getDynamic()
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public class Transform
+        {
+            internal dynamic getVarInstance()
+            {
+                return new
+                {
+
+                };
+            }
+        }
+    }
+   
 
     class RouteNode
     {
