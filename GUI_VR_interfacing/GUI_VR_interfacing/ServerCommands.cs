@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using CommandHelperObjects;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using CommandHelperObjects;
 
 namespace Commands
 {
@@ -72,7 +72,7 @@ namespace Commands
         public class node
         {
             private readonly static String idPrefix = Scene.idPrefix + "node/";
-            public static String add(String name,  Tripple<double> position, int scale, Tripple<double> rotation, String fileName)
+            public static String add(String name, Tripple<double> position = null, int scale = 1, Tripple<double> rotation = null, String fileName = null)
             {
                 var add = new
                 {
