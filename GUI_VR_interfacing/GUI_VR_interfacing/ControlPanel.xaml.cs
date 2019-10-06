@@ -33,7 +33,7 @@ namespace GUI_VR_interfacing
         }
         private void valChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            VREnviorment.changeTime(_client, (TimeOfDay.Value));
+            VREnviorment.changeTime(_client, (float) (TimeOfDay.Value));
         }
         private void update()
         {
@@ -67,6 +67,11 @@ namespace GUI_VR_interfacing
         }
 
         private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged_1(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
         }

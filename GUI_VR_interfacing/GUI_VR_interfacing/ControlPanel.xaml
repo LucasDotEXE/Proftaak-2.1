@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Time:" HorizontalAlignment="Left" Margin="664,10,0,0" VerticalAlignment="Top"/>
         <Slider x:Name="TimeOfDay" HorizontalAlignment="Left" Margin="592,41,0,0" VerticalAlignment="Top" Width="182" ValueChanged="valChanged" Maximum="24"/>
-        <ComboBox HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="163"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="163" SelectionChanged="ComboBox_SelectionChanged_1"/>
         <Label Content="Preset" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
         <Button x:Name="GenButton" Content="Generate" HorizontalAlignment="Left" Margin="98,68,0,0" VerticalAlignment="Top" Width="75" Click="GenbuttonClicked"/>
         <DataGrid x:Name="ObjList" HorizontalAlignment="Left" Height="385" Margin="221,15,0,0" VerticalAlignment="Top" Width="366" SelectionChanged="ObjList_SelectionChanged"/>
