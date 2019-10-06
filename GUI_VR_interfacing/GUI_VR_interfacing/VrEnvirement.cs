@@ -8,22 +8,23 @@ namespace GUI_VR_interfacing
 
         public static void init(Client vrClient)
         {
-            addTerain(vrClient, 256, 256);
+            addTerain(vrClient, 1024, 1024);
             //Commands.Scene.get(); //see if the groundpane is among it 
             changeTime(vrClient, 0);
             // changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
-            add3DModdel(vrClient,"boom",new
+            add3DModdel(vrClient, "boom", new
             {
                 model = new
                 {
-                    file = VRstandards.GenerateModelPaths()["Tree 2"],
+                    file = "data/NetworkEngine/models/preset/cs_office/cs_office.obj"
                 },
-                terrain = new
-                {
+                transform = new
+                {   
+                    scale = 0.005
                 }
             },
             null
-            );
+            ) ;
  
 
             // addRoute(vrClient, RouteNode.genRouteNodeList());

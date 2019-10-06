@@ -2,8 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System.Threading;
 using System.Windows;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+
 using System.Collections.Generic;
 
 namespace GUI_VR_interfacing
@@ -13,7 +12,6 @@ namespace GUI_VR_interfacing
     /// </summary>
     public partial class ControlPanel : Window
     {
-        string modelPath;
         Client _client;
         public ControlPanel()
         {
