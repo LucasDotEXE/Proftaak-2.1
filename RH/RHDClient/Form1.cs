@@ -85,30 +85,17 @@ namespace DocterAplication
                     data.addBikeSpeedMeasurement(new BikeSpeedMeasurement(100, 22));
                 }
                 Program.docterClient.clientData.Add(data);
-                UserList.Items.Add($"Client {i+1}");
+                UserList.Nodes.Add($"Client {i+1}");
             }
-        }
-
-        private void rebuildNameSelectionList()
-        {
-            NameSelectionList.Nodes.Clear();
-            this.BeginInvoke(new Action(() => {
-                foreach (String item in UserList.CheckedItems)
-                {
-                    NameSelectionList.Nodes.Add(item);
-                }
-                NameSelectionList.TreeViewNodeSorter = new NodeSorter();
-                NameSelectionList.Sort();
-            }));
         }
 
         private void RefreshPage()
         {
             Program.docterClient.updateClientData();
-            UserList.Items.Clear();
+            UserList.Nodes.Clear();
             foreach (ClientData data in Program.docterClient.clientData)
             {
-                UserList.Items.Add(data.name);
+                UserList.Nodes.Add(data.name);
             }
             
         }
@@ -116,7 +103,7 @@ namespace DocterAplication
 
         private void UserList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            String updatedClient = UserList.Items[e.Index].ToString();            
+            String updatedClient = UserList.Nodes[e.Index].ToString();            
             if (e.NewValue.ToString().Equals("Checked"))
             {
                 Program.docterClient.subscribe(updatedClient);
@@ -125,7 +112,6 @@ namespace DocterAplication
             {
                 Program.docterClient.unSubscribe(updatedClient);
             }
-            rebuildNameSelectionList();
         }
 
         private void NodeClicked(object sender, TreeNodeMouseClickEventArgs e)
@@ -133,7 +119,7 @@ namespace DocterAplication
             this.BeginInvoke(new Action(() => {
                 try
                 {
-                    ClientSelected.Text = $"Selected Client: {NameSelectionList.SelectedNode.Text}";
+                    ClientSelected.Text = $"Selected Client: {UserList.SelectedNode.Text}";
                 } catch (Exception)
                 {
                     return;
@@ -141,6 +127,35 @@ namespace DocterAplication
                 
                 rebuildCharts();
                 rebuildChatBox();
+                rebuildHistory();
+            }));
+        }
+
+        private void rebuildHistory()
+        {
+            this.BeginInvoke(new Action(() => {
+                try
+                {
+                    _ = UserList.SelectedNode.Text;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.StackTrace);
+                    return;
+                }
+                String selectedClientName = UserList.SelectedNode.Text;
+                ClientData data = Program.docterClient.getClientData(selectedClientName);
+
+                for (int i = 0; i < data.HeartRateMeasurements.Count; i++)
+                {
+                    BikePowerMeasurement bikePowMes = data.BikePowerMeasurements[i];
+                    BikeSpeedMeasurement bikeSpedMes = data.BikeSpeedMeasurements[i];
+                    HeartRateMeasurement heartMes = data.HeartRateMeasurements[i];
+
+                    this.dataGridView1.Rows.Insert(i, heartMes.Bpm, heartMes.ExpandedEnergy, bikeSpedMes.Speed, bikeSpedMes.Distance, bikePowMes.CurrentPower, bikePowMes.AcumulatedPower);
+                }
+                
+
             }));
         }
 
@@ -149,14 +164,14 @@ namespace DocterAplication
             this.BeginInvoke(new Action(() =>
             {
                 try {
-                    _ = NameSelectionList.SelectedNode.Text;
+                    _ = UserList.SelectedNode.Text;
                 } catch (Exception e)
                 {
                     Console.WriteLine(e.StackTrace);
                     return;
                 }
 
-                String selectedClientName = NameSelectionList.SelectedNode.Text;
+                String selectedClientName = UserList.SelectedNode.Text;
                 ClientData data = Program.docterClient.getClientData(selectedClientName);
                 mainChart.Series["BPM"].Points.Clear();
                 mainChart.Series["Energy"].Points.Clear();
@@ -217,14 +232,14 @@ namespace DocterAplication
         private void SendButton_Click(object sender, EventArgs e)
         {
             String msg = messageBox.Text;
-            Program.docterClient.sendMessage(NameSelectionList.SelectedNode.Text, msg);
+            Program.docterClient.sendMessage(UserList.SelectedNode.Text, msg);
             rebuildChatBox();
         }
 
         private void rebuildChatBox()
         {
             chatBox.Items.Clear();
-            foreach (String message in Program.docterClient.getClientData(NameSelectionList.SelectedNode.Text).messages)
+            foreach (String message in Program.docterClient.getClientData(UserList.SelectedNode.Text).messages)
             {
                 chatBox.Items.Add(message);
             }
