@@ -77,14 +77,14 @@ namespace Commands
         {
             private readonly static String idPrefix = Scene.idPrefix + "node/";
             public static String add([NotNull]String name, dynamic component = null, string parent = null)
-            {
-                Dictionary<string, dynamic> add = new Dictionary<string, dynamic>();
-                add.Add("id", idPrefix + "add");
-                Dictionary<string, dynamic> data = new Dictionary<string, dynamic>();
-                    data.Add("name", name);
-                if (parent != null) data.Add("parent", parent);
-                if (component != null) data.Add("components",component);
-                add.Add("data",data);
+            {
+                Dictionary<string, dynamic> add = new Dictionary<string, dynamic>();
+                add.Add("id", idPrefix + "add");
+                Dictionary<string, dynamic> data = new Dictionary<string, dynamic>();
+                    data.Add("name", name);
+                if (parent != null) data.Add("parent", parent);
+                if (component != null) data.Add("components",component);
+                add.Add("data",data);
                 
                 return JsonConvert.SerializeObject(add);
             }
