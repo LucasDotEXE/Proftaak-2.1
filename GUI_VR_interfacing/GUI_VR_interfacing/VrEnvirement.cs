@@ -16,7 +16,7 @@ namespace GUI_VR_interfacing
             {
                 model = new
                 {
-                    file = VRstandards.GenerateModelPaths()["Bike"],
+                    file = VRstandards.GenerateModelPaths()["Tree 2"],
                 },
                 terrain = new
                 {
