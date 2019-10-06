@@ -12,12 +12,6 @@ namespace GUI_VR_interfacing
             //Commands.Scene.get(); //see if the groundpane is among it 
             changeTime(vrClient, 0);
             // changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
-            add3DModdel(vrClient,
-                name: "test",
-                pos: new Tripple<double>(1, 1, 1),
-                scale: 1,
-                rot: new Tripple<double>(0, 0, 0),
-                fileName: "data/NetworkEngine/models/trees/fantasy/tree1.obj");
 
             // addRoute(vrClient, RouteNode.genRouteNodeList());
 
@@ -36,7 +30,7 @@ namespace GUI_VR_interfacing
             vrClient.AddToQueue(Commands.Scene.node.delete(name));
         }
 
-        public static void changeTime(Client vrClient, double time)
+        public static void changeTime(Client vrClient, float time)
         {
             vrClient.AddToQueue(
                 Commands.Scene.skybox.setTime(time)
@@ -54,10 +48,10 @@ namespace GUI_VR_interfacing
                 );
         }
 
-        public static void add3DModdel(Client vrClient, string name, Tripple<double> pos, int scale, Tripple<double> rot, string fileName)
+        public static void add3DModdel(Client vrClient, string name, dynamic component, string type, string parent = null, dynamic transform = null)
         {
             vrClient.AddToQueue(Commands.Scene.node.add(
-                name, pos, scale, rot, fileName
+                name, component, type, parent, transform
                 ));
         }
 
