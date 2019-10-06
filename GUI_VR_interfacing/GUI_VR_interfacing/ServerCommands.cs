@@ -76,23 +76,19 @@ namespace Commands
         public class node
         {
             private readonly static String idPrefix = Scene.idPrefix + "node/";
-            public static String add([NotNull]String name, [NotNull]dynamic component, [NotNull]String type, String parent = null, dynamic transform = null)
+            public static String add([NotNull]String name, [NotNull]dynamic component, dynamic parent = null)
             {
-                var add = new Dictionary<String, dynamic>
-                {
-                    { "id", $"{idPrefix}add"} };
-                var data = new Dictionary<String, dynamic> { { "name", name } };
-                if (parent != null)
-                    data.Add("parent", parent);
-                if (component != null)
-                {
-                    var components = new Dictionary<String, dynamic> { { type, component } };
-                    if (transform != null)
-                    {
-                        components.Add("trnasform", transform);
-                    }
-                }
-                add.Add("data", data);
+                Dictionary<string, dynamic> add = new Dictionary<string, dynamic>();
+                add.Add("id", idPrefix + "add");
+                Dictionary<string, dynamic> data = new Dictionary<string, dynamic>();
+                    data.Add("name", name);
+                if (parent != null) data.Add("parent", parent);
+                add.Add("data",data);
+               
+                
+
+
+
                 return JsonConvert.SerializeObject(add);
             }
 

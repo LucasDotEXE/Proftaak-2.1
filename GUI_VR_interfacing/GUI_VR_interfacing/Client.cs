@@ -42,6 +42,7 @@ namespace GUI_VR_interfacing
                 if (toBeSend.Count > 0)
                 {
                     string data = toBeSend.Dequeue();
+                    Console.WriteLine(data);
                     if (data.Contains("scene") || data.Contains("route") && sessionID != "") SendDataTunnel(data);
                     else if (data.Contains("scene") || data.Contains("route")) toBeSend.Enqueue(data);
                     else SendData(data);
@@ -147,14 +148,16 @@ namespace GUI_VR_interfacing
                         }
                         break;
                     case "tunnel/send":
-                        Console.WriteLine(dat);
                         if (dat["data"]["data"]["id"].ToString() == "scene/get")
                             foreach (JToken o in dat["data"]["data"]["data"]["children"])
                             {
                                 App.Current.Dispatcher.BeginInvoke((Action)delegate ()
                                 {
-                                    nodes.Add(new { name = o["name"], uuid = o["uuid"] });
-                                    nodeDict.Add(o["name"].ToString(), o["uuid"].ToString());
+                                    if (!nodeDict.ContainsKey(o["name"].ToString()))
+                                    {
+                                        nodes.Add(new { name = o["name"], uuid = o["uuid"] });
+                                        nodeDict.Add(o["name"].ToString(), o["uuid"].ToString());
+                                    }
                                 });
                             }
 
