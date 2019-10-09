@@ -7,19 +7,5 @@ C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCC
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\obj\Debug\RHCClient.csproj.CopyComplete
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\obj\Debug\RHCClient.exe
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\obj\Debug\RHCClient.pdb
-<<<<<<< HEAD
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\bin\Debug\Newtonsoft.Json.dll
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCClient\bin\Debug\Newtonsoft.Json.xml
-=======
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\bin\Debug\RHCClient.exe.config
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\bin\Debug\RHCClient.exe
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\bin\Debug\RHCClient.pdb
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\bin\Debug\BLELibrary.dll
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\bin\Debug\Newtonsoft.Json.dll
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\bin\Debug\Newtonsoft.Json.xml
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\obj\Debug\RHCClient.csprojAssemblyReference.cache
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\obj\Debug\RHCClient.csproj.CoreCompileInputs.cache
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\obj\Debug\RHCClient.csproj.CopyComplete
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\obj\Debug\RHCClient.exe
-C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHCClient\obj\Debug\RHCClient.pdb
->>>>>>> sslstream
