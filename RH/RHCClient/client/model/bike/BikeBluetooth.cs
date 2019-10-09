@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Avans.TI.BLE;
+﻿using Avans.TI.BLE;
+using CRC;
 using RHBase;
 using RHCClient.client.controller.interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace RHCClient.client.model.bike
 {
@@ -36,17 +34,21 @@ namespace RHCClient.client.model.bike
             new Thread(new ThreadStart(this.buildConnection)).Start();
         }
 
-        public void setResistance(int persentage)
+        public void setResistance(int percentage)
         {
-
             if (this.isConnected)
             {
+                var crc32 = new Crc32(0xedb88320u, 0xffffffffu);
+                byte[] output = new byte[13];
+                output[0] = 0x4A; // Sync bit;
+                output[1] = 0x09; // Message Length
+                output[2] = 0x4E; // Message type
+                output[3] = 0x05; // Message type
+                output[4] = 0x30; // Data Type
+                output[11] = (byte)percentage;
+                output[12] = (byte)BitConverter.ToInt32(crc32.ComputeHash(output), 0);
 
-                byte[] bytes = new byte[8];
-                bytes[0] = 0x30;
-                bytes[7] = Convert.ToByte(Math.Abs(persentage % 201));
-
-                //this.bleBike.send(bytes);
+                bleBike.WriteCharacteristic("6e40fec3-b5a3-f393-e0a9-e50e24dcca9e", output);
             }
         }
 
@@ -76,7 +78,7 @@ namespace RHCClient.client.model.bike
             await bleHeart.SubscribeToCharacteristic("HeartRateMeasurement");
 
             this.isConnected = true;
-        } 
+        }
 
         private void prepareConnection()
         {

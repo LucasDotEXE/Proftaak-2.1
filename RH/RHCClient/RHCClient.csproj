@@ -34,7 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BLELibrary">
-      <HintPath>..\..\..\Week 1 - 2\FietsDemo\FietsDemo\BLELibrary.dll</HintPath>
+      <HintPath>.\BLELibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="CRC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CRC.1.0.0\lib\net451\CRC.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="..\RHBase\RHBase.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
