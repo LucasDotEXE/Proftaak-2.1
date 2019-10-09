@@ -25,6 +25,7 @@ namespace GUI_VR_interfacing
             modelPaths.Add("Tree 2", genPath + "trees/fantasy/tree2.obj");
             modelPaths.Add("Tree 3", genPath + "trees/fantasy/tree3.obj");
             modelPaths.Add("Tree 4", genPath + "trees/fantasy/tree4.obj");
+            modelPaths.Add("City", genPath + "preset/Amaryllis City/OBJ/Amaryllis City.obj");
 
             return modelPaths;
         }

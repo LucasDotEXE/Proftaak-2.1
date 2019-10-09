@@ -16,7 +16,7 @@ namespace GUI_VR_interfacing
             {
                 model = new
                 {
-                    file = "data/NetworkEngine/models/preset/cs_office/cs_office.obj"
+                    file = VRstandards.GenerateModelPaths()["City"]
                 },
                 transform = new
                 {   
@@ -42,6 +42,11 @@ namespace GUI_VR_interfacing
         public static void deleteNode(Client vrClient, string name)
         {
             vrClient.AddToQueue(Commands.Scene.node.delete(name));
+        }
+
+        public static void findNode(Client vrClient, string name)
+        {
+            vrClient.AddToQueue(Commands.Scene.node.find(name));
         }
 
         public static void changeTime(Client vrClient, float time)

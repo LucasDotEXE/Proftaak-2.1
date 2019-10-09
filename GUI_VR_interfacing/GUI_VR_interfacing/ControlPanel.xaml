@@ -15,8 +15,8 @@
         <DataGrid x:Name="ObjList" HorizontalAlignment="Left" Height="385" Margin="221,15,0,0" VerticalAlignment="Top" Width="366" SelectionChanged="ObjList_SelectionChanged"/>
         <Label Content="Selected Node:&#xD;&#xA;" HorizontalAlignment="Left" Margin="15,136,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="ComboBox_SelectNode" HorizontalAlignment="Left" Margin="15,156,0,0" VerticalAlignment="Top" Width="158"/>
-        <Button x:Name="Button_Edit" Content="Edit" HorizontalAlignment="Left" Margin="98,183,0,0" VerticalAlignment="Top" Width="75" Click="Button_EditClick"/>
-        <Button x:Name="Button_Delete" Content="Delete" HorizontalAlignment="Left" Margin="98,208,0,0" VerticalAlignment="Top" Width="75" Click="Button_DeleteClick"/>
+        <Button x:Name="Button_Edit" Content="Info" HorizontalAlignment="Left" Margin="98,186,0,0" VerticalAlignment="Top" Width="75" Click="Button_EditClick"/>
+        <Button x:Name="Button_Delete" Content="Delete" HorizontalAlignment="Left" Margin="15,186,0,0" VerticalAlignment="Top" Width="75" Click="Button_DeleteClick"/>
         <Button x:Name="Button_AddNode" Content="Add Node" HorizontalAlignment="Left" Margin="664,347,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox x:Name="TextBox_NewNodeName" HorizontalAlignment="Left" Height="23" Margin="627,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="New Nodes:&#xD;&#xA;" HorizontalAlignment="Left" Margin="643,70,0,0" VerticalAlignment="Top"/>

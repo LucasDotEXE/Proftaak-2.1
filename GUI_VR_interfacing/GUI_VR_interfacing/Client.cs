@@ -149,7 +149,7 @@ namespace GUI_VR_interfacing
                         }
                         break;
                     case "tunnel/send":
-                        Console.WriteLine(dat);
+                        //Console.WriteLine(dat);
                         if (dat["data"]["data"]["id"].ToString() == "scene/get")
                             foreach (JToken o in dat["data"]["data"]["data"]["children"])
                             {
@@ -162,8 +162,11 @@ namespace GUI_VR_interfacing
                                     }
                                 });
                             }
-
-                        break;
+                        if (dat["data"]["data"]["id"].ToString() == "scene/find")
+                        {
+                            Console.WriteLine(dat);
+                        }
+                            break;
                     case "tunnel/create":
                         if (dat["data"]["status"].ToString() == "ok")
                             sessionID = dat["data"]["id"].ToString();
