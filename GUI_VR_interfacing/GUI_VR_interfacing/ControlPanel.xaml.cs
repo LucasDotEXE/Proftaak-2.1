@@ -54,7 +54,7 @@ namespace GUI_VR_interfacing
         {
             dynamic dSelect = ComboBox_SelectNode.SelectedItem;
             JToken selected = JToken.Parse(JsonConvert.SerializeObject(dSelect));
-            VREnviorment.deleteNode(_client, selected["uuid"].ToString());
+            VREnviorment.findNode(_client, selected["name"].ToString());
         }
 
         private void Button_DeleteClick(object sender, RoutedEventArgs e)
