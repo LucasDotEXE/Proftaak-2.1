@@ -1,13 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RHBase;
 using RHBase.helper;
-using RHCClient.client.controller.interfaces;
-using RHCClient.client.model.bike;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RHCClient.client.controller
 {
@@ -24,6 +18,7 @@ namespace RHCClient.client.controller
             //IBike bike = new BikeSimulatorLucas(this);
             //bike.startConnection();
 
+<<<<<<< HEAD
             this.sendMessage(Config.messagePreset + "Hallo Wereld!");
             this.sendMessage(Config.messagePreset + "Hallo Wereld!Hallo Wereld!Hallo Wereld!");
             this.sendMessage(Config.messagePreset + "Hallo Wereld!");
@@ -35,6 +30,11 @@ namespace RHCClient.client.controller
 
             this.sendMessage(Config.loginPreset + JsonConvert.SerializeObject(credentials));
 
+=======
+
+
+            this.sendMessage(Config.messagePreset + "Hallo Wereld!");
+>>>>>>> sslstream
             Console.Read();
         }
 
