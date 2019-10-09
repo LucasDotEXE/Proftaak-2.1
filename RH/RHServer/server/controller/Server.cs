@@ -101,8 +101,10 @@ namespace RHServer.server.controller
         public void receiveMessage(Client client, string receivedMessage)
         {
 
-            string preset = receivedMessage.Substring(0, 1);
-            string message = receivedMessage.Substring(1);
+            string preset = receivedMessage.Substring(1, 1);
+            string message = receivedMessage.Substring(2);
+
+            Console.WriteLine("Message: {0}-{1}\nOriginal: {2}", preset, message, receivedMessage);
 
             switch (preset)
             {

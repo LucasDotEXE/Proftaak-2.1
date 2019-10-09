@@ -42,7 +42,7 @@ namespace RHServer.server.model.client
 
             TcpClient client = obj as TcpClient;
 
-            this.stream = new SslStream(client.GetStream(), false);
+            this.stream = new SslStream(client.GetStream(), true);
             
             try
             {
@@ -54,8 +54,8 @@ namespace RHServer.server.model.client
                 SSLHelper.DisplayCertificateInformation(this.stream);
                 SSLHelper.DisplayStreamProperties(this.stream);
 
-                this.stream.ReadTimeout = 10;
-                this.stream.WriteTimeout = 10;
+                this.stream.ReadTimeout = 60000;
+                this.stream.WriteTimeout = 60000;
 
                 while (true)
                 {

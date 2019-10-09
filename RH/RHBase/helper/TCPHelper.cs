@@ -36,15 +36,15 @@ namespace RHBase.helper
                 byte[] bytes = new byte[(int) length[0]];
                 int readBytes = 1;
 
-                while (readBytes < bytes.Length)
+                while (readBytes < length[0])
                     readBytes += stream.Read(bytes, readBytes, (bytes.Length - readBytes));
 
-                return encoding.GetString(bytes, 0, bytes.Length);
+                return encoding.GetString(bytes, 0, readBytes);
             }
             catch (Exception e)
             {
 
-                throw e;
+                throw new Exception("Failed reading sslStream", e);
             }
         }
 
@@ -66,7 +66,7 @@ namespace RHBase.helper
                 byte[] messageBytes = encoding.GetBytes(message);
                 byte[] bytes = new byte[messageBytes.Length + 1];
 
-                bytes[0] = (byte) messageBytes.Length;
+                bytes[0] = (byte) bytes.Length;
 
                 for (int i = 0; i < messageBytes.Length; i++)
                     bytes[i + 1] = messageBytes[i];
@@ -76,7 +76,7 @@ namespace RHBase.helper
             catch (Exception e)
             {
 
-                throw e;
+                throw new Exception("Failed writing sslStream", e);
             }
         }
     }

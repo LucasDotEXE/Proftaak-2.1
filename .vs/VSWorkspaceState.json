@@ -7,10 +7,10 @@
     "\\RH\\RHServer",
     "\\RH\\RHServer\\server",
     "\\RH\\RHServer\\server\\controller",
+    "\\RH\\RHServer\\server\\controller\\certificate",
     "\\RH\\RHServer\\server\\model",
-    "\\RH\\RHServer\\server\\model\\client",
-    "\\RH\\RHServer\\server\\model\\json"
+    "\\RH\\RHServer\\server\\model\\client"
   ],
-  "SelectedNode": "\\RH\\RHServer\\server",
+  "SelectedNode": "\\RH\\RHServer\\server\\controller\\certificate\\cert.crt",
   "PreviewInSolutionExplorer": false
 }

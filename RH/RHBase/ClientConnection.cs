@@ -22,20 +22,15 @@ namespace RHBase
         protected void startConnection()
         {
 
-            this.thread = new Thread(new ThreadStart(handleConnection));
-            this.thread.Start();
-        }
-
-        private void handleConnection()
-        {
-
             TcpClient client = new TcpClient(Config.host, Config.port);
             this.stream = new SslStream(client.GetStream(), false, new RemoteCertificateValidationCallback(validateCertificate), null);
 
             try
-            {   
+            {
 
-                this.stream.AuthenticateAsClient(Config.serverName);            
+                this.stream.AuthenticateAsClient(Config.serverName);
+
+                TCPHelper.write(this.stream, "ok");
             }
             catch (Exception e)
             {
@@ -49,7 +44,8 @@ namespace RHBase
                 return;
             }
 
-            this.getMessage();
+            this.thread = new Thread(new ThreadStart(getMessage));
+            this.thread.Start();
         }
 
         private bool validateCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
