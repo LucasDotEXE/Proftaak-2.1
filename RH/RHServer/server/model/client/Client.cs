@@ -41,9 +41,8 @@ namespace RHServer.server.model.client
         {
 
             TcpClient client = obj as TcpClient;
+            this.stream = new SslStream(client.GetStream(), false);
 
-            this.stream = new SslStream(client.GetStream(), true);
-            
             try
             {
 

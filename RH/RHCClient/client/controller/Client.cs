@@ -25,11 +25,6 @@ namespace RHCClient.client.controller
             //bike.startConnection();
 
             this.sendMessage(Config.messagePreset + "Hallo Wereld!");
-            this.sendMessage(Config.messagePreset + "Hallo Wereld!Hallo Wereld!Hallo Wereld!");
-            this.sendMessage(Config.messagePreset + "Hallo Wereld!");
-            this.sendMessage(Config.messagePreset + "Hallo Wereld!");
-            this.sendMessage(Config.messagePreset + "Hallo Wereld!");
-            this.sendMessage(Config.messagePreset + "Hallo Wereld!");
 
             string[] credentials = new string[] { "wessel", "00000000", false.ToString()};
 
