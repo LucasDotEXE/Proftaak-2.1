@@ -149,7 +149,7 @@ namespace GUI_VR_interfacing
                         }
                         break;
                     case "tunnel/send":
-                        //Console.WriteLine(dat);
+                        Console.WriteLine(dat);
                         if (dat["data"]["data"]["id"].ToString() == "scene/get")
                             foreach (JToken o in dat["data"]["data"]["data"]["children"])
                             {

@@ -138,7 +138,7 @@ namespace Commands
 
                     data = new
                     {
-                        name = new { name }
+                        name = name
                     }
                 };
                 return JsonConvert.SerializeObject(find);
@@ -395,7 +395,7 @@ namespace Commands
                 id = idPrefix + "add",
                 data = new
                 {
-                    nodes = nodes.ToArray()
+                    nodes = nodes.ToArray().ToString()
                 }
             };
             return JsonConvert.SerializeObject(add);
@@ -661,23 +661,23 @@ namespace CommandHelperObjects
 
     class RouteNode
     {
-        private int[] pos { get; set; }
-        private int[] dir { get; set; }
+        private double[] pos { get; set; }
+        private double[] dir { get; set; }
 
-        public RouteNode(Tripple<int> pos, Tripple<int> dir)
+        public RouteNode(Tripple<double> pos, Tripple<double> dir)
         {
-            this.pos = new int[] { pos.val[0], pos.val[1], pos.val[2] };
-            this.dir = new int[] { dir.val[0], dir.val[1], dir.val[2] };
+            this.pos = new double[] { pos.val[0], pos.val[1], pos.val[2] };
+            this.dir = new double[] { dir.val[0], dir.val[1], dir.val[2] };
         }
 
         public static List<RouteNode> genRouteNodeList()
         {
             List<RouteNode> nodes = new List<RouteNode>();
 
-            nodes.Add(new RouteNode(new Tripple<int>(0, 0, 0), new Tripple<int>(5, 0, -5)));
-            nodes.Add(new RouteNode(new Tripple<int>(50, 0, 1), new Tripple<int>(5, 0, 5)));
-            nodes.Add(new RouteNode(new Tripple<int>(50, 0, 50), new Tripple<int>(-5, 0, 5)));
-            nodes.Add(new RouteNode(new Tripple<int>(0, 0, 50), new Tripple<int>(-5, 0, -5)));
+            nodes.Add(new RouteNode(new Tripple<double>(0, 0, 0), new Tripple<double>(5, 0, -5)));
+            nodes.Add(new RouteNode(new Tripple<double>(50, 0, 1), new Tripple<double>(5, 0, 5)));
+            nodes.Add(new RouteNode(new Tripple<double>(50, 0, 50), new Tripple<double>(-5, 0, 5)));
+            nodes.Add(new RouteNode(new Tripple<double>(0, 0, 50), new Tripple<double>(-5, 0, -5)));
 
             return nodes;
         }
