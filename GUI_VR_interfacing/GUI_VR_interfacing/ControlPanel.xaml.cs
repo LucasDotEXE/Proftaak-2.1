@@ -75,5 +75,15 @@ namespace GUI_VR_interfacing
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            update();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            VREnviorment.startRoute(_client);  
+        }
     }
 }

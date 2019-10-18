@@ -8,12 +8,25 @@ namespace GUI_VR_interfacing
 
         public static void init(Client vrClient)
         {
-            
+
             addTerain(vrClient, 1024, 1024);
             //Commands.Scene.get(); //see if the groundpane is among it 
             changeTime(vrClient, 0);
             // changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
-            add3DModdel(vrClient, "boom", new
+            add3DModdel(vrClient, "Bike", new
+            {
+                model = new
+                {
+                    file = VRstandards.GenerateModelPaths()["Bike"],
+                },
+                transform = new
+                {
+                    scale = 1
+                }
+            },
+            null
+            );
+            add3DModdel(vrClient, "City", new
             {
                 model = new
                 {
@@ -26,18 +39,38 @@ namespace GUI_VR_interfacing
             },
             null
             );
-            List<RouteNode> route = new List<RouteNode>();
-            route.Add(new RouteNode(new Tripple<double>(-19.83, 3.00, 15.93), new Tripple<double>(5, 0, -5)));
-            route.Add(new RouteNode(new Tripple<double>(-38.75, 3.00, 15.93), new Tripple<double>(5, 0, 5)));
-            route.Add(new RouteNode(new Tripple<double>(-38.75, 3.00, -87.41), new Tripple<double>(-5, 0, 5)));
-            route.Add(new RouteNode(new Tripple<double>(-19.83, 3.00, -87.41), new Tripple<double>(-5, 0, -5)));
+            List<dynamic> route = new List<dynamic>();
+            route.Add(new { pos = new double[] { -19.83, 3.00, 15.93 }, dir = new double[] { -5, 0, 5 } });
+            route.Add(new { pos = new double[] { -38.75, 3.00, 15.93 }, dir = new double[] { -5, 0, -5 } });
+            route.Add(new { pos = new double[] { -38.75, 3.00, -87.41 }, dir = new double[] { 5, 0, -5 } });
+            route.Add(new { pos = new double[] { -19.83, 3.00, -87.41 }, dir = new double[] { 5, 0, 5 }});
+
+          
 
             addRoute(vrClient,
                 routeNodes: route);
 
 
+          
 
         }
+
+        public static void startRoute(Client vrClient)
+        {
+              followRoute(vrClient,
+              routeID: vrClient.nodeDict["Route"],
+              nodeID: vrClient.nodeDict["Bike"],
+              speed: 1,
+              offset: 0,
+              rotate: 0,
+              smoothing: 0,
+              followHeight: true,
+              rotateOfset: new double[] { 0, 0, 0 },
+              positionOffset: new double[] { 0, 0, 0 }
+              );
+
+        }
+
 
         public static void addTerain(Client vrClient, int x, int y)
         {
@@ -46,9 +79,9 @@ namespace GUI_VR_interfacing
                                 x, y, heightMap.getBlankHightMap(x, y)
                                 ));
         }
-        public static void followRoute(Client vrClient, string routeID, string nodeID, double speed, double ofset, Rotate rotate, double smoothing, bool followHeight, Tripple<double> rotateOfset, Tripple<double> positionOffset)
+        public static void followRoute(Client vrClient, string routeID, string nodeID, double speed, double offset, Rotate rotate, double smoothing, bool followHeight, double[] rotateOfset, double[] positionOffset)
         {
-            vrClient.AddToQueue(Commands.Route.follow(routeID, nodeID, speed, ofset, rotate, smoothing, followHeight, rotateOfset, positionOffset));
+            vrClient.AddToQueue(Commands.Route.follow(routeID, nodeID, speed, offset, rotate, smoothing, followHeight, rotateOfset, positionOffset));
         }
 
         public static void deleteNode(Client vrClient, string name)
@@ -86,7 +119,7 @@ namespace GUI_VR_interfacing
                 ));
         }
 
-        public static void addRoute(Client vrClient, List<RouteNode> routeNodes)
+        public static void addRoute(Client vrClient, List<dynamic> routeNodes)
         {
             vrClient.AddToQueue(
                 Commands.Route.add(

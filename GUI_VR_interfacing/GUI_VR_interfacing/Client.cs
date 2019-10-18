@@ -24,6 +24,7 @@ namespace GUI_VR_interfacing
 
         public NetworkStream dStream { get; }
         public ObservableCollection<dynamic> nodes = new ObservableCollection<dynamic>();
+        public bool finished = false;
 
         //setting up the client
         public Client()
@@ -136,6 +137,7 @@ namespace GUI_VR_interfacing
                 dat = JToken.Parse(rData);
             }
             catch { Console.WriteLine("message was  incorrect Json"); }
+            Console.WriteLine("Got data "  + dat);
             if (dat != null)
                 switch (dat["id"].ToString())
                 {
@@ -149,7 +151,7 @@ namespace GUI_VR_interfacing
                         }
                         break;
                     case "tunnel/send":
-                        Console.WriteLine(dat);
+                      //  Console.WriteLine(dat);
                         if (dat["data"]["data"]["id"].ToString() == "scene/get")
                             foreach (JToken o in dat["data"]["data"]["data"]["children"])
                             {
@@ -165,6 +167,18 @@ namespace GUI_VR_interfacing
                         if (dat["data"]["data"]["id"].ToString() == "scene/find")
                         {
                             Console.WriteLine(dat);
+                        }
+                        if (dat["data"]["data"]["id"].ToString() == "route/add")
+                        {
+                            App.Current.Dispatcher.BeginInvoke((Action)delegate ()
+                            {
+                                nodes.Add(new { name = "Route", uuid = dat["data"]["data"]["data"]["uuid"].ToString() });
+                                nodeDict.Add("Route", dat["data"]["data"]["data"]["uuid"].ToString());
+
+                                finished = true;
+
+                                // Console.WriteLine(dat);
+                            });
                         }
                             break;
                     case "tunnel/create":

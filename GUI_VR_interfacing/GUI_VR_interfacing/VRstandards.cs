@@ -12,7 +12,8 @@ namespace GUI_VR_interfacing
         {
             Dictionary<string, string> modelPaths = new Dictionary<string, string>();
             string genPath = "data/NetworkEngine/models/";
-            modelPaths.Add("Bike", genPath + "bike/bike.obj");
+            modelPaths.Add("Bike", genPath + "bike/bike.fbx");
+            modelPaths.Add("Bike Animation", genPath + "bike/bike_anim.fbx");
             modelPaths.Add("Black Car", genPath + "cars/generic/black.obj");
             modelPaths.Add("Blue Car", genPath + "cars/generic/blue.obj");
             modelPaths.Add("White Car", genPath + "cars/generic/white.obj");
