@@ -1,14 +1,6 @@
-﻿using RHLib.data;
+using RHLib.data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.CheckedListBox;
 
 namespace DocterAplication
 {
@@ -279,10 +271,10 @@ namespace DocterAplication
         private void Resistance_Scroll(object sender, EventArgs e)
         {
 
-            if (Program.docterClient.getClientData(this.UserList.SelectedNode.Text) != null)
+            if (Program.docterClient.subscribed.resistance != null)
             {
 
-                ClientData data = Program.docterClient.getClientData(this.UserList.SelectedNode.Text);
+                ClientData data = Program.docterClient.subscribed;
                 data.resistance = this.resistance.Value;
                 this.rebuildResistance();
             }
@@ -310,7 +302,6 @@ namespace DocterAplication
 
         private void UserList_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
             Program.docterClient.sendFollowRequest(this.UserList.SelectedNode.Text);
         }
 
