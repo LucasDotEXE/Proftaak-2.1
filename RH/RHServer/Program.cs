@@ -1,5 +1,4 @@
-﻿using RHBase.helper;
-using RHServer.server.controller;
+﻿using RHServer.server.controller;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,9 +12,6 @@ namespace RHServer
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine(Config.basePath);
-            Console.ReadLine();
 
             Server server = new Server();
             server.startServer();

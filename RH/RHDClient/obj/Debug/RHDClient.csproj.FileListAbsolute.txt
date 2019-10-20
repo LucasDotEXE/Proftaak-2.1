@@ -1,0 +1,9 @@
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHDClient\bin\Debug\RHDClient.exe.config
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHDClient\bin\Debug\RHDClient.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHDClient\bin\Debug\RHDClient.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHDClient\obj\Debug\RHDClient.csprojAssemblyReference.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHDClient\obj\Debug\RHDClient.Properties.Resources.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHDClient\obj\Debug\RHDClient.csproj.GenerateResource.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHDClient\obj\Debug\RHDClient.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHDClient\obj\Debug\RHDClient.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHDClient\obj\Debug\RHDClient.pdb

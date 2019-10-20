@@ -1,4 +1,4 @@
-﻿using RHBase;
+﻿using RHLib.data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace RHServer.server.model.client
         public int id { get; set; }
         public string name { get; set; }
         public string password { get; set; }
-        public List<Protocol> protocols { get; set; }
+        public List<Measurement> measurements { get; set; }
 
         public static ClientData newClient(int id, string name, string password)
         {
@@ -23,7 +23,7 @@ namespace RHServer.server.model.client
             client.id = id;
             client.name = name;
             client.password = password;
-            client.protocols = new List<Protocol>();
+            client.measurements = new List<Measurement>();
 
             return client;
         }
@@ -33,7 +33,7 @@ namespace RHServer.server.model.client
 
             return String.Format(
                 "id: {0}|name: {1}|password: {2}|protocols: {3}",
-                this.id, this.name, this.password, this.protocols
+                this.id, this.name, this.password, this.measurements
             );
         }
     }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RHLib.data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,10 +9,10 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RHBase.helper
+namespace RHLib.helper
 {
 
-    class TCPHelper
+    public static class TCPHelper
     {
 
         // attributes
@@ -24,7 +26,7 @@ namespace RHBase.helper
             return reader.ReadLine();
         }
 
-        public static string read(SslStream stream)
+        public static Request read(SslStream stream)
         {
 
             try
@@ -36,15 +38,15 @@ namespace RHBase.helper
                 byte[] bytes = new byte[(int) length[0]];
                 int readBytes = 1;
 
-                while (readBytes < bytes.Length)
+                while (readBytes < length[0])
                     readBytes += stream.Read(bytes, readBytes, (bytes.Length - readBytes));
 
-                return encoding.GetString(bytes, 0, bytes.Length);
+                return JsonConvert.DeserializeObject<Request>(encoding.GetString(bytes, 0, readBytes));
             }
             catch (Exception e)
             {
 
-                throw e;
+                throw new Exception("Failed reading sslStream", e);
             }
         }
 
@@ -57,8 +59,10 @@ namespace RHBase.helper
             writer.Flush();
         } 
 
-        public static void write(SslStream stream, string message)
+        public static void write(SslStream stream, Request request)
         {
+
+            string message = JsonConvert.SerializeObject(request);
 
             try
             {
@@ -66,7 +70,7 @@ namespace RHBase.helper
                 byte[] messageBytes = encoding.GetBytes(message);
                 byte[] bytes = new byte[messageBytes.Length + 1];
 
-                bytes[0] = (byte) messageBytes.Length;
+                bytes[0] = (byte) bytes.Length;
 
                 for (int i = 0; i < messageBytes.Length; i++)
                     bytes[i + 1] = messageBytes[i];
@@ -76,7 +80,7 @@ namespace RHBase.helper
             catch (Exception e)
             {
 
-                throw e;
+                throw new Exception("Failed writing sslStream", e);
             }
         }
     }

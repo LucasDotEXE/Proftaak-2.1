@@ -52,15 +52,20 @@
     <Compile Include="server\model\client\Client.cs" />
     <Compile Include="server\model\client\ClientData.cs" />
     <Compile Include="server\model\client\ClientObserver.cs" />
-    <Compile Include="server\model\json\AccountManager.cs" />
+    <Compile Include="server\model\account\AccountManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="server\model\json\Account.txt" />
+    <Content Include="server\model\account\Account.txt" />
   </ItemGroup>
-  <Import Project="..\RHBase\RHBase.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\RHLib\RHLib.csproj">
+      <Project>{25f8abcd-e967-44b6-aa1c-6ef090f57564}</Project>
+      <Name>RHLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,6 +5,10 @@ using RHCClient.client.controller.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
+using Avans.TI.BLE;
+using RHCClient.client.controller.interfaces;
+using RHLib.data;
 
 namespace RHCClient.client.model.bike
 {
@@ -109,7 +113,7 @@ namespace RHCClient.client.model.bike
         private void sendData(object sender, BLESubscriptionValueChangedEventArgs e)
         {
 
-            this.observer.receiveProtocol(Protocol.newProtocol(e.ServiceName, e.Data));
+            this.observer.receiveMeasurement(Measurement.newMeasurement(e.ServiceName, e.Data));
         }
     }
 }

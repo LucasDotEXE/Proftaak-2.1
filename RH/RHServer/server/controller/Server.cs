@@ -1,6 +1,7 @@
-﻿using RHBase.helper;
+﻿using Newtonsoft.Json;
+using RHServer.server.model.account;
 using RHServer.server.model.client;
-using RHServer.server.model.json;
+using RHLib.data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,23 +12,36 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using RHLib.helper;
 
 namespace RHServer.server.controller
 {
     class Server
     {
 
-        public X509Certificate certificate;
+        public X509Certificate2 certificate;
         private List<Client> clients;
 
         // constructor
         public void startServer()
         {
 
-            this.certificate = X509Certificate.CreateFromCertFile(Config.serverCertificatePath);
-            this.clients = new List<Client>();
+            try
+            {
 
-            new Thread(new ThreadStart(catchClients)).Start();
+                this.certificate = new X509Certificate2(Config.certificatePath, Config.certificateKey);
+                this.clients = new List<Client>();
+
+                new Thread(new ThreadStart(catchClients)).Start();
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("Couldn't authenticate: {0}", e.StackTrace);
+
+                if (e.InnerException != null)
+                    Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
+            }
         }
 
         // connection
@@ -54,58 +68,64 @@ namespace RHServer.server.controller
             catch (Exception e)
             {
 
-                Console.WriteLine(String.Format("Client Catcher chrashed.\n{0}.\nIt will restart in 10 seconds!", e.StackTrace));
+                Console.WriteLine("Client Catcher Crashed: {0}, name: {1}", e.StackTrace, e.GetType().Name);
+
+                if (e.InnerException != null)
+                    Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
+
                 Thread.Sleep(10000);
                 this.catchClients();
             }
         }
 
-        // docter
-        private void request(Client client, string receivedMessage)
+        
+
+        // Request
+        private void getNames(Client client, Request request)
         {
 
-            if (receivedMessage.Length == 0)
-                client.sendMessage(Config.requestPreset + AccountManager.getClients());
-            else
-                this.subscribeClientTo(client, this.parseIds(receivedMessage));
+            request.add("names", AccountManager.getClientNames());
+
+            client.sendRequest(request);
         }
 
-        private void subscribeClientTo(ClientObserver ClientObserver, List<int> ids)
+        private void subscribe(Client docter, Request request)
         {
 
-            foreach (Client client in this.clients)
-                if (ids.Contains(client.data.id))
-                    client.subscribe(ClientObserver);
-                else
-                    client.unsubscribe(ClientObserver);
-        }
+            Client client = null;
+            int id = request.get("id");
 
-        private List<int> parseIds(string receivedIds)
-        {
+            foreach (Client c in this.clients)
+            {
 
-            string[] stringIds = receivedIds.Split(':');
-            List<int> ids = new List<int>();
+                docter.unsubscribe(c);
+                c.unsubscribe(docter);
 
-            foreach (string id in stringIds)
-                ids.Add(Convert.ToInt32(id));
+                if (id == c.data.id)
+                    client = c;
+            }
 
-            return ids;
+            docter.subscribe(client);
+            client.subscribe(docter);
+
+            request.add("measurements", client.data.measurements);
+            docter.sendRequest(request);
         }
 
         // messaging
-        public void receiveMessage(Client client, string receivedMessage)
+        public void receiveMessage(Client client, Request request)
         {
 
-            string preset = receivedMessage.Substring(0, 1);
-            string message = receivedMessage.Substring(1);
+            Console.WriteLine(request);
 
-            switch (preset)
+            switch (request.type)
             {
 
-                case Config.loginPreset:    client.login(message);                                  break;
-                case Config.messagePreset:  client.sendObservers(Config.messagePreset + message);   break;
-                case Config.requestPreset:  client.receiveProtocol(message);                        break;
-                case Config.protocolPreset: this.request(client, message);                          break;
+                case Config.loginType:       client.login(request);             break;
+                case Config.messageType:     client.sendObservers(request);     break;
+                case Config.measurementType: client.receiveProtocol(request);   break;
+                case Config.subscribeType:   this.subscribe(client, request);   break;
+                case Config.nameType:        this.getNames(client, request);    break;
             }
         }
     }
