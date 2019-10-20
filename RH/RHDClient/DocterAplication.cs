@@ -1,4 +1,5 @@
-﻿using RHLib;
+﻿using Newtonsoft.Json;
+using RHLib;
 using RHLib.data;
 using RHLib.helper;
 using System;
@@ -80,8 +81,8 @@ namespace DocterAplication
 
             this.clientDatas = new List<ClientData>();
 
-            foreach (string[] client in request.get("names"))
-                this.clientDatas.Add(new ClientData(Convert.ToInt32(client[0]), client[1]));
+            foreach (string[] client in JsonConvert.DeserializeObject<List<string[]>>(request.get("names")))
+                this.clientDatas.Add(new ClientData(Convert.ToInt32(client[1]), client[0]));
 
             this.form.RefreshPage();
         }

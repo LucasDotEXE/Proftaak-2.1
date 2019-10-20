@@ -72,11 +72,14 @@ namespace DocterAplication
         public void RefreshPage()
         {
 
-            this.UserList.Nodes.Clear();
-            foreach (ClientData data in Program.docterClient.clientDatas)
-                this.UserList.Nodes.Add(data.name);
-        }
+            this.BeginInvoke(new Action(() =>
+            {
 
+                this.UserList.Nodes.Clear();
+                foreach (ClientData data in Program.docterClient.clientDatas)
+                    this.UserList.Nodes.Add(data.name);
+            }));
+        }
 
         private void UserList_ItemCheck(object sender, ItemCheckEventArgs e)
         {

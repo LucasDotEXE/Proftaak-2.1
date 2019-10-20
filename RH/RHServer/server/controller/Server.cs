@@ -83,7 +83,7 @@ namespace RHServer.server.controller
         private void getNames(Client client, Request request)
         {
 
-            request.add("names", AccountManager.getClientNames());
+            request.add("names", JsonConvert.SerializeObject(AccountManager.getClientNames()));
 
             client.sendRequest(request);
         }
