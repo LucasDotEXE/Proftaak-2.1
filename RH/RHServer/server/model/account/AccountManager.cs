@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using RHBase.helper;
+using RHLib.helper;
 using RHServer.server.model.client;
 using System;
 using System.Collections.Generic;
@@ -60,10 +60,15 @@ namespace RHServer.server.model.account
             }
         }
 
-        public static string getClients()
+        public static List<string> getClientNames()
         {
 
-            return JsonConvert.SerializeObject(clients);
+            List<string> names = new List<string>();
+
+            foreach (ClientData client in clients)
+                names.Add(client.name);
+
+            return names;
         }
 
         // file io
@@ -71,7 +76,7 @@ namespace RHServer.server.model.account
         {
 
             if (File.Exists(Config.serverAccountPath) && clients.Count() != 0)
-                File.WriteAllText(Config.serverAccountPath, getClients());
+                File.WriteAllText(Config.serverAccountPath, JsonConvert.SerializeObject(clients));
         }
 
         private static void load()

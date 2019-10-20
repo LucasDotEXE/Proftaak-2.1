@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using RHBase.helper;
 using RHServer.server.model.account;
 using RHServer.server.model.client;
+using RHLib.data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using RHLib.helper;
 
 namespace RHServer.server.controller
 {
@@ -77,42 +78,54 @@ namespace RHServer.server.controller
             }
         }
 
+        
+
         // Request
-        private void request(Client client, string receivedMessage)
+        private void getNames(Client client, Request request)
         {
 
-            if (receivedMessage.Length == 0)
-                client.sendMessage(Config.requestPreset + AccountManager.getClients());
-            else
-                this.subscribeClientTo(client, JsonConvert.DeserializeObject<List<int>>(receivedMessage));
+            request.add("names", AccountManager.getClientNames());
+
+            client.sendRequest(request);
         }
 
-        private void subscribeClientTo(ClientObserver ClientObserver, List<int> ids)
+        private void subscribe(Client docter, Request request)
         {
 
-            foreach (Client client in this.clients)
-                if (ids.Contains(client.data.id))
-                    client.subscribe(ClientObserver);
-                else
-                    client.unsubscribe(ClientObserver);
+            Client client = null;
+            int id = request.get("id");
+
+            foreach (Client c in this.clients)
+            {
+
+                docter.unsubscribe(c);
+                c.unsubscribe(docter);
+
+                if (id == c.data.id)
+                    client = c;
+            }
+
+            docter.subscribe(client);
+            client.subscribe(docter);
+
+            request.add("measurements", client.data.measurements);
+            docter.sendRequest(request);
         }
 
         // messaging
-        public void receiveMessage(Client client, string receivedMessage)
+        public void receiveMessage(Client client, Request request)
         {
 
-            string preset = receivedMessage.Substring(1, 1);
-            string message = receivedMessage.Substring(2);
+            Console.WriteLine(request);
 
-            Console.WriteLine("Message: {0}-{1}\nOriginal: {2}", preset, message, receivedMessage);
-
-            switch (preset)
+            switch (request.type)
             {
 
-                case Config.loginPreset:    client.login(message);                                  break;
-                case Config.messagePreset:  client.sendObservers(Config.messagePreset + message);   break;
-                case Config.requestPreset:  client.receiveProtocol(message);                        break;
-                case Config.protocolPreset: this.request(client, message);                          break;
+                case Config.loginType:       client.login(request);             break;
+                case Config.messageType:     client.sendObservers(request);     break;
+                case Config.measurementType: client.receiveProtocol(request);   break;
+                case Config.subscribeType:   this.subscribe(client, request);   break;
+                case Config.nameType:        this.getNames(client, request);    break;
             }
         }
     }

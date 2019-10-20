@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RHBase
+namespace RHLib.data
 {
-    class Protocol
+    public class Measurement
     {
 
         public string serviceName { get; set; }
@@ -16,18 +16,18 @@ namespace RHBase
         public int acumilatedPower { get; set; }
         public int currentPower { get; set; }
 
-        public static Protocol newProtocol(string serviceName, byte[] bytes)
+        public static Measurement newMeasurement(string serviceName, byte[] bytes)
         {
 
-            Protocol protocol = new Protocol();
+            Measurement measurement = new Measurement();
 
-            protocol.serviceName = serviceName;
-            protocol.updateProtocol(bytes);
+            measurement.serviceName = serviceName;
+            measurement.updateMeasurment(bytes);
 
-            return protocol;
+            return measurement;
         }
 
-        public void updateProtocol(byte[] bytes)
+        public void updateMeasurment(byte[] bytes)
         {
 
             switch (bytes[4])
@@ -47,7 +47,7 @@ namespace RHBase
         public void update(byte[] content)
         {
 
-            updateProtocol(content);
+            updateMeasurment(content);
         }
 
         public override string ToString()
@@ -55,7 +55,7 @@ namespace RHBase
 
             return string.Format(
                 "ServiceName: {0}\nSpeed: {1}\nHeartrate: {2}\nDistance: {3}\nAcumilatedPower: {4}\nCurrentPower: {5}\n",
-                 serviceName, speed, heartrate, distance, acumilatedPower, currentPower
+                 this.serviceName, this.speed, this.heartrate, this.distance, this.acumilatedPower, this.currentPower
             );
         }
     }

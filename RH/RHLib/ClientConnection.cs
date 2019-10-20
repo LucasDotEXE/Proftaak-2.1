@@ -1,4 +1,5 @@
-﻿using RHBase.helper;
+﻿using RHLib.data;
+using RHLib.helper;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,16 +11,17 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace RHBase
+namespace RHLib
 {
-    abstract class ClientConnection
+
+    public abstract class ClientConnection
     {
 
         private SslStream stream;
         private Thread thread;
 
         // connection
-        protected void startConnection()
+        protected void startConnection(bool isDocter)
         {
 
             TcpClient client = new TcpClient(Config.host, Config.port);
@@ -30,7 +32,10 @@ namespace RHBase
 
                 this.stream.AuthenticateAsClient(Config.serverName);
 
-                TCPHelper.write(this.stream, "ok");
+                Request request = Request.newRequest();
+                request.add("isDocter", isDocter);
+
+                TCPHelper.write(this.stream, request);
             }
             catch (Exception e)
             {
@@ -60,10 +65,10 @@ namespace RHBase
         }
 
         // messaging
-        protected void sendMessage(string message)
+        protected void sendRequest(Request request)
         {
 
-            TCPHelper.write(this.stream, message);
+            TCPHelper.write(this.stream, request);
         }
 
         private void getMessage()
@@ -75,7 +80,7 @@ namespace RHBase
                 while (true)
                 {
 
-                    this.receiveMessage(TCPHelper.read(this.stream));
+                    this.receiveRequest(TCPHelper.read(this.stream));
 
                     Thread.Sleep(10);
                 }
@@ -90,6 +95,6 @@ namespace RHBase
 
         // overrides
         public abstract void startClient();
-        public abstract void receiveMessage(string message);
+        public abstract void receiveRequest(Request request);
     }
 }

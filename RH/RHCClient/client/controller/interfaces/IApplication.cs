@@ -1,4 +1,4 @@
-﻿using RHBase;
+﻿using RHLib.data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,6 @@ namespace RHCClient.client.controller.interfaces
     interface IApplication
     {
 
-        void receiveProtocol(Protocol protocol);
+        void receiveMeasurement(Measurement measurement);
     }
 }

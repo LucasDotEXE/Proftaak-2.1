@@ -3,21 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RHBase", "RHBase\RHBase.shproj", "{25254DD6-B9A5-4D53-931B-DEC34B10FB26}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHServer", "RHServer\RHServer.csproj", "{6158D7EC-272D-4760-948B-B4308151AD29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHCClient", "RHCClient\RHCClient.csproj", "{102B87A2-DAC2-4B1A-A2E6-BB509D7623F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHDClient", "RHDClient\RHDClient.csproj", "{91094C3C-B215-4602-9B25-D8779BF9B51B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHLib", "RHLib\RHLib.csproj", "{25F8ABCD-E967-44B6-AA1C-6EF090F57564}"
+EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		RHBase\RHBase.projitems*{102b87a2-dac2-4b1a-a2e6-bb509d7623f8}*SharedItemsImports = 4
-		RHBase\RHBase.projitems*{25254dd6-b9a5-4d53-931b-dec34b10fb26}*SharedItemsImports = 13
-		RHBase\RHBase.projitems*{6158d7ec-272d-4760-948b-b4308151ad29}*SharedItemsImports = 4
-		RHBase\RHBase.projitems*{91094c3c-b215-4602-9b25-d8779bf9b51b}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -35,6 +29,10 @@ Global
 		{91094C3C-B215-4602-9B25-D8779BF9B51B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91094C3C-B215-4602-9B25-D8779BF9B51B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91094C3C-B215-4602-9B25-D8779BF9B51B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F8ABCD-E967-44B6-AA1C-6EF090F57564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F8ABCD-E967-44B6-AA1C-6EF090F57564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F8ABCD-E967-44B6-AA1C-6EF090F57564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F8ABCD-E967-44B6-AA1C-6EF090F57564}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

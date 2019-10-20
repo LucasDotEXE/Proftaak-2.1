@@ -1,5 +1,5 @@
-﻿using RHBase;
-using RHCClient.client.controller.interfaces;
+﻿using RHCClient.client.controller.interfaces;
+using RHLib.data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +61,7 @@ namespace RHCClient.client.model.bike
         private void sendData()
         {
 
-            this.observer.receiveProtocol(Protocol.newProtocol(
+            this.observer.receiveMeasurement(Measurement.newMeasurement(
                 this.protocols.ElementAt(this.iterator).Item1,
                 this.protocols.ElementAt(this.iterator).Item2
             )); 

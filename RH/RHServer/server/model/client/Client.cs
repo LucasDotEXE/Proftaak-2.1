@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
-using RHBase;
-using RHBase.helper;
+using RHLib.data;
+using RHLib.helper;
 using RHServer.server.controller;
 using RHServer.server.model.account;
 using System;
@@ -19,8 +19,10 @@ namespace RHServer.server.model.client
     {
 
         // attributes
-        private Server server;
+        public bool isDocter;
         public ClientData data = null;
+
+        private Server server;
         private List<ClientObserver> observers = new List<ClientObserver>();
 
         private Thread thread;
@@ -56,6 +58,8 @@ namespace RHServer.server.model.client
                 this.stream.ReadTimeout = 60000;
                 this.stream.WriteTimeout = 60000;
 
+                this.isDocter = TCPHelper.read(this.stream).get("isDocter");
+
                 while (true)
                 {
 
@@ -79,40 +83,38 @@ namespace RHServer.server.model.client
             }
         }
 
-        public void sendMessage(string message)
+        public void sendRequest(Request request)
         {
 
             try
             {
 
-                TCPHelper.write(this.stream, message);
+                TCPHelper.write(this.stream, request);
             }
             catch (Exception e)
             {
 
-                Console.WriteLine("Couldn't send message: {0}\n{1}", message, e.StackTrace);
+                Console.WriteLine("Couldn't send request: {0}\n{1}", request, e.StackTrace);
             }
         }
 
-        public void receiveProtocol(string json)
+        public void receiveProtocol(Request request)
         {
 
-            Protocol protocol = JsonConvert.DeserializeObject<Protocol>(json);
+            Measurement measurement = request.get("measurement");
 
             if (this.data != null)
-                this.data.protocols.Add(protocol);
+                this.data.protocols.Add(measurement);
 
-            this.sendObservers(Config.protocolPreset + json);
+            this.sendObservers(request);
         }
 
         // observers
-        public void sendObservers(string message)
+        public void sendObservers(Request request)
         {
 
-            this.sendMessage(message);
-
             foreach (ClientObserver observer in this.observers)
-                observer.sendMessage(message);
+                observer.sendRequest(request);
         }
 
         public void subscribe(ClientObserver observer)
@@ -128,15 +130,19 @@ namespace RHServer.server.model.client
         }
 
         // account
-        public void login(string credentialString)
+        public void login(Request request)
         {
 
-            string[] credentials = JsonConvert.DeserializeObject<string[]>(credentialString);
+            this.data = AccountManager.login(
+                request.get("name"), 
+                request.get("password"), 
+                request.get("register")
+            );
 
-            if (credentials.Length == 3)
-                this.data = AccountManager.login(credentials[0], credentials[1], Convert.ToBoolean(credentials[2]));
+            request.clearParams();
+            request.add("loginStatus", (this.data != null));
 
-            this.sendMessage(Config.loginPreset + (this.data != null));
+            this.sendRequest(request);
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace RHBase.helper
+namespace RHLib.helper
 {
-    static class SSLHelper
+    public static class SSLHelper
     {
 
         public static void DisplaySecurityLevel(SslStream stream)

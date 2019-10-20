@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RHLib.data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace RHServer.server.model.client
     interface ClientObserver
     {
 
-        void sendMessage(string message);
+        void sendRequest(Request request);
     }
 }

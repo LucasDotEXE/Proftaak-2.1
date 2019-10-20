@@ -76,6 +76,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <Import Project="..\RHBase\RHBase.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\RHLib\RHLib.csproj">
+      <Project>{25f8abcd-e967-44b6-aa1c-6ef090f57564}</Project>
+      <Name>RHLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
