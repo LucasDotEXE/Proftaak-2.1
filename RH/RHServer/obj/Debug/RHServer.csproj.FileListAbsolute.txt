@@ -26,3 +26,4 @@ C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHServer\bin\Debug\zh-TW\Hangfire.
 C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHServer\obj\Debug\RHServer.csproj.CopyComplete
 C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHServer\obj\Debug\RHServer.exe
 C:\Program Files\1gitprojects\Proftaak-2.1\RH\RHServer\obj\Debug\RHServer.pdb
+D:\tjall\Documents\Proftaak-2.1\RH\RHServer\obj\Debug\RHServer.csprojAssemblyReference.cache
