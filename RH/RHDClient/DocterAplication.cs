@@ -65,7 +65,7 @@ namespace DocterAplication
                 case Config.loginType:       this.login(request);                                          break;
                 case Config.messageType:     this.subscribed.messages.Add(request.get("message"));         break;
                 case Config.subscribeType:   this.form.displayClient(request);                             break;
-                case Config.measurementType: this.subscribed.measurements.Add(request.get("measurement")); break;
+                case Config.measurementType: this.subscribed.addMeasurement(request.get("measurement")); break;
             }
         }
 

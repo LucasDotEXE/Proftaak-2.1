@@ -108,21 +108,10 @@ namespace DocterAplication
             }));
         }
 
-        private void NodeClicked(object sender, TreeNodeMouseClickEventArgs e)
-        {
-
-            this.BeginInvoke(new Action(() =>
-            {
-
-                Program.docterClient.sendFollowRequest(this.UserList.SelectedNode.Text);
-            }));
-        }
-
         private void rebuildResistance()
         {
 
-            ClientData data = Program.docterClient.getClientData(this.UserList.SelectedNode.Text);
-            this.resistance.Value = data.resistance;
+            this.resistance.Value = Program.docterClient.subscribed.resistance;
             this.ResistanceLabel.Text = $"Resistance: {this.resistance.Value}";
         }
 
@@ -144,8 +133,7 @@ namespace DocterAplication
                     return;
                 }
 
-                String selectedClientName = this.UserList.SelectedNode.Text;
-                ClientData data = Program.docterClient.getClientData(selectedClientName);
+                ClientData data = Program.docterClient.subscribed;
 
                 for (int i = 0; i < data.heartRateMeasurements.Count; i++)
                 {
@@ -177,8 +165,7 @@ namespace DocterAplication
                     return;
                 }
 
-                String selectedClientName = this.UserList.SelectedNode.Text;
-                ClientData data = Program.docterClient.getClientData(selectedClientName);
+                ClientData data = Program.docterClient.subscribed;
                 this.mainChart.Series["BPM"].Points.Clear();
                 this.mainChart.Series["Energy"].Points.Clear();
                 this.mainChart.Series["Speed"].Points.Clear();
@@ -274,7 +261,7 @@ namespace DocterAplication
 
             this.chatBox.Items.Clear();
 
-            foreach (String message in Program.docterClient.getClientData(UserList.SelectedNode.Text).messages)
+            foreach (String message in Program.docterClient.subscribed.messages)
                 this.chatBox.Items.Add(message);
         }
 
@@ -322,6 +309,12 @@ namespace DocterAplication
         }
 
         private void UserList_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+            Program.docterClient.sendFollowRequest(this.UserList.SelectedNode.Text);
+        }
+
+        private void UserList_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
 
         }

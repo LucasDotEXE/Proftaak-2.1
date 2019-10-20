@@ -101,9 +101,10 @@
             // 
             // Login
             // 
-            this.Login.Location = new System.Drawing.Point(182, 20);
+            this.Login.Location = new System.Drawing.Point(136, 16);
+            this.Login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(75, 89);
+            this.Login.Size = new System.Drawing.Size(56, 72);
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
             this.Login.UseVisualStyleBackColor = true;
@@ -115,54 +116,59 @@
             this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LoggedInStatus,
             this.ClientSelected});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 718);
+            this.StatusStrip.Location = new System.Drawing.Point(0, 582);
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(958, 26);
+            this.StatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.StatusStrip.Size = new System.Drawing.Size(718, 22);
             this.StatusStrip.TabIndex = 1;
             this.StatusStrip.Text = "statusStrip1";
             // 
             // LoggedInStatus
             // 
             this.LoggedInStatus.Name = "LoggedInStatus";
-            this.LoggedInStatus.Size = new System.Drawing.Size(105, 20);
+            this.LoggedInStatus.Size = new System.Drawing.Size(83, 17);
             this.LoggedInStatus.Text = "Not Logged In";
             // 
             // ClientSelected
             // 
             this.ClientSelected.Name = "ClientSelected";
-            this.ClientSelected.Size = new System.Drawing.Size(139, 20);
+            this.ClientSelected.Size = new System.Drawing.Size(111, 17);
             this.ClientSelected.Text = "Client Selected: ----";
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(71, 31);
+            this.nameBox.Location = new System.Drawing.Point(53, 25);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(100, 22);
+            this.nameBox.Size = new System.Drawing.Size(76, 20);
             this.nameBox.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 34);
+            this.label1.Location = new System.Drawing.Point(2, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 62);
+            this.label2.Location = new System.Drawing.Point(2, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Pasword";
             // 
             // PaswordBox
             // 
-            this.PaswordBox.Location = new System.Drawing.Point(71, 59);
+            this.PaswordBox.Location = new System.Drawing.Point(53, 48);
+            this.PaswordBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PaswordBox.Name = "PaswordBox";
-            this.PaswordBox.Size = new System.Drawing.Size(100, 22);
+            this.PaswordBox.Size = new System.Drawing.Size(76, 20);
             this.PaswordBox.TabIndex = 6;
             // 
             // dataGridView1
@@ -175,12 +181,13 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(616, 658);
+            this.dataGridView1.Size = new System.Drawing.Size(462, 535);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -189,7 +196,7 @@
             this.Column1.HeaderText = "BPM";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 75;
+            this.Column1.Width = 62;
             // 
             // Column2
             // 
@@ -197,7 +204,7 @@
             this.Column2.HeaderText = "Energy";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 90;
+            this.Column2.Width = 78;
             // 
             // Column3
             // 
@@ -205,7 +212,7 @@
             this.Column3.HeaderText = "Speed";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 85;
+            this.Column3.Width = 74;
             // 
             // Column4
             // 
@@ -213,7 +220,7 @@
             this.Column4.HeaderText = "Distance";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
-            this.Column4.Width = 105;
+            this.Column4.Width = 88;
             // 
             // Column5
             // 
@@ -221,7 +228,7 @@
             this.Column5.HeaderText = "Current Pow";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
-            this.Column5.Width = 120;
+            this.Column5.Width = 101;
             // 
             // Column6
             // 
@@ -229,26 +236,28 @@
             this.Column6.HeaderText = "Acummulated Pow";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
-            this.Column6.Width = 162;
+            this.Column6.Width = 135;
             // 
             // UserList
             // 
             this.UserList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.UserList.Location = new System.Drawing.Point(6, 115);
+            this.UserList.Location = new System.Drawing.Point(4, 93);
+            this.UserList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UserList.Name = "UserList";
-            this.UserList.Size = new System.Drawing.Size(303, 555);
+            this.UserList.Size = new System.Drawing.Size(228, 452);
             this.UserList.TabIndex = 0;
             this.UserList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.UserList_AfterSelect);
-            this.UserList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.NodeClicked);
+            this.UserList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.UserList_NodeMouseClick);
             // 
             // Refresh
             // 
             this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Refresh.Location = new System.Drawing.Point(263, 20);
+            this.Refresh.Location = new System.Drawing.Point(197, 16);
+            this.Refresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(45, 89);
+            this.Refresh.Size = new System.Drawing.Size(34, 72);
             this.Refresh.TabIndex = 9;
             this.Refresh.Text = "⟳";
             this.Refresh.UseVisualStyleBackColor = true;
@@ -265,17 +274,20 @@
             this.groupBox1.Controls.Add(this.nameBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Login);
-            this.groupBox1.Location = new System.Drawing.Point(643, -8);
+            this.groupBox1.Location = new System.Drawing.Point(482, -6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(316, 752);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(237, 611);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
             // registerCheck
             // 
-            this.registerCheck.Location = new System.Drawing.Point(26, 87);
+            this.registerCheck.Location = new System.Drawing.Point(20, 71);
+            this.registerCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.registerCheck.Name = "registerCheck";
-            this.registerCheck.Size = new System.Drawing.Size(136, 22);
+            this.registerCheck.Size = new System.Drawing.Size(102, 18);
             this.registerCheck.TabIndex = 0;
             this.registerCheck.Text = "New Acount";
             this.registerCheck.UseVisualStyleBackColor = true;
@@ -288,9 +300,10 @@
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(81, 50);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(637, 732);
+            this.tabControl1.Size = new System.Drawing.Size(478, 595);
             this.tabControl1.TabIndex = 11;
             // 
             // ActiveData
@@ -314,9 +327,10 @@
             this.ActiveData.Controls.Add(this.tabControl2);
             this.ActiveData.Controls.Add(this.mainChart);
             this.ActiveData.Location = new System.Drawing.Point(4, 54);
+            this.ActiveData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ActiveData.Name = "ActiveData";
-            this.ActiveData.Padding = new System.Windows.Forms.Padding(3);
-            this.ActiveData.Size = new System.Drawing.Size(629, 674);
+            this.ActiveData.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ActiveData.Size = new System.Drawing.Size(470, 537);
             this.ActiveData.TabIndex = 0;
             this.ActiveData.Text = "Active Data";
             this.ActiveData.UseVisualStyleBackColor = true;
@@ -324,18 +338,20 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(460, 269);
+            this.label7.Location = new System.Drawing.Point(345, 219);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 20);
+            this.label7.Size = new System.Drawing.Size(83, 17);
             this.label7.TabIndex = 4;
             this.label7.Text = "Total Power";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(460, 155);
+            this.label8.Location = new System.Drawing.Point(345, 126);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 20);
+            this.label8.Size = new System.Drawing.Size(77, 17);
             this.label8.TabIndex = 5;
             this.label8.Text = "Energie KJ";
             this.label8.Click += new System.EventHandler(this.Label8_Click);
@@ -343,45 +359,50 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(460, 239);
+            this.label6.Location = new System.Drawing.Point(345, 194);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 20);
+            this.label6.Size = new System.Drawing.Size(94, 17);
             this.label6.TabIndex = 3;
             this.label6.Text = "CurrentPower";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(460, 129);
+            this.label5.Location = new System.Drawing.Point(345, 105);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 20);
+            this.label5.Size = new System.Drawing.Size(37, 17);
             this.label5.TabIndex = 2;
             this.label5.Text = "BPM";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(460, 209);
+            this.label3.Location = new System.Drawing.Point(345, 170);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 20);
+            this.label3.Size = new System.Drawing.Size(63, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Distance";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(460, 179);
+            this.label4.Location = new System.Drawing.Point(345, 145);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.Size = new System.Drawing.Size(49, 17);
             this.label4.TabIndex = 1;
             this.label4.Text = "Speed";
             // 
             // AcumPowerCheck
             // 
             this.AcumPowerCheck.AutoSize = true;
-            this.AcumPowerCheck.Location = new System.Drawing.Point(436, 272);
+            this.AcumPowerCheck.Location = new System.Drawing.Point(327, 221);
+            this.AcumPowerCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AcumPowerCheck.Name = "AcumPowerCheck";
-            this.AcumPowerCheck.Size = new System.Drawing.Size(18, 17);
+            this.AcumPowerCheck.Size = new System.Drawing.Size(15, 14);
             this.AcumPowerCheck.TabIndex = 13;
             this.AcumPowerCheck.UseVisualStyleBackColor = true;
             this.AcumPowerCheck.CheckedChanged += new System.EventHandler(this.AcumPowerCheck_CheckedChanged);
@@ -389,9 +410,10 @@
             // DistanceCheck
             // 
             this.DistanceCheck.AutoSize = true;
-            this.DistanceCheck.Location = new System.Drawing.Point(436, 212);
+            this.DistanceCheck.Location = new System.Drawing.Point(327, 172);
+            this.DistanceCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DistanceCheck.Name = "DistanceCheck";
-            this.DistanceCheck.Size = new System.Drawing.Size(18, 17);
+            this.DistanceCheck.Size = new System.Drawing.Size(15, 14);
             this.DistanceCheck.TabIndex = 12;
             this.DistanceCheck.UseVisualStyleBackColor = true;
             this.DistanceCheck.CheckedChanged += new System.EventHandler(this.DistanceCheck_CheckedChanged);
@@ -399,9 +421,10 @@
             // EnergyCheck
             // 
             this.EnergyCheck.AutoSize = true;
-            this.EnergyCheck.Location = new System.Drawing.Point(436, 158);
+            this.EnergyCheck.Location = new System.Drawing.Point(327, 128);
+            this.EnergyCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EnergyCheck.Name = "EnergyCheck";
-            this.EnergyCheck.Size = new System.Drawing.Size(18, 17);
+            this.EnergyCheck.Size = new System.Drawing.Size(15, 14);
             this.EnergyCheck.TabIndex = 11;
             this.EnergyCheck.UseVisualStyleBackColor = true;
             this.EnergyCheck.CheckedChanged += new System.EventHandler(this.EnergyCheck_CheckedChanged);
@@ -409,9 +432,10 @@
             // CurrentPowerCheck
             // 
             this.CurrentPowerCheck.AutoSize = true;
-            this.CurrentPowerCheck.Location = new System.Drawing.Point(436, 242);
+            this.CurrentPowerCheck.Location = new System.Drawing.Point(327, 197);
+            this.CurrentPowerCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CurrentPowerCheck.Name = "CurrentPowerCheck";
-            this.CurrentPowerCheck.Size = new System.Drawing.Size(18, 17);
+            this.CurrentPowerCheck.Size = new System.Drawing.Size(15, 14);
             this.CurrentPowerCheck.TabIndex = 8;
             this.CurrentPowerCheck.UseVisualStyleBackColor = true;
             this.CurrentPowerCheck.CheckedChanged += new System.EventHandler(this.BPowerchartCheck_CheckedChanged);
@@ -419,18 +443,20 @@
             // ResistanceLabel
             // 
             this.ResistanceLabel.AutoSize = true;
-            this.ResistanceLabel.Location = new System.Drawing.Point(332, 637);
+            this.ResistanceLabel.Location = new System.Drawing.Point(249, 518);
+            this.ResistanceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ResistanceLabel.Name = "ResistanceLabel";
-            this.ResistanceLabel.Size = new System.Drawing.Size(103, 20);
+            this.ResistanceLabel.Size = new System.Drawing.Size(86, 17);
             this.ResistanceLabel.TabIndex = 10;
             this.ResistanceLabel.Text = "Resistance: ";
             // 
             // SpeedCheck
             // 
             this.SpeedCheck.AutoSize = true;
-            this.SpeedCheck.Location = new System.Drawing.Point(436, 182);
+            this.SpeedCheck.Location = new System.Drawing.Point(327, 148);
+            this.SpeedCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SpeedCheck.Name = "SpeedCheck";
-            this.SpeedCheck.Size = new System.Drawing.Size(18, 17);
+            this.SpeedCheck.Size = new System.Drawing.Size(15, 14);
             this.SpeedCheck.TabIndex = 7;
             this.SpeedCheck.UseVisualStyleBackColor = true;
             this.SpeedCheck.CheckedChanged += new System.EventHandler(this.BSpeedchartCheck_CheckedChanged);
@@ -440,9 +466,10 @@
             this.button1.BackColor = System.Drawing.Color.DarkRed;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Location = new System.Drawing.Point(7, 587);
+            this.button1.Location = new System.Drawing.Point(5, 477);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 70);
+            this.button1.Size = new System.Drawing.Size(121, 57);
             this.button1.TabIndex = 9;
             this.button1.Text = "Force Stop Session";
             this.button1.UseVisualStyleBackColor = false;
@@ -450,18 +477,20 @@
             // BPMCheck
             // 
             this.BPMCheck.AutoSize = true;
-            this.BPMCheck.Location = new System.Drawing.Point(436, 129);
+            this.BPMCheck.Location = new System.Drawing.Point(327, 105);
+            this.BPMCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BPMCheck.Name = "BPMCheck";
-            this.BPMCheck.Size = new System.Drawing.Size(18, 17);
+            this.BPMCheck.Size = new System.Drawing.Size(15, 14);
             this.BPMCheck.TabIndex = 6;
             this.BPMCheck.UseVisualStyleBackColor = true;
             this.BPMCheck.CheckedChanged += new System.EventHandler(this.BPMchartCheck_CheckedChanged);
             // 
             // resistance
             // 
-            this.resistance.Location = new System.Drawing.Point(174, 592);
+            this.resistance.Location = new System.Drawing.Point(130, 481);
+            this.resistance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.resistance.Name = "resistance";
-            this.resistance.Size = new System.Drawing.Size(447, 56);
+            this.resistance.Size = new System.Drawing.Size(335, 45);
             this.resistance.TabIndex = 9;
             this.resistance.Tag = "";
             this.resistance.Scroll += new System.EventHandler(this.Resistance_Scroll);
@@ -470,17 +499,19 @@
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Location = new System.Drawing.Point(480, 578);
+            this.tabControl2.Location = new System.Drawing.Point(360, 470);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(8, 8);
+            this.tabControl2.Size = new System.Drawing.Size(6, 6);
             this.tabControl2.TabIndex = 10;
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage3.Size = new System.Drawing.Size(0, 0);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "tabPage3";
@@ -488,9 +519,10 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage4.Size = new System.Drawing.Size(0, 0);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "tabPage4";
@@ -504,7 +536,8 @@
             this.mainChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.mainChart.Legends.Add(legend1);
-            this.mainChart.Location = new System.Drawing.Point(5, 2);
+            this.mainChart.Location = new System.Drawing.Point(4, 2);
+            this.mainChart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainChart.Name = "mainChart";
             series1.BorderWidth = 3;
             series1.ChartArea = "ChartArea1";
@@ -555,7 +588,7 @@
             this.mainChart.Series.Add(series4);
             this.mainChart.Series.Add(series5);
             this.mainChart.Series.Add(series6);
-            this.mainChart.Size = new System.Drawing.Size(616, 366);
+            this.mainChart.Size = new System.Drawing.Size(462, 297);
             this.mainChart.TabIndex = 4;
             this.mainChart.Text = "chart1";
             // 
@@ -563,9 +596,10 @@
             // 
             this.HistoricData.Controls.Add(this.dataGridView1);
             this.HistoricData.Location = new System.Drawing.Point(4, 54);
+            this.HistoricData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.HistoricData.Name = "HistoricData";
-            this.HistoricData.Padding = new System.Windows.Forms.Padding(3);
-            this.HistoricData.Size = new System.Drawing.Size(629, 674);
+            this.HistoricData.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HistoricData.Size = new System.Drawing.Size(470, 537);
             this.HistoricData.TabIndex = 1;
             this.HistoricData.Text = "Historic Data";
             this.HistoricData.UseVisualStyleBackColor = true;
@@ -577,8 +611,9 @@
             this.ChatWindow.Controls.Add(this.messageBox);
             this.ChatWindow.Controls.Add(this.sendButton);
             this.ChatWindow.Location = new System.Drawing.Point(4, 54);
+            this.ChatWindow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ChatWindow.Name = "ChatWindow";
-            this.ChatWindow.Size = new System.Drawing.Size(629, 674);
+            this.ChatWindow.Size = new System.Drawing.Size(470, 537);
             this.ChatWindow.TabIndex = 2;
             this.ChatWindow.Text = "Chat Window";
             this.ChatWindow.UseVisualStyleBackColor = true;
@@ -586,17 +621,19 @@
             // chatBox
             // 
             this.chatBox.FormattingEnabled = true;
-            this.chatBox.ItemHeight = 20;
-            this.chatBox.Location = new System.Drawing.Point(8, 3);
+            this.chatBox.ItemHeight = 16;
+            this.chatBox.Location = new System.Drawing.Point(6, 2);
+            this.chatBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chatBox.Name = "chatBox";
-            this.chatBox.Size = new System.Drawing.Size(606, 604);
+            this.chatBox.Size = new System.Drawing.Size(456, 484);
             this.chatBox.TabIndex = 3;
             // 
             // sendAllButton
             // 
-            this.sendAllButton.Location = new System.Drawing.Point(519, 613);
+            this.sendAllButton.Location = new System.Drawing.Point(389, 498);
+            this.sendAllButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sendAllButton.Name = "sendAllButton";
-            this.sendAllButton.Size = new System.Drawing.Size(95, 39);
+            this.sendAllButton.Size = new System.Drawing.Size(71, 32);
             this.sendAllButton.TabIndex = 2;
             this.sendAllButton.Text = "Send All";
             this.sendAllButton.UseVisualStyleBackColor = true;
@@ -604,16 +641,18 @@
             // 
             // messageBox
             // 
-            this.messageBox.Location = new System.Drawing.Point(8, 620);
+            this.messageBox.Location = new System.Drawing.Point(6, 504);
+            this.messageBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.messageBox.Name = "messageBox";
-            this.messageBox.Size = new System.Drawing.Size(416, 26);
+            this.messageBox.Size = new System.Drawing.Size(313, 23);
             this.messageBox.TabIndex = 0;
             // 
             // sendButton
             // 
-            this.sendButton.Location = new System.Drawing.Point(430, 614);
+            this.sendButton.Location = new System.Drawing.Point(322, 499);
+            this.sendButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(83, 39);
+            this.sendButton.Size = new System.Drawing.Size(62, 32);
             this.sendButton.TabIndex = 1;
             this.sendButton.Text = "Send";
             this.sendButton.UseVisualStyleBackColor = true;
@@ -621,13 +660,14 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 744);
+            this.ClientSize = new System.Drawing.Size(718, 604);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "RH Docktor App";
             this.StatusStrip.ResumeLayout(false);

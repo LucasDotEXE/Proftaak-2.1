@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RHLib.data;
 using RHLib.helper;
 using RHServer.server.model.client;
 using System;
@@ -59,6 +60,16 @@ namespace RHServer.server.model.account
                 names.Add(new string[2] { client.name, client.id.ToString() });
 
             return names;
+        }
+
+        public static List<Measurement> getById(int id)
+        {
+
+            foreach (ClientData client in clients)
+                if (id == client.id)
+                    return client.measurements;
+
+            return null;
         }
 
         // file io

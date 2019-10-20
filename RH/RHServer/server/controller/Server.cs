@@ -92,7 +92,7 @@ namespace RHServer.server.controller
         {
 
             Client client = null;
-            int id = request.get("id");
+            int id = Convert.ToInt32(request.get("id"));
 
             foreach (Client c in this.clients)
             {
@@ -104,10 +104,17 @@ namespace RHServer.server.controller
                     client = c;
             }
 
-            docter.subscribe(client);
-            client.subscribe(docter);
+            if (client == null)
+                request.add("measurements", JsonConvert.SerializeObject(AccountManager.getById(id)));
+            else
+            {
 
-            request.add("measurements", JsonConvert.SerializeObject(client.data.measurements));
+                docter.subscribe(client);
+                client.subscribe(docter);
+
+                request.add("measurements", JsonConvert.SerializeObject(client.data.measurements));
+            }
+
             docter.sendRequest(request);
         }
 
