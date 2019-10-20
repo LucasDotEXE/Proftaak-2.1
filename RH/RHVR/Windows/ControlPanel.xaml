@@ -30,6 +30,8 @@
         <ComboBox x:Name="ComboBox_Models" HorizontalAlignment="Left" Margin="616,301,0,0" VerticalAlignment="Top" Width="158" Height="20" SelectionChanged="ComboBox_SelectionChanged"/>
         <Label Content="Model" HorizontalAlignment="Left" Margin="673,277,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.843,-1.069"/>
         <Label Content="Parent" HorizontalAlignment="Left" Margin="673,231,0,0" VerticalAlignment="Top"/>
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="15,216,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Start Route" HorizontalAlignment="Left" Height="27" Margin="40,321,0,0" VerticalAlignment="Top" Width="133" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

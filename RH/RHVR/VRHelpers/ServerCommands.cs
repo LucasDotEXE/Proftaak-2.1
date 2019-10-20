@@ -85,15 +85,15 @@ namespace Commands
 
                 Dictionary<string, dynamic> data = new Dictionary<string, dynamic>();
 
-                    data.Add("name", name);
+                data.Add("name", name);
 
                 if (parent != null) data.Add("parent", parent);
 
-                if (component != null) data.Add("components",component);
+                if (component != null) data.Add("components", component);
 
-                add.Add("data",data);
+                add.Add("data", data);
 
-                
+
                 return JsonConvert.SerializeObject(add);
             }
 
@@ -138,7 +138,7 @@ namespace Commands
 
                     data = new
                     {
-                        name = new { name }
+                        name = name
                     }
                 };
                 return JsonConvert.SerializeObject(find);
@@ -387,7 +387,7 @@ namespace Commands
     {
         private static readonly String idPrefix = "route/";
 
-        public static String add(List<RouteNode> nodes)
+        public static String add(List<dynamic> nodes)
         {
 
             var add = new
@@ -431,22 +431,23 @@ namespace Commands
             return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(update));
         }
 
-        public static String follow(String routeID, String nodeID, double speed, double ofset, Rotate rotate, double smoothing, bool followHeight, Tripple<double> rotateOfset, Tripple<double> positionOffset)
+        public static String follow(String routeID, String nodeID, double speed, double offset, Rotate rotate, double smoothing, bool followHeight, double[] rotateOfset, double[] positionOffset)
         {
             var follew = new
             {
                 id = idPrefix + "follow",
                 data = new
                 {
-                    route = new { routeID },
-                    node = new { nodeID },
+                    route = routeID,
+                    node = nodeID,
                     speed = speed,
-                    offset = ofset,
+                    offset = offset,
                     rotate = rotate,
                     smoothing = smoothing,
                     followHeight = followHeight,
-                    rotateOffset = new[] { rotateOfset.val[0], rotateOfset.val[1], rotateOfset.val[2] },
-                    positionOffset = new[] { positionOffset.val[0], positionOffset.val[1], positionOffset.val[2] }
+                    rotateOffset = rotateOfset,
+                    positionOffset = positionOffset
+
                 }
             };
             return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(follew));
@@ -661,26 +662,21 @@ namespace CommandHelperObjects
 
     class RouteNode
     {
-        private int[] pos { get; set; }
-        private int[] dir { get; set; }
+        private double[] pos { get; set; }
+        private double[] dir { get; set; }
 
-        public RouteNode(Tripple<int> pos, Tripple<int> dir)
+        public override string ToString()
         {
-            this.pos = new int[] { pos.val[0], pos.val[1], pos.val[2] };
-            this.dir = new int[] { dir.val[0], dir.val[1], dir.val[2] };
+            throw new NotImplementedException();
         }
 
-        public static List<RouteNode> genRouteNodeList()
+        public RouteNode(double[] pos, double[] dir)
         {
-            List<RouteNode> nodes = new List<RouteNode>();
-
-            nodes.Add(new RouteNode(new Tripple<int>(0, 0, 0), new Tripple<int>(5, 0, -5)));
-            nodes.Add(new RouteNode(new Tripple<int>(50, 0, 1), new Tripple<int>(5, 0, 5)));
-            nodes.Add(new RouteNode(new Tripple<int>(50, 0, 50), new Tripple<int>(-5, 0, 5)));
-            nodes.Add(new RouteNode(new Tripple<int>(0, 0, 50), new Tripple<int>(-5, 0, -5)));
-
-            return nodes;
+            this.pos = pos;
+            this.dir = dir;
         }
+
+
     }
 
     class Tripple<T>

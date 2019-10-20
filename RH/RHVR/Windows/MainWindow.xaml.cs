@@ -38,8 +38,11 @@ namespace GUI_VR_interfacing
 
         private void SelectSessionHandler(object sender, SelectionChangedEventArgs e)
         {
-            string d = JToken.Parse(JsonConvert.SerializeObject(SessionComboBox.SelectedItem))["id"].ToString();
-            TextBlock.Text = "ID : " + d;
+            if (SessionComboBox.SelectedItem != null)
+            {
+                string d = JToken.Parse(JsonConvert.SerializeObject(SessionComboBox.SelectedItem))["id"].ToString();
+                TextBlock.Text = "ID : " + d;
+            }
         }
 
         private void refresh()
