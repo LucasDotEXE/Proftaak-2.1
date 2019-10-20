@@ -49,7 +49,7 @@ namespace RHLib
                 return;
             }
 
-            this.thread = new Thread(new ThreadStart(getMessage));
+            this.thread = new Thread(new ThreadStart(getRequest));
             this.thread.Start();
         }
 
@@ -65,13 +65,15 @@ namespace RHLib
         }
 
         // messaging
-        protected void sendRequest(Request request)
+        protected void writeRequest(Request request)
         {
+
+            Console.WriteLine("CLIENT: " + request);
 
             TCPHelper.write(this.stream, request);
         }
 
-        private void getMessage()
+        private void getRequest()
         {
 
             try

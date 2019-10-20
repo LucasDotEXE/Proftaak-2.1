@@ -1,4 +1,7 @@
-﻿using System;
+﻿using RHLib;
+using RHLib.data;
+using RHLib.helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,115 +9,100 @@ using System.Threading.Tasks;
 
 namespace DocterAplication
 { 
-    class DocterClient : RHBase.ClientConnection
+    class DocterClient : ClientConnection
     {
-        internal bool isConnected;
 
-        public List<ClientData> clientData;
+        public Form1 form;
+        public bool isLoggedIn;
 
-        public String name;
-        
+        public List<ClientData> clientDatas;
+        public ClientData subscribed;
+        public string name;
 
-        public DocterClient()
+        public override void startClient()
         {
-            clientData = new List<ClientData>();
+
+            this.clientDatas = new List<ClientData>();
+            base.startConnection(true);
         }
 
         internal void sendLoginRequest(string userName, string password, bool newAcount)
         {
-            //base.sendMessage(new string[] { userName, password, newAcount.ToString() });
+
+            Request request = Request.newRequest(Config.loginType);
+            request.add("name", userName);
+            request.add("password", password);
+            request.add("register", newAcount);
+
+            base.writeRequest(request);
         }
 
         internal void sendClientListRequest()
         {
-            base.sendMessage($"RClientList");
+
+            base.writeRequest(Request.newRequest(Config.nameType));
         }
 
-        internal void sendFollowRequest(String client, bool doFollow) 
+        internal void sendFollowRequest(String clientName) 
         {
-            base.sendMessage($"F{client}|{doFollow.ToString()}");
+
+            this.subscribed = this.getClientData(clientName);
+
+            Request request = Request.newRequest(Config.subscribeType);
+            request.add("id", this.subscribed.id);
+
+            base.writeRequest(request);
         }
 
-        public override void receiveMessage(string message)
+        public override void receiveRequest(Request request)
         {
-            throw new NotImplementedException();
-        }
 
-        //temp message reciever has to be overridden
-        /*public T receiveMessage<T>(string message)
-        {
-            return null;
-            
-        }
-        */
-
-        internal bool connect(string userName, string password, bool newAcount)
-        {
-            base.startConnection();
-            sendLoginRequest(userName, password, newAcount);
-            //bool loginSucces = Boolean.Parse(recieveMessage("loginResponce"));
-            isConnected = true; //moet naar loginSucces
-            if (isConnected)
+            switch(request.type)
             {
-                this.name = userName; 
+
+                case Config.nameType:        this.createClients(request);                                  break;
+                case Config.loginType:       this.login(request);                                          break;
+                case Config.messageType:     this.subscribed.messages.Add(request.get("message"));         break;
+                case Config.subscribeType:   this.subscribed.setMeasurements(request);                     break;
+                case Config.measurementType: this.subscribed.measurements.Add(request.get("measurement")); break;
             }
-            //return loginSicces;
-            return true;
         }
 
-        internal void disconnect()
+        private void login(Request request)
         {
-            base.stopConnection();
-            isConnected = false;
+
+            this.isLoggedIn = request.get("successful");
+            this.form.loggedIn(request.get("successful"));
         }
 
-        internal void updateClientData()
+        private void createClients(Request request)
         {
-            sendClientListRequest();
-            /*
-            foreach (String client in receiveMessage<List<String>>("loginResponce"))
-            {
-                if (!clientDataContainsName(client))
-                {
-                    clientData.Add(new ClientData(client));
-                }
-            }
-            */
-        }
 
-        internal bool clientDataContainsName(string name)
-        {
-            foreach (ClientData data in clientData)
-            {
-                if (data.name.Equals(name)) return true;
-            }
-            return false;
-        }
+            this.clientDatas = new List<ClientData>();
 
-        internal void subscribe(string client)
-        {
-            sendFollowRequest(client, true);
-        }
+            foreach (string[] client in request.get("names"))
+                this.clientDatas.Add(new ClientData(Convert.ToInt32(client[0]), client[1]));
 
-        internal void unSubscribe(string client)
-        {
-            sendFollowRequest(client, false);
+            this.form.RefreshPage();
         }
 
         public ClientData getClientData(string selectedClientName)
         {
-            foreach (ClientData data in this.clientData)
-            {
+
+            foreach (ClientData data in this.clientDatas)
                 if (data.name.Equals(selectedClientName))
                     return data;
-            }
+
             return null;
         }
 
-        internal void sendMessage(string clientName, string msg)
+        internal void sendMessage(string msg)
         {
-            getClientData(clientName).messages.Add(msg);
-            base.sendMessage($"M{clientName}|msg");
+
+            Request request = Request.newRequest(Config.messageType);
+            request.add("message", msg);
+
+            base.writeRequest(request);
         }
     }
 }

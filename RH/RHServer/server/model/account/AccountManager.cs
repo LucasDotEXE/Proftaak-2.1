@@ -50,23 +50,13 @@ namespace RHServer.server.model.account
         }
 
         // methods
-        public static void writeClients()
+        public static List<string[]> getClientNames()
         {
 
-            foreach (ClientData client in clients)
-            {
-
-                Console.WriteLine(client);
-            }
-        }
-
-        public static List<string> getClientNames()
-        {
-
-            List<string> names = new List<string>();
+            List<string[]> names = new List<string[]>();
 
             foreach (ClientData client in clients)
-                names.Add(client.name);
+                names.Add(new string[2] { client.name, client.id.ToString() });
 
             return names;
         }

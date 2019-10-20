@@ -1,4 +1,3 @@
-C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHLib\obj\Debug\RHLib.csprojAssemblyReference.cache
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHLib\obj\Debug\RHLib.csproj.CoreCompileInputs.cache
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHLib\bin\Debug\RHLib.dll
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHLib\bin\Debug\RHLib.pdb

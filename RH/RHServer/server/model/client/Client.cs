@@ -89,6 +89,8 @@ namespace RHServer.server.model.client
             try
             {
 
+                Console.WriteLine("SERVER: " + request);
+
                 TCPHelper.write(this.stream, request);
             }
             catch (Exception e)
@@ -98,13 +100,13 @@ namespace RHServer.server.model.client
             }
         }
 
-        public void receiveProtocol(Request request)
+        public void receiveMeasurement(Request request)
         {
 
             Measurement measurement = request.get("measurement");
 
             if (this.data != null)
-                this.data.protocols.Add(measurement);
+                this.data.measurements.Add(measurement);
 
             this.sendObservers(request);
         }
@@ -140,7 +142,7 @@ namespace RHServer.server.model.client
             );
 
             request.clearParams();
-            request.add("loginStatus", (this.data != null));
+            request.add("successful", (this.data != null));
 
             this.sendRequest(request);
         }

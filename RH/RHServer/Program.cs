@@ -13,6 +13,8 @@ namespace RHServer
         static void Main(string[] args)
         {
 
+            new CreateStartAccount();
+
             Server server = new Server();
             server.startServer();
         }

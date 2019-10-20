@@ -7,6 +7,7 @@ namespace DocterAplication
     {
         public int Compare(object x, object y)
         {
+
             TreeNode tx = x as TreeNode;
             TreeNode ty = y as TreeNode;
 
@@ -14,6 +15,5 @@ namespace DocterAplication
                 return 0;
             return (-1) * string.Compare(tx.Name.ToString(), ty.Name.ToString());
         }
-
     }
 }

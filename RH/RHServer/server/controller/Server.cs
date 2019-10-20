@@ -16,6 +16,7 @@ using RHLib.helper;
 
 namespace RHServer.server.controller
 {
+
     class Server
     {
 
@@ -78,8 +79,6 @@ namespace RHServer.server.controller
             }
         }
 
-        
-
         // Request
         private void getNames(Client client, Request request)
         {
@@ -108,7 +107,7 @@ namespace RHServer.server.controller
             docter.subscribe(client);
             client.subscribe(docter);
 
-            request.add("measurements", client.data.measurements);
+            request.add("measurements", JsonConvert.SerializeObject(client.data.measurements));
             docter.sendRequest(request);
         }
 
@@ -121,11 +120,11 @@ namespace RHServer.server.controller
             switch (request.type)
             {
 
-                case Config.loginType:       client.login(request);             break;
-                case Config.messageType:     client.sendObservers(request);     break;
-                case Config.measurementType: client.receiveProtocol(request);   break;
-                case Config.subscribeType:   this.subscribe(client, request);   break;
-                case Config.nameType:        this.getNames(client, request);    break;
+                case Config.loginType:       client.login(request);              break;
+                case Config.messageType:     client.sendObservers(request);      break;
+                case Config.measurementType: client.receiveMeasurement(request); break;
+                case Config.subscribeType:   this.subscribe(client, request);    break;
+                case Config.nameType:        this.getNames(client, request);     break;
             }
         }
     }

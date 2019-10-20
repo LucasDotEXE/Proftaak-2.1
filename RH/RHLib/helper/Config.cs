@@ -15,11 +15,11 @@ namespace RHLib.helper
         public const int port                   = 6969;
 
         // message presets
-        public const string loginType           = "login";       // s: 
-        public const string messageType         = "message";     // server: M[message]                          client: M[message]
-        public const string nameType            = "name";        // server: R[id] / R                           client: R[json_protocols] / R[json_names]
-        public const string subscribeType       = "subscribe";   //
-        public const string measurementType     = "measurement"; // server: P[json_protocol]                    client: P[json_protocol]
+        public const string loginType           = "login";       
+        public const string messageType         = "message";     
+        public const string nameType            = "name";        
+        public const string subscribeType       = "subscribe";   
+        public const string measurementType     = "measurement"; 
 
         // paths
         public static string certificatePath    = getBasePath() + @"\RHServer\server\controller\certificate\cert.crt";

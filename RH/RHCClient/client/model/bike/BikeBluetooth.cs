@@ -1,13 +1,10 @@
 ﻿using Avans.TI.BLE;
 using CRC;
-using RHBase;
 using RHCClient.client.controller.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Avans.TI.BLE;
-using RHCClient.client.controller.interfaces;
 using RHLib.data;
 
 namespace RHCClient.client.model.bike

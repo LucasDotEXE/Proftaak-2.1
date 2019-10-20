@@ -8,11 +8,15 @@ namespace DocterAplication
 {
     static class Program
     {
+
         public static DocterClient docterClient;
 
         static void Main()
         {
+
             docterClient = new DocterClient();
+            docterClient.startClient();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
