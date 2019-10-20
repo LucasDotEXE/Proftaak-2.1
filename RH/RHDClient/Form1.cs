@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RHLib.data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -81,19 +82,10 @@ namespace DocterAplication
             }));
         }
 
-        private void UserList_ItemCheck(object sender, ItemCheckEventArgs e)
+        public void displayClient(Request request)
         {
 
-            String updatedClient = UserList.Nodes[e.Index].ToString();
-
-            if (e.NewValue.ToString().Equals("Checked"))
-                Program.docterClient.sendFollowRequest(updatedClient);
-            else
-                Program.docterClient.sendFollowRequest(updatedClient);
-        }
-
-        private void NodeClicked(object sender, TreeNodeMouseClickEventArgs e)
-        {
+            Program.docterClient.subscribed.setMeasurements(request);
 
             this.BeginInvoke(new Action(() =>
             {
@@ -105,6 +97,7 @@ namespace DocterAplication
                 }
                 catch (Exception)
                 {
+
                     return;
                 }
 
@@ -112,6 +105,16 @@ namespace DocterAplication
                 this.rebuildChatBox();
                 this.rebuildHistory();
                 this.rebuildResistance();
+            }));
+        }
+
+        private void NodeClicked(object sender, TreeNodeMouseClickEventArgs e)
+        {
+
+            this.BeginInvoke(new Action(() =>
+            {
+
+                Program.docterClient.sendFollowRequest(this.UserList.SelectedNode.Text);
             }));
         }
 

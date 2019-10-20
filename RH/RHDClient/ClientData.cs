@@ -1,4 +1,5 @@
-﻿using RHLib.data;
+﻿using Newtonsoft.Json;
+using RHLib.data;
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +15,6 @@ namespace DocterAplication
         public string name;
         public List<string> messages;
 
-        public List<Measurement> measurements { get; }
-
         public List<HeartRateMeasurement> heartRateMeasurements { get; }
         public List<BikeSpeedMeasurement> bikeSpeedMeasurements { get; }
         public List<BikePowerMeasurement> bikePowerMeasurements { get; }
@@ -27,18 +26,24 @@ namespace DocterAplication
             this.name = name;
             this.messages = new List<string>();
 
-            this.measurements = new List<Measurement>();
-
             this.heartRateMeasurements = new List<HeartRateMeasurement>();
             this.bikePowerMeasurements = new List<BikePowerMeasurement>();
             this.bikeSpeedMeasurements = new List<BikeSpeedMeasurement>();
         }
 
+        public void addMeasurement(Measurement measurement)
+        {
+
+            this.addHeartRateMeasurement(new HeartRateMeasurement(measurement.heartrate, 0));
+            this.addBikePowerMeasurement(new BikePowerMeasurement(measurement.acumilatedPower, measurement.currentPower));
+            this.addBikeSpeedMeasurement(new BikeSpeedMeasurement(measurement.speed, measurement.distance));
+        }
+
         public void setMeasurements(Request request)
         {
 
-            foreach (Measurement measurement in request.get("measurements"))
-                this.measurements.Add(measurement);
+            foreach (Measurement measurement in JsonConvert.DeserializeObject<List<Measurement>>(request.get("measurements")))
+                this.addMeasurement(measurement);
         }
 
         public void addHeartRateMeasurement(HeartRateMeasurement measurement)
@@ -123,16 +128,18 @@ namespace DocterAplication
 
     public class BikeSpeedMeasurement
     {
-        private int speed;
-        private int distance;
 
-        public BikeSpeedMeasurement(int speed, int distance)
+        private double speed;
+        private double distance;
+
+        public BikeSpeedMeasurement(double speed, double distance)
         {
+
             this.speed = speed;
             this.distance = distance;
         }
 
-        public int Speed
+        public double Speed
         {
             get
             {
@@ -140,7 +147,7 @@ namespace DocterAplication
             }
         }
 
-        public int Distance
+        public double Distance
         {
             get
             {
