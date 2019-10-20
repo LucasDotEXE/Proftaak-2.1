@@ -61,7 +61,7 @@ namespace RHLib.helper
 
         public static void write(SslStream stream, Request request)
         {
-
+            Console.WriteLine(request);
             string message = JsonConvert.SerializeObject(request);
 
             try

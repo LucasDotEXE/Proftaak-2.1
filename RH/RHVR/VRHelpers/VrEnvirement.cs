@@ -1,5 +1,6 @@
 ﻿using CommandHelperObjects;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace GUI_VR_interfacing
 {
@@ -15,6 +16,7 @@ namespace GUI_VR_interfacing
             // changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
             add3DModdel(vrClient, "Bike", new
             {
+                parent = "Camera",
                 model = new
                 {
                     file = VRstandards.GenerateModelPaths()["Bike"],
@@ -25,7 +27,7 @@ namespace GUI_VR_interfacing
                 }
             },
             null
-            );
+            ) ;
             add3DModdel(vrClient, "City", new
             {
                 model = new
@@ -40,15 +42,17 @@ namespace GUI_VR_interfacing
             null
             );
             List<dynamic> route = new List<dynamic>();
-            route.Add(new { pos = new double[] { -19.83, 3.00, 15.93 }, dir = new double[] { -5, 0, 5 } });
-            route.Add(new { pos = new double[] { -38.75, 3.00, 15.93 }, dir = new double[] { -5, 0, -5 } });
-            route.Add(new { pos = new double[] { -38.75, 3.00, -87.41 }, dir = new double[] { 5, 0, -5 } });
-            route.Add(new { pos = new double[] { -19.83, 3.00, -87.41 }, dir = new double[] { 5, 0, 5 }});
+            route.Add(new { pos = new double[] { -19.83, 2.00, 15.93 }, dir = new double[] { -5, 0, 5 } });
+            route.Add(new { pos = new double[] { -38.75, 2.00, 15.93 }, dir = new double[] { -5, 0, -5 } });
+            route.Add(new { pos = new double[] { -38.75, 2.00, -87.41 }, dir = new double[] { 5, 0, -5 } });
+            route.Add(new { pos = new double[] { -19.83, 2.00, -87.41 }, dir = new double[] { 5, 0, 5 }});
 
           
 
             addRoute(vrClient,
                 routeNodes: route);
+           
+            
 
 
           
@@ -60,13 +64,24 @@ namespace GUI_VR_interfacing
               followRoute(vrClient,
               routeID: vrClient.nodeDict["Route"],
               nodeID: vrClient.nodeDict["Bike"],
-              speed: 1,
+              speed: 2,
               offset: 0,
               rotate: 0,
-              smoothing: 0,
+              smoothing: 1,
+              followHeight: false,
+              rotateOfset: new double[] { 0, 0, 0 },
+              positionOffset: new double[] { 0, -200, 0 }
+              );
+            followRoute(vrClient,
+              routeID: vrClient.nodeDict["Route"],
+              nodeID: vrClient.nodeDict["Camera"],
+              speed: 2,
+              offset: 0,
+              rotate: 0,
+              smoothing: 1,
               followHeight: true,
               rotateOfset: new double[] { 0, 0, 0 },
-              positionOffset: new double[] { 0, 0, 0 }
+              positionOffset: new double[] { 0, -200, 0 }
               );
 
         }

@@ -11,9 +11,11 @@ namespace GUI_VR_interfacing
     /// </summary>
     public partial class MainWindow : Window
     {
+        internal static MainWindow mw;
         Client client = new Client();
         public MainWindow()
         {
+            mw = this;
             InitializeComponent();
             SessionComboBox.ItemsSource = client.sessions;
             SessionComboBox.DisplayMemberPath = "user";

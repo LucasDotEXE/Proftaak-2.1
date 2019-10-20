@@ -12,7 +12,7 @@
         <ComboBox HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="163" SelectionChanged="ComboBox_SelectionChanged_1"/>
         <Label Content="Preset" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
         <Button x:Name="GenButton" Content="Generate" HorizontalAlignment="Left" Margin="98,68,0,0" VerticalAlignment="Top" Width="75" Click="GenbuttonClicked"/>
-        <DataGrid x:Name="ObjList" HorizontalAlignment="Left" Height="385" Margin="221,15,0,0" VerticalAlignment="Top" Width="366" SelectionChanged="ObjList_SelectionChanged"/>
+        <DataGrid x:Name="ObjList" HorizontalAlignment="Left" Height="186" Margin="221,15,0,0" VerticalAlignment="Top" Width="366" SelectionChanged="ObjList_SelectionChanged"/>
         <Label Content="Selected Node:&#xD;&#xA;" HorizontalAlignment="Left" Margin="15,136,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="ComboBox_SelectNode" HorizontalAlignment="Left" Margin="15,156,0,0" VerticalAlignment="Top" Width="158"/>
         <Button x:Name="Button_Edit" Content="Info" HorizontalAlignment="Left" Margin="98,186,0,0" VerticalAlignment="Top" Width="75" Click="Button_EditClick"/>
@@ -32,6 +32,8 @@
         <Label Content="Parent" HorizontalAlignment="Left" Margin="673,231,0,0" VerticalAlignment="Top"/>
         <Button Content="Refresh" HorizontalAlignment="Left" Margin="15,216,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Button Content="Start Route" HorizontalAlignment="Left" Height="27" Margin="40,321,0,0" VerticalAlignment="Top" Width="133" Click="Button_Click_1"/>
+        <Label Content="Messages" HorizontalAlignment="Left" Margin="372,226,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="MessageListBo" HorizontalAlignment="Left" Height="131" Margin="221,257,0,0" VerticalAlignment="Top" Width="366"/>
 
     </Grid>
 </Window>
