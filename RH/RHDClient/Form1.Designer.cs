@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint16 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 10D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint17 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(2D, 123D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint18 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(3D, 70D);
-            System.Windows.Forms.DataVisualization.Charting.Series series32 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series33 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series34 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series35 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series36 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(1D, 10D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(2D, 123D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(3D, 70D);
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Login = new System.Windows.Forms.Button();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.LoggedInStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -47,50 +47,54 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PaswordBox = new System.Windows.Forms.TextBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.mainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BPowerchartCheck = new System.Windows.Forms.CheckBox();
-            this.BSpeedchartCheck = new System.Windows.Forms.CheckBox();
-            this.BPMchartCheck = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.chatBox = new System.Windows.Forms.ListBox();
-            this.sendAllButton = new System.Windows.Forms.Button();
-            this.sendButton = new System.Windows.Forms.Button();
-            this.messageBox = new System.Windows.Forms.TextBox();
-            this.UserList = new System.Windows.Forms.TreeView();
-            this.Refresh = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.registerCheck = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.resistance = new System.Windows.Forms.TrackBar();
-            this.label9 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserList = new System.Windows.Forms.TreeView();
+            this.Refresh = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.registerCheck = new System.Windows.Forms.CheckBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.ActiveData = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.AcumPowerCheck = new System.Windows.Forms.CheckBox();
+            this.DistanceCheck = new System.Windows.Forms.CheckBox();
+            this.EnergyCheck = new System.Windows.Forms.CheckBox();
+            this.CurrentPowerCheck = new System.Windows.Forms.CheckBox();
+            this.ResistanceLabel = new System.Windows.Forms.Label();
+            this.SpeedCheck = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BPMCheck = new System.Windows.Forms.CheckBox();
+            this.resistance = new System.Windows.Forms.TrackBar();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.mainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.HistoricData = new System.Windows.Forms.TabPage();
+            this.ChatWindow = new System.Windows.Forms.TabPage();
+            this.chatBox = new System.Windows.Forms.ListBox();
+            this.sendAllButton = new System.Windows.Forms.Button();
+            this.messageBox = new System.Windows.Forms.TextBox();
+            this.sendButton = new System.Windows.Forms.Button();
             this.StatusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mainChart)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.ActiveData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resistance)).BeginInit();
+            this.tabControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainChart)).BeginInit();
+            this.HistoricData.SuspendLayout();
+            this.ChatWindow.SuspendLayout();
             this.SuspendLayout();
             // 
             // Login
@@ -111,7 +115,7 @@
             this.ClientSelected});
             this.StatusStrip.Location = new System.Drawing.Point(0, 718);
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(1547, 26);
+            this.StatusStrip.Size = new System.Drawing.Size(958, 26);
             this.StatusStrip.TabIndex = 1;
             this.StatusStrip.Text = "statusStrip1";
             // 
@@ -159,257 +163,71 @@
             this.PaswordBox.Size = new System.Drawing.Size(100, 22);
             this.PaswordBox.TabIndex = 6;
             // 
-            // splitContainer1
+            // dataGridView1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(12, 12);
-            this.splitContainer1.Name = "splitContainer1";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
+            this.dataGridView1.Location = new System.Drawing.Point(8, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(616, 658);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // splitContainer1.Panel1
+            // Column1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column1.HeaderText = "BPM";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 75;
             // 
-            // splitContainer1.Panel2
+            // Column2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panel2);
-            this.splitContainer1.Size = new System.Drawing.Size(938, 703);
-            this.splitContainer1.SplitterDistance = 309;
-            this.splitContainer1.TabIndex = 8;
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column2.HeaderText = "Energy";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 90;
             // 
-            // panel2
+            // Column3
             // 
-            this.panel2.Controls.Add(this.mainChart);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(622, 697);
-            this.panel2.TabIndex = 0;
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column3.HeaderText = "Speed";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 85;
             // 
-            // mainChart
+            // Column4
             // 
-            chartArea6.AxisX.IsReversed = true;
-            chartArea6.AxisX.Title = "Measurements ago";
-            chartArea6.Name = "ChartArea1";
-            this.mainChart.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.mainChart.Legends.Add(legend6);
-            this.mainChart.Location = new System.Drawing.Point(3, 408);
-            this.mainChart.Name = "mainChart";
-            series31.BorderWidth = 3;
-            series31.ChartArea = "ChartArea1";
-            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            series31.Color = System.Drawing.Color.Red;
-            series31.Legend = "Legend1";
-            series31.MarkerBorderColor = System.Drawing.Color.Red;
-            series31.MarkerBorderWidth = 3;
-            series31.MarkerColor = System.Drawing.Color.Red;
-            series31.Name = "BPM";
-            dataPoint16.MarkerImageTransparentColor = System.Drawing.Color.Red;
-            series31.Points.Add(dataPoint16);
-            series31.Points.Add(dataPoint17);
-            series31.Points.Add(dataPoint18);
-            series32.BorderWidth = 3;
-            series32.ChartArea = "ChartArea1";
-            series32.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            series32.Color = System.Drawing.Color.Blue;
-            series32.Legend = "Legend1";
-            series32.Name = "Energy";
-            series33.BorderWidth = 3;
-            series33.ChartArea = "ChartArea1";
-            series33.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            series33.Color = System.Drawing.Color.Gold;
-            series33.Legend = "Legend1";
-            series33.Name = "Speed";
-            series34.BorderWidth = 3;
-            series34.ChartArea = "ChartArea1";
-            series34.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            series34.Color = System.Drawing.Color.Fuchsia;
-            series34.Legend = "Legend1";
-            series34.Name = "Distance";
-            series35.BorderColor = System.Drawing.Color.Aqua;
-            series35.BorderWidth = 3;
-            series35.ChartArea = "ChartArea1";
-            series35.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            series35.Legend = "Legend1";
-            series35.Name = "Current Power";
-            series35.ShadowColor = System.Drawing.Color.White;
-            series36.BorderWidth = 3;
-            series36.ChartArea = "ChartArea1";
-            series36.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            series36.Legend = "Legend1";
-            series36.Name = "Acumulated Power";
-            this.mainChart.Series.Add(series31);
-            this.mainChart.Series.Add(series32);
-            this.mainChart.Series.Add(series33);
-            this.mainChart.Series.Add(series34);
-            this.mainChart.Series.Add(series35);
-            this.mainChart.Series.Add(series36);
-            this.mainChart.Size = new System.Drawing.Size(616, 286);
-            this.mainChart.TabIndex = 4;
-            this.mainChart.Text = "chart1";
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column4.HeaderText = "Distance";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 105;
             // 
-            // panel1
+            // Column5
             // 
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.resistance);
-            this.panel1.Controls.Add(this.BPowerchartCheck);
-            this.panel1.Controls.Add(this.BSpeedchartCheck);
-            this.panel1.Controls.Add(this.BPMchartCheck);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(448, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 286);
-            this.panel1.TabIndex = 2;
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column5.HeaderText = "Current Pow";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 120;
             // 
-            // BPowerchartCheck
+            // Column6
             // 
-            this.BPowerchartCheck.AutoSize = true;
-            this.BPowerchartCheck.Location = new System.Drawing.Point(3, 259);
-            this.BPowerchartCheck.Name = "BPowerchartCheck";
-            this.BPowerchartCheck.Size = new System.Drawing.Size(138, 21);
-            this.BPowerchartCheck.TabIndex = 8;
-            this.BPowerchartCheck.Text = "Bike Power Chart";
-            this.BPowerchartCheck.UseVisualStyleBackColor = true;
-            this.BPowerchartCheck.CheckedChanged += new System.EventHandler(this.BPowerchartCheck_CheckedChanged);
-            // 
-            // BSpeedchartCheck
-            // 
-            this.BSpeedchartCheck.AutoSize = true;
-            this.BSpeedchartCheck.Location = new System.Drawing.Point(3, 232);
-            this.BSpeedchartCheck.Name = "BSpeedchartCheck";
-            this.BSpeedchartCheck.Size = new System.Drawing.Size(140, 21);
-            this.BSpeedchartCheck.TabIndex = 7;
-            this.BSpeedchartCheck.Text = "Bike Speed Chart";
-            this.BSpeedchartCheck.UseVisualStyleBackColor = true;
-            this.BSpeedchartCheck.CheckedChanged += new System.EventHandler(this.BSpeedchartCheck_CheckedChanged);
-            // 
-            // BPMchartCheck
-            // 
-            this.BPMchartCheck.AutoSize = true;
-            this.BPMchartCheck.Location = new System.Drawing.Point(3, 205);
-            this.BPMchartCheck.Name = "BPMchartCheck";
-            this.BPMchartCheck.Size = new System.Drawing.Size(97, 21);
-            this.BPMchartCheck.TabIndex = 6;
-            this.BPMchartCheck.Text = "BPM Chart";
-            this.BPMchartCheck.UseVisualStyleBackColor = true;
-            this.BPMchartCheck.CheckedChanged += new System.EventHandler(this.BPMchartCheck_CheckedChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(34, 139);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 17);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Energie KJ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 173);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 17);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Total Power";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 156);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 17);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "CurrentPower";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 122);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "BPM";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 17);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Speed";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Distance";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.chatBox);
-            this.panel3.Controls.Add(this.sendAllButton);
-            this.panel3.Controls.Add(this.sendButton);
-            this.panel3.Controls.Add(this.messageBox);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(619, 399);
-            this.panel3.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Location = new System.Drawing.Point(445, 292);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 70);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Force Stop Session";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // chatBox
-            // 
-            this.chatBox.FormattingEnabled = true;
-            this.chatBox.ItemHeight = 16;
-            this.chatBox.Location = new System.Drawing.Point(3, 6);
-            this.chatBox.Name = "chatBox";
-            this.chatBox.Size = new System.Drawing.Size(436, 356);
-            this.chatBox.TabIndex = 3;
-            // 
-            // sendAllButton
-            // 
-            this.sendAllButton.Location = new System.Drawing.Point(534, 373);
-            this.sendAllButton.Name = "sendAllButton";
-            this.sendAllButton.Size = new System.Drawing.Size(75, 23);
-            this.sendAllButton.TabIndex = 2;
-            this.sendAllButton.Text = "Send All";
-            this.sendAllButton.UseVisualStyleBackColor = true;
-            this.sendAllButton.Click += new System.EventHandler(this.SendAllButton_Click);
-            // 
-            // sendButton
-            // 
-            this.sendButton.Location = new System.Drawing.Point(445, 373);
-            this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(83, 23);
-            this.sendButton.TabIndex = 1;
-            this.sendButton.Text = "Send";
-            this.sendButton.UseVisualStyleBackColor = true;
-            this.sendButton.Click += new System.EventHandler(this.SendButton_Click);
-            // 
-            // messageBox
-            // 
-            this.messageBox.Location = new System.Drawing.Point(3, 374);
-            this.messageBox.Name = "messageBox";
-            this.messageBox.Size = new System.Drawing.Size(436, 22);
-            this.messageBox.TabIndex = 0;
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column6.HeaderText = "Acummulated Pow";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 162;
             // 
             // UserList
             // 
@@ -418,8 +236,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UserList.Location = new System.Drawing.Point(6, 115);
             this.UserList.Name = "UserList";
-            this.UserList.Size = new System.Drawing.Size(303, 625);
+            this.UserList.Size = new System.Drawing.Size(303, 555);
             this.UserList.TabIndex = 0;
+            this.UserList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.UserList_AfterSelect);
             this.UserList.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.NodeClicked);
             // 
             // Refresh
@@ -444,7 +263,7 @@
             this.groupBox1.Controls.Add(this.nameBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Login);
-            this.groupBox1.Location = new System.Drawing.Point(1231, -8);
+            this.groupBox1.Location = new System.Drawing.Point(643, -8);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(316, 752);
             this.groupBox1.TabIndex = 10;
@@ -459,115 +278,370 @@
             this.registerCheck.Text = "New Acount";
             this.registerCheck.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // tabControl1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(306, 697);
-            this.dataGridView1.TabIndex = 0;
+            this.tabControl1.Controls.Add(this.ActiveData);
+            this.tabControl1.Controls.Add(this.HistoricData);
+            this.tabControl1.Controls.Add(this.ChatWindow);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.ItemSize = new System.Drawing.Size(81, 50);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(637, 732);
+            this.tabControl1.TabIndex = 11;
+            // 
+            // ActiveData
+            // 
+            this.ActiveData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ActiveData.Controls.Add(this.label7);
+            this.ActiveData.Controls.Add(this.label8);
+            this.ActiveData.Controls.Add(this.label6);
+            this.ActiveData.Controls.Add(this.label5);
+            this.ActiveData.Controls.Add(this.label3);
+            this.ActiveData.Controls.Add(this.label4);
+            this.ActiveData.Controls.Add(this.AcumPowerCheck);
+            this.ActiveData.Controls.Add(this.DistanceCheck);
+            this.ActiveData.Controls.Add(this.EnergyCheck);
+            this.ActiveData.Controls.Add(this.CurrentPowerCheck);
+            this.ActiveData.Controls.Add(this.ResistanceLabel);
+            this.ActiveData.Controls.Add(this.SpeedCheck);
+            this.ActiveData.Controls.Add(this.button1);
+            this.ActiveData.Controls.Add(this.BPMCheck);
+            this.ActiveData.Controls.Add(this.resistance);
+            this.ActiveData.Controls.Add(this.tabControl2);
+            this.ActiveData.Controls.Add(this.mainChart);
+            this.ActiveData.Location = new System.Drawing.Point(4, 54);
+            this.ActiveData.Name = "ActiveData";
+            this.ActiveData.Padding = new System.Windows.Forms.Padding(3);
+            this.ActiveData.Size = new System.Drawing.Size(629, 674);
+            this.ActiveData.TabIndex = 0;
+            this.ActiveData.Text = "Active Data";
+            this.ActiveData.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(460, 269);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 20);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Total Power";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(460, 155);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 20);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Energie KJ";
+            this.label8.Click += new System.EventHandler(this.Label8_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(460, 239);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 20);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "CurrentPower";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(460, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 20);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "BPM";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(460, 209);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Distance";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(460, 179);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Speed";
+            // 
+            // AcumPowerCheck
+            // 
+            this.AcumPowerCheck.AutoSize = true;
+            this.AcumPowerCheck.Location = new System.Drawing.Point(436, 272);
+            this.AcumPowerCheck.Name = "AcumPowerCheck";
+            this.AcumPowerCheck.Size = new System.Drawing.Size(18, 17);
+            this.AcumPowerCheck.TabIndex = 13;
+            this.AcumPowerCheck.UseVisualStyleBackColor = true;
+            this.AcumPowerCheck.CheckedChanged += new System.EventHandler(this.AcumPowerCheck_CheckedChanged);
+            // 
+            // DistanceCheck
+            // 
+            this.DistanceCheck.AutoSize = true;
+            this.DistanceCheck.Location = new System.Drawing.Point(436, 212);
+            this.DistanceCheck.Name = "DistanceCheck";
+            this.DistanceCheck.Size = new System.Drawing.Size(18, 17);
+            this.DistanceCheck.TabIndex = 12;
+            this.DistanceCheck.UseVisualStyleBackColor = true;
+            this.DistanceCheck.CheckedChanged += new System.EventHandler(this.DistanceCheck_CheckedChanged);
+            // 
+            // EnergyCheck
+            // 
+            this.EnergyCheck.AutoSize = true;
+            this.EnergyCheck.Location = new System.Drawing.Point(436, 158);
+            this.EnergyCheck.Name = "EnergyCheck";
+            this.EnergyCheck.Size = new System.Drawing.Size(18, 17);
+            this.EnergyCheck.TabIndex = 11;
+            this.EnergyCheck.UseVisualStyleBackColor = true;
+            this.EnergyCheck.CheckedChanged += new System.EventHandler(this.EnergyCheck_CheckedChanged);
+            // 
+            // CurrentPowerCheck
+            // 
+            this.CurrentPowerCheck.AutoSize = true;
+            this.CurrentPowerCheck.Location = new System.Drawing.Point(436, 242);
+            this.CurrentPowerCheck.Name = "CurrentPowerCheck";
+            this.CurrentPowerCheck.Size = new System.Drawing.Size(18, 17);
+            this.CurrentPowerCheck.TabIndex = 8;
+            this.CurrentPowerCheck.UseVisualStyleBackColor = true;
+            this.CurrentPowerCheck.CheckedChanged += new System.EventHandler(this.BPowerchartCheck_CheckedChanged);
+            // 
+            // ResistanceLabel
+            // 
+            this.ResistanceLabel.AutoSize = true;
+            this.ResistanceLabel.Location = new System.Drawing.Point(332, 637);
+            this.ResistanceLabel.Name = "ResistanceLabel";
+            this.ResistanceLabel.Size = new System.Drawing.Size(103, 20);
+            this.ResistanceLabel.TabIndex = 10;
+            this.ResistanceLabel.Text = "Resistance: ";
+            // 
+            // SpeedCheck
+            // 
+            this.SpeedCheck.AutoSize = true;
+            this.SpeedCheck.Location = new System.Drawing.Point(436, 182);
+            this.SpeedCheck.Name = "SpeedCheck";
+            this.SpeedCheck.Size = new System.Drawing.Size(18, 17);
+            this.SpeedCheck.TabIndex = 7;
+            this.SpeedCheck.UseVisualStyleBackColor = true;
+            this.SpeedCheck.CheckedChanged += new System.EventHandler(this.BSpeedchartCheck_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkRed;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.Location = new System.Drawing.Point(7, 587);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(161, 70);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Force Stop Session";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // BPMCheck
+            // 
+            this.BPMCheck.AutoSize = true;
+            this.BPMCheck.Location = new System.Drawing.Point(436, 129);
+            this.BPMCheck.Name = "BPMCheck";
+            this.BPMCheck.Size = new System.Drawing.Size(18, 17);
+            this.BPMCheck.TabIndex = 6;
+            this.BPMCheck.UseVisualStyleBackColor = true;
+            this.BPMCheck.CheckedChanged += new System.EventHandler(this.BPMchartCheck_CheckedChanged);
             // 
             // resistance
             // 
-            this.resistance.Location = new System.Drawing.Point(3, 6);
+            this.resistance.Location = new System.Drawing.Point(174, 592);
             this.resistance.Name = "resistance";
-            this.resistance.Size = new System.Drawing.Size(171, 56);
+            this.resistance.Size = new System.Drawing.Size(447, 56);
             this.resistance.TabIndex = 9;
             this.resistance.Tag = "";
+            this.resistance.Scroll += new System.EventHandler(this.Resistance_Scroll);
             // 
-            // label9
+            // tabControl2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(34, 45);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(118, 17);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Resistance Slider";
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Location = new System.Drawing.Point(480, 578);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(8, 8);
+            this.tabControl2.TabIndex = 10;
             // 
-            // Column1
+            // tabPage3
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column1.HeaderText = "BPM";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 66;
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(0, 0);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // Column2
+            // tabPage4
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column2.HeaderText = "Energy";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 82;
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(0, 0);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // Column3
+            // mainChart
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column3.HeaderText = "Speed";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 78;
+            chartArea1.AxisX.IsReversed = true;
+            chartArea1.AxisX.Title = "Measurements ago";
+            chartArea1.Name = "ChartArea1";
+            this.mainChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.mainChart.Legends.Add(legend1);
+            this.mainChart.Location = new System.Drawing.Point(5, 2);
+            this.mainChart.Name = "mainChart";
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series1.Color = System.Drawing.Color.Red;
+            series1.Legend = "Legend1";
+            series1.MarkerBorderColor = System.Drawing.Color.Red;
+            series1.MarkerBorderWidth = 3;
+            series1.MarkerColor = System.Drawing.Color.Red;
+            series1.Name = "BPM";
+            dataPoint1.MarkerImageTransparentColor = System.Drawing.Color.Red;
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            series1.Points.Add(dataPoint3);
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series2.Color = System.Drawing.Color.Blue;
+            series2.Legend = "Legend1";
+            series2.Name = "Energy";
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series3.Color = System.Drawing.Color.Gold;
+            series3.Legend = "Legend1";
+            series3.Name = "Speed";
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series4.Color = System.Drawing.Color.Fuchsia;
+            series4.Legend = "Legend1";
+            series4.Name = "Distance";
+            series5.BorderColor = System.Drawing.Color.Aqua;
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series5.Legend = "Legend1";
+            series5.Name = "Current Power";
+            series5.ShadowColor = System.Drawing.Color.White;
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            series6.Legend = "Legend1";
+            series6.Name = "Acumulated Power";
+            this.mainChart.Series.Add(series1);
+            this.mainChart.Series.Add(series2);
+            this.mainChart.Series.Add(series3);
+            this.mainChart.Series.Add(series4);
+            this.mainChart.Series.Add(series5);
+            this.mainChart.Series.Add(series6);
+            this.mainChart.Size = new System.Drawing.Size(616, 366);
+            this.mainChart.TabIndex = 4;
+            this.mainChart.Text = "chart1";
             // 
-            // Column4
+            // HistoricData
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column4.HeaderText = "Distance";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 92;
+            this.HistoricData.Controls.Add(this.dataGridView1);
+            this.HistoricData.Location = new System.Drawing.Point(4, 54);
+            this.HistoricData.Name = "HistoricData";
+            this.HistoricData.Padding = new System.Windows.Forms.Padding(3);
+            this.HistoricData.Size = new System.Drawing.Size(629, 674);
+            this.HistoricData.TabIndex = 1;
+            this.HistoricData.Text = "Historic Data";
+            this.HistoricData.UseVisualStyleBackColor = true;
             // 
-            // Column5
+            // ChatWindow
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column5.HeaderText = "Current Pow";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 114;
+            this.ChatWindow.Controls.Add(this.chatBox);
+            this.ChatWindow.Controls.Add(this.sendAllButton);
+            this.ChatWindow.Controls.Add(this.messageBox);
+            this.ChatWindow.Controls.Add(this.sendButton);
+            this.ChatWindow.Location = new System.Drawing.Point(4, 54);
+            this.ChatWindow.Name = "ChatWindow";
+            this.ChatWindow.Size = new System.Drawing.Size(629, 674);
+            this.ChatWindow.TabIndex = 2;
+            this.ChatWindow.Text = "Chat Window";
+            this.ChatWindow.UseVisualStyleBackColor = true;
             // 
-            // Column6
+            // chatBox
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column6.HeaderText = "Acummulated Pow";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 139;
+            this.chatBox.FormattingEnabled = true;
+            this.chatBox.ItemHeight = 20;
+            this.chatBox.Location = new System.Drawing.Point(8, 3);
+            this.chatBox.Name = "chatBox";
+            this.chatBox.Size = new System.Drawing.Size(606, 604);
+            this.chatBox.TabIndex = 3;
+            // 
+            // sendAllButton
+            // 
+            this.sendAllButton.Location = new System.Drawing.Point(519, 613);
+            this.sendAllButton.Name = "sendAllButton";
+            this.sendAllButton.Size = new System.Drawing.Size(95, 39);
+            this.sendAllButton.TabIndex = 2;
+            this.sendAllButton.Text = "Send All";
+            this.sendAllButton.UseVisualStyleBackColor = true;
+            this.sendAllButton.Click += new System.EventHandler(this.SendAllButton_Click);
+            // 
+            // messageBox
+            // 
+            this.messageBox.Location = new System.Drawing.Point(8, 620);
+            this.messageBox.Name = "messageBox";
+            this.messageBox.Size = new System.Drawing.Size(416, 26);
+            this.messageBox.TabIndex = 0;
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(430, 614);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(83, 39);
+            this.sendButton.TabIndex = 1;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.SendButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1547, 744);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(958, 744);
             this.Controls.Add(this.StatusStrip);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "RH Docktor App";
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mainChart)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.ActiveData.ResumeLayout(false);
+            this.ActiveData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resistance)).EndInit();
+            this.tabControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainChart)).EndInit();
+            this.HistoricData.ResumeLayout(false);
+            this.ChatWindow.ResumeLayout(false);
+            this.ChatWindow.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,38 +657,44 @@
         private System.Windows.Forms.TextBox PaswordBox;
         private System.Windows.Forms.ToolStripStatusLabel LoggedInStatus;
         private System.Windows.Forms.ToolStripStatusLabel ClientSelected;
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private new System.Windows.Forms.Button Refresh;
         private System.Windows.Forms.TreeView UserList;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataVisualization.Charting.Chart mainChart;
         private System.Windows.Forms.CheckBox registerCheck;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckBox BPowerchartCheck;
-        private System.Windows.Forms.CheckBox BSpeedchartCheck;
-        private System.Windows.Forms.CheckBox BPMchartCheck;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button sendAllButton;
-        private System.Windows.Forms.Button sendButton;
-        private System.Windows.Forms.TextBox messageBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox chatBox;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TrackBar resistance;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage ActiveData;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart mainChart;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label ResistanceLabel;
+        private System.Windows.Forms.TrackBar resistance;
+        private System.Windows.Forms.CheckBox CurrentPowerCheck;
+        private System.Windows.Forms.CheckBox SpeedCheck;
+        private System.Windows.Forms.CheckBox BPMCheck;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TabPage HistoricData;
+        private System.Windows.Forms.TabPage ChatWindow;
+        private System.Windows.Forms.ListBox chatBox;
+        private System.Windows.Forms.Button sendAllButton;
+        private System.Windows.Forms.TextBox messageBox;
+        private System.Windows.Forms.Button sendButton;
+        private System.Windows.Forms.CheckBox AcumPowerCheck;
+        private System.Windows.Forms.CheckBox DistanceCheck;
+        private System.Windows.Forms.CheckBox EnergyCheck;
     }
 }
 

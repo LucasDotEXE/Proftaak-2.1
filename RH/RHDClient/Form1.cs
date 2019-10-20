@@ -17,10 +17,10 @@ namespace DocterAplication
         {
             InitializeComponent();
             PaswordBox.PasswordChar = '*';
-            
+
         }
 
-      
+
 
         private void Login_Click(object sender, EventArgs e)
         {
@@ -28,10 +28,12 @@ namespace DocterAplication
             {
                 Program.docterClient.disconnect();
                 LoggedInStatus.Text = "Not Logged In";
-                    Login.Text = "Login";
+                Login.Text = "Login";
 
-                
-            } else {
+
+            }
+            else
+            {
                 String userName = nameBox.Text;
                 String pasword = PaswordBox.Text;
                 bool register = registerCheck.Checked;
@@ -46,9 +48,9 @@ namespace DocterAplication
                     StatusStrip.Text = "Not Logged In";
                 }
             }
-                
 
-            
+
+
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -85,7 +87,7 @@ namespace DocterAplication
                     data.addBikeSpeedMeasurement(new BikeSpeedMeasurement(100, 22));
                 }
                 Program.docterClient.clientData.Add(data);
-                UserList.Nodes.Add($"Client {i+1}");
+                UserList.Nodes.Add($"Client {i + 1}");
             }
         }
 
@@ -97,13 +99,13 @@ namespace DocterAplication
             {
                 UserList.Nodes.Add(data.name);
             }
-            
+
         }
 
 
         private void UserList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            String updatedClient = UserList.Nodes[e.Index].ToString();            
+            String updatedClient = UserList.Nodes[e.Index].ToString();
             if (e.NewValue.ToString().Equals("Checked"))
             {
                 Program.docterClient.subscribe(updatedClient);
@@ -116,24 +118,36 @@ namespace DocterAplication
 
         private void NodeClicked(object sender, TreeNodeMouseClickEventArgs e)
         {
-            this.BeginInvoke(new Action(() => {
+            this.BeginInvoke(new Action(() =>
+            {
                 try
                 {
                     ClientSelected.Text = $"Selected Client: {UserList.SelectedNode.Text}";
-                } catch (Exception)
+                }
+                catch (Exception)
                 {
                     return;
                 }
-                
+
                 rebuildCharts();
                 rebuildChatBox();
                 rebuildHistory();
+                rebuildResistance();
             }));
+        }
+
+        private void rebuildResistance()
+        {
+            ClientData data = Program.docterClient.getClientData(UserList.SelectedNode.Text);
+            resistance.Value = data.resistance;
+            ResistanceLabel.Text = $"Resistance: {resistance.Value}";
+
         }
 
         private void rebuildHistory()
         {
-            this.BeginInvoke(new Action(() => {
+            this.BeginInvoke(new Action(() =>
+            {
                 try
                 {
                     _ = UserList.SelectedNode.Text;
@@ -154,7 +168,7 @@ namespace DocterAplication
 
                     this.dataGridView1.Rows.Insert(i, heartMes.Bpm, heartMes.ExpandedEnergy, bikeSpedMes.Speed, bikeSpedMes.Distance, bikePowMes.CurrentPower, bikePowMes.AcumulatedPower);
                 }
-                
+
 
             }));
         }
@@ -163,9 +177,11 @@ namespace DocterAplication
         {
             this.BeginInvoke(new Action(() =>
             {
-                try {
+                try
+                {
                     _ = UserList.SelectedNode.Text;
-                } catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     Console.WriteLine(e.StackTrace);
                     return;
@@ -188,27 +204,37 @@ namespace DocterAplication
                 int amountToDisplay = 60;
                 for (int i = 0; i < amountToDisplay; i++)
                 {
-                   
-                        if (BPMchartCheck.Checked && i + heartRateMeasurements.Length - amountToDisplay >= 0)
-                        {
-                            int index = i + heartRateMeasurements.Length - amountToDisplay;
-                            mainChart.Series["BPM"].Points.AddXY(amountToDisplay - i, heartRateMeasurements[index].Bpm);
-                            mainChart.Series["Energy"].Points.AddXY(amountToDisplay - i, heartRateMeasurements[index].ExpandedEnergy);
-                        }
-                        if (BSpeedchartCheck.Checked && i + bikeSpeedMeasurements.Length - amountToDisplay >= 0)
-                        {
-                            int index = i + bikeSpeedMeasurements.Length - amountToDisplay;
-                            mainChart.Series["Distance"].Points.AddXY(amountToDisplay - i, bikeSpeedMeasurements[index].Distance);
-                            mainChart.Series["Speed"].Points.AddXY(amountToDisplay - i, bikeSpeedMeasurements[index].Speed);
-                        }
-                        if (BPowerchartCheck.Checked && i + bikePowerMeasurements.Length - amountToDisplay >= 0)
-                        {
-                            int index = i + bikePowerMeasurements.Length - amountToDisplay;
-                            mainChart.Series["Acumulated Power"].Points.AddXY(amountToDisplay - i, bikePowerMeasurements[index].AcumulatedPower);
-                            mainChart.Series["Current Power"].Points.AddXY(amountToDisplay - i, bikePowerMeasurements[index].CurrentPower);
-                        }
-                    
-                    
+                    if (AcumPowerCheck.Checked && i + bikePowerMeasurements.Length - amountToDisplay >= 0)
+                    {
+                        int index = i + bikePowerMeasurements.Length - amountToDisplay;
+                        mainChart.Series["Acumulated Power"].Points.AddXY(amountToDisplay - i, bikePowerMeasurements[index].AcumulatedPower);
+                    }
+                    if (CurrentPowerCheck.Checked && i + bikePowerMeasurements.Length - amountToDisplay >= 0)
+                    {
+                        int index = i + bikePowerMeasurements.Length - amountToDisplay;
+                        mainChart.Series["Current Power"].Points.AddXY(amountToDisplay - i, bikePowerMeasurements[index].CurrentPower);
+                    }
+                    if (DistanceCheck.Checked && i + bikeSpeedMeasurements.Length - amountToDisplay >= 0)
+                    {
+                        int index = i + bikeSpeedMeasurements.Length - amountToDisplay;
+                        mainChart.Series["Distance"].Points.AddXY(amountToDisplay - i, bikeSpeedMeasurements[index].Distance);
+                    }
+                    if (SpeedCheck.Checked && i + bikeSpeedMeasurements.Length - amountToDisplay >= 0)
+                    {
+                        int index = i + bikeSpeedMeasurements.Length - amountToDisplay;
+                        mainChart.Series["Speed"].Points.AddXY(amountToDisplay - i, bikeSpeedMeasurements[index].Speed);
+                    }
+                    if (EnergyCheck.Checked && i + heartRateMeasurements.Length - amountToDisplay >= 0)
+                    {
+                        int index = i + heartRateMeasurements.Length - amountToDisplay;
+                        mainChart.Series["Energy"].Points.AddXY(amountToDisplay - i, heartRateMeasurements[index].ExpandedEnergy);
+                    }
+                    if (BPMCheck.Checked && i + heartRateMeasurements.Length - amountToDisplay >= 0)
+                    {
+                        int index = i + heartRateMeasurements.Length - amountToDisplay;
+                        mainChart.Series["BPM"].Points.AddXY(amountToDisplay - i, heartRateMeasurements[index].Bpm);
+
+                    }
                 }
             }));
 
@@ -253,6 +279,38 @@ namespace DocterAplication
                 Program.docterClient.sendMessage(data.name, msg);
             }
             rebuildChatBox();
+        }
+
+        private void Resistance_Scroll(object sender, EventArgs e)
+        {
+            ClientData data = Program.docterClient.getClientData(UserList.SelectedNode.Text);
+            data.resistance = resistance.Value;
+            rebuildResistance();
+        }
+
+        private void Label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AcumPowerCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            rebuildCharts();
+        }
+
+        private void DistanceCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            rebuildCharts();
+        }
+
+        private void EnergyCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            rebuildCharts();
+        }
+
+        private void UserList_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 }

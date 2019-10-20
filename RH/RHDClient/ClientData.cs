@@ -6,6 +6,7 @@ namespace DocterAplication
     {
         public string name;
         public List<string> messages;
+        public int resistance;
 
         private List<HeartRateMeasurement> heartRateMeasurements;
         public List<HeartRateMeasurement> HeartRateMeasurements
