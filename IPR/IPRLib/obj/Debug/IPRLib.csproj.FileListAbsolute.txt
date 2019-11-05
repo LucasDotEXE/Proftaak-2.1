@@ -1,0 +1,9 @@
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRLib\bin\Debug\IPRLib.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRLib\bin\Debug\IPRLib.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRLib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRLib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRLib\obj\Debug\IPRLib.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRLib\obj\Debug\IPRLib.csproj.CopyComplete
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRLib\obj\Debug\IPRLib.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRLib\obj\Debug\IPRLib.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRLib\obj\Debug\IPRLib.csprojAssemblyReference.cache

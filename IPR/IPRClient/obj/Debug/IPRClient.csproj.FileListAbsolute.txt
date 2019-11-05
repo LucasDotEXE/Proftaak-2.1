@@ -1,0 +1,17 @@
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\bin\Debug\IPRClient.exe.config
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\bin\Debug\IPRClient.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\bin\Debug\IPRClient.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\bin\Debug\IPRLib.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\bin\Debug\IPRLib.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.csprojAssemblyReference.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.StartForm.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.Properties.Resources.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.csproj.GenerateResource.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.csproj.CopyComplete
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.TestForm.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\bin\Debug\BLELibrary.dll

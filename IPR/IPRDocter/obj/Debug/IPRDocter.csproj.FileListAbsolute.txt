@@ -1,0 +1,15 @@
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\bin\Debug\IPRDocter.exe.config
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\bin\Debug\IPRDocter.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\bin\Debug\IPRDocter.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\bin\Debug\IPRLib.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\bin\Debug\IPRLib.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\obj\Debug\IPRDocter.csprojAssemblyReference.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\obj\Debug\IPRDocter.Properties.Resources.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\obj\Debug\IPRDocter.csproj.GenerateResource.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\obj\Debug\IPRDocter.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\obj\Debug\IPRDocter.csproj.CopyComplete
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\obj\Debug\IPRDocter.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\obj\Debug\IPRDocter.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRDocter\obj\Debug\IPRDocter.DocterForm.resources
