@@ -1,6 +1,5 @@
 ﻿using CommandHelperObjects;
 using System.Collections.Generic;
-using System.Threading;
 
 namespace GUI_VR_interfacing
 {
@@ -11,9 +10,7 @@ namespace GUI_VR_interfacing
         {
 
             addTerain(vrClient, 1024, 1024);
-            //Commands.Scene.get(); //see if the groundpane is among it 
             changeTime(vrClient, 0);
-            // changeTerrain(vrClient, heightMap.getSlopedHightMap(256, 256, 10), 256, 256);
             add3DModdel(vrClient, "Bike", new
             {
                 parent = "Camera",
@@ -27,7 +24,7 @@ namespace GUI_VR_interfacing
                 }
             },
             null
-            ) ;
+            );
             add3DModdel(vrClient, "City", new
             {
                 model = new
@@ -45,39 +42,39 @@ namespace GUI_VR_interfacing
             route.Add(new { pos = new double[] { -19.83, 2.00, 15.93 }, dir = new double[] { -5, 0, 5 } });
             route.Add(new { pos = new double[] { -38.75, 2.00, 15.93 }, dir = new double[] { -5, 0, -5 } });
             route.Add(new { pos = new double[] { -38.75, 2.00, -87.41 }, dir = new double[] { 5, 0, -5 } });
-            route.Add(new { pos = new double[] { -19.83, 2.00, -87.41 }, dir = new double[] { 5, 0, 5 }});
+            route.Add(new { pos = new double[] { -19.83, 2.00, -87.41 }, dir = new double[] { 5, 0, 5 } });
 
-          
+
 
             addRoute(vrClient,
                 routeNodes: route);
-           
-            
 
 
-          
+
+
+
 
         }
 
         public static void startRoute(Client vrClient)
         {
-              followRoute(vrClient,
-              routeID: vrClient.nodeDict["Route"],
-              nodeID: vrClient.nodeDict["Bike"],
-              speed: 2,
-              offset: 0,
-              rotate: 0,
-              smoothing: 1,
-              followHeight: false,
-              rotateOfset: new double[] { 0, 0, 0 },
-              positionOffset: new double[] { 0, -200, 0 }
-              );
+            followRoute(vrClient,
+            routeID: vrClient.nodeDict["Route"],
+            nodeID: vrClient.nodeDict["Bike"],
+            speed: 2,
+            offset: 0,
+            rotate: 0,
+            smoothing: 1,
+            followHeight: false,
+            rotateOfset: new double[] { 0, 0, 0 },
+            positionOffset: new double[] { 0, -200, 0 }
+            );
             followRoute(vrClient,
               routeID: vrClient.nodeDict["Route"],
               nodeID: vrClient.nodeDict["Camera"],
               speed: 2,
               offset: 0,
-              rotate: 0,
+              rotate: "XZ",
               smoothing: 1,
               followHeight: true,
               rotateOfset: new double[] { 0, 0, 0 },
@@ -94,7 +91,7 @@ namespace GUI_VR_interfacing
                                 x, y, heightMap.getBlankHightMap(x, y)
                                 ));
         }
-        public static void followRoute(Client vrClient, string routeID, string nodeID, double speed, double offset, Rotate rotate, double smoothing, bool followHeight, double[] rotateOfset, double[] positionOffset)
+        public static void followRoute(Client vrClient, string routeID, string nodeID, double speed, double offset, string rotate, double smoothing, bool followHeight, double[] rotateOfset, double[] positionOffset)
         {
             vrClient.AddToQueue(Commands.Route.follow(routeID, nodeID, speed, offset, rotate, smoothing, followHeight, rotateOfset, positionOffset));
         }

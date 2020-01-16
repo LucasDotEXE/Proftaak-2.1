@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using CommandHelperObjects;
+using Hangfire.Annotations;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using CommandHelperObjects;
-using Hangfire.Annotations;
 
 namespace Commands
 {
@@ -431,7 +431,7 @@ namespace Commands
             return HelpMethods.lowerAndRemoveSpace(JsonConvert.SerializeObject(update));
         }
 
-        public static String follow(String routeID, String nodeID, double speed, double offset, Rotate rotate, double smoothing, bool followHeight, double[] rotateOfset, double[] positionOffset)
+        public static String follow(String routeID, String nodeID, double speed, double offset, string rotate, double smoothing, bool followHeight, double[] rotateOfset, double[] positionOffset)
         {
             var follew = new
             {
