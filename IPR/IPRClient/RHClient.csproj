@@ -68,6 +68,7 @@
     <Compile Include="client\view\ÄstrandForm.Designer.cs">
       <DependentUpon>ÄstrandForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="client\vr\VRManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="client\view\StartForm.resx">
