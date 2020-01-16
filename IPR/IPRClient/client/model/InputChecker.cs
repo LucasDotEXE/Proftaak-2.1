@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IPRClient.client.model
+namespace RHClient.client.model
 {
 
     static class InputChecker

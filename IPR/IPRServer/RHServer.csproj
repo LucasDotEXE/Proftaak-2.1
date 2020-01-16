@@ -49,7 +49,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="server\controller\Server.cs" />
-    <Compile Include="server\model\client\Ästrand.cs" />
     <Compile Include="server\model\session\SessionManager.cs" />
     <Compile Include="server\model\client\Client.cs" />
     <Compile Include="server\model\client\ClientObserver.cs" />
@@ -67,9 +66,9 @@
     <Content Include="server\model\session\Sessions.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPRLib\IPRLib.csproj">
+    <ProjectReference Include="..\IPRLib\RHLib.csproj">
       <Project>{9819db1f-bd48-47aa-9f3b-007454882c2f}</Project>
-      <Name>IPRLib</Name>
+      <Name>RHLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

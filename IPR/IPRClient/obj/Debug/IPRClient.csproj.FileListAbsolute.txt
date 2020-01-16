@@ -13,5 +13,5 @@ C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\De
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.csproj.CopyComplete
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.exe
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.pdb
-C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.TestForm.resources
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\bin\Debug\BLELibrary.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\IPR\IPRClient\obj\Debug\IPRClient.client.view.ÄstrandForm.resources

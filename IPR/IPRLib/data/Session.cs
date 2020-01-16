@@ -1,4 +1,4 @@
-﻿using IPRLib.data;
+﻿using RHLib.data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IPRLib.data
+namespace RHLib.data
 {
     public class Session
     {

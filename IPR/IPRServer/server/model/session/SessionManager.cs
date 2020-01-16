@@ -1,29 +1,46 @@
-﻿using IPRLib.data;
-using IPRLib.helper;
-using IPRServer.server.model.client;
+﻿using RHLib.data;
+using RHLib.helper;
+using RHServer.server.model.client;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace IPRServer.server.model.account
+namespace RHServer.server.model.account
 {
 
     class SessionManager
     {
 
         // attributes
-        private static List<Session> sessions = new List<Session>();
+        private static SessionManager instance;
 
-        
-        // login
-        public static Session createSession(int age, int weigth, string name, string gender)
+        private List<Session> sessions = new List<Session>();
+        private bool isSaving = false;
+
+        // instance
+        private SessionManager()
         {
 
-            load();
+            this.load();
+        }
+
+        public static SessionManager getInstance()
+        {
+
+            if (instance == null)
+                instance = new SessionManager();
+
+            return instance;
+        }
+
+        // login
+        public Session createSession(int age, int weigth, string name, string gender)
+        {
 
             Session clientData = Session.newSession(generateId(), age, weigth, name, gender);
 
@@ -34,7 +51,7 @@ namespace IPRServer.server.model.account
             return clientData;
         }
 
-        private static int generateId()
+        private int generateId()
         {
 
             int id = 0;
@@ -47,10 +64,8 @@ namespace IPRServer.server.model.account
         }
 
         // methods
-        public static List<string[]> getSessionNames()
+        public List<string[]> getSessionNames()
         {
-
-            load();
 
             List<string[]> names = new List<string[]>();
 
@@ -60,7 +75,7 @@ namespace IPRServer.server.model.account
             return names;
         }
 
-        public static Session getById(int id)
+        public Session getById(int id)
         {
 
             foreach (Session session in sessions)
@@ -71,38 +86,71 @@ namespace IPRServer.server.model.account
         }
 
         // file io
-        public static void save()
+        public void save()
         {
 
-            if (File.Exists(Config.serverAccountPath) && sessions.Count() != 0)
-                File.WriteAllText(Config.serverAccountPath, JsonConvert.SerializeObject(sessions));
+            if (File.Exists(Config.serverAccountPath) && sessions.Count() != 0 && !this.isSaving)
+            {
+
+                this.isSaving = true;
+                new Thread(new ThreadStart(this.saving)).Start();
+            }    
         }
 
-        private static void load()
+        private void saving()
+        {
+
+            File.WriteAllText(Config.serverAccountPath, JsonConvert.SerializeObject(sessions));
+            this.isSaving = false;
+        }
+
+        private void load()
         {
 
             if (File.Exists(Config.serverAccountPath) && sessions.Count() == 0)
                 sessions = JsonConvert.DeserializeObject<List<Session>>(File.ReadAllText(Config.serverAccountPath));
         }
 
-        public static void addVO2ToSession(Session session)
+        public void addVO2ToSession(Session session)
         {
 
-            double workload = 0;
-            foreach (Measurement measurement in session.measurements)
-                workload += measurement.currentPower;
-
-            workload /= session.measurements.Count();
-            workload *= 6.12;
+            double workload = this.getWorkLoad(session);
+            double bpm = -1;
 
             foreach (Measurement measurement in session.measurements)
-                if (session.gender == "Female")
-                    measurement.vo2 = ((0.00212 * workload + 0.299) / (0.769 * measurement.bpm - 48.5) * 100) * correction(session.age);
-                else
-                    measurement.vo2 = ((0.00193 * workload + 0.326) / (0.769 * measurement.bpm - 56.1) * 100) * correction(session.age);
+            {
+
+                if (measurement.bpm != -1)
+                    bpm = measurement.bpm;
+
+                if (bpm != -1)
+                    if (session.gender == "Female")
+                        measurement.vo2 = ((0.00212 * workload + 0.299) / (0.769 * measurement.bpm - 48.5) * 100) * this.correction(session.age);
+                    else
+                        measurement.vo2 = ((0.00193 * workload + 0.326) / (0.769 * measurement.bpm - 56.1) * 100) * this.correction(session.age);
+            }
         }
 
-        private static double correction(int age)
+        private double getWorkLoad(Session session)
+        {
+
+            double power = -1;
+            double workload = 0;
+
+            foreach (Measurement measurement in session.measurements)
+            {
+
+                if (measurement.currentPower != -1)
+                    power = measurement.currentPower;
+
+                if (power != -1)
+                    workload += power;
+            }
+            
+            return ((workload / session.measurements.Count()) * 6.12);
+        }
+
+        private double correction(int age)
         {
 
             if (age <= 15) return 1.1 + (15 - age) * 0.01;

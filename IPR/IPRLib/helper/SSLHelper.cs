@@ -4,13 +4,15 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace IPRLib.helper
+namespace RHLib.helper
 {
+
     public static class SSLHelper
     {
 
         public static void DisplaySecurityLevel(SslStream stream)
         {
+
             Console.WriteLine("Cipher: {0} strength {1}", stream.CipherAlgorithm, stream.CipherStrength);
             Console.WriteLine("Hash: {0} strength {1}", stream.HashAlgorithm, stream.HashStrength);
             Console.WriteLine("Key exchange: {0} strength {1}", stream.KeyExchangeAlgorithm, stream.KeyExchangeStrength);
@@ -19,6 +21,7 @@ namespace IPRLib.helper
 
         public static void DisplaySecurityServices(SslStream stream)
         {
+
             Console.WriteLine("Is authenticated: {0} as server? {1}", stream.IsAuthenticated, stream.IsServer);
             Console.WriteLine("IsSigned: {0}", stream.IsSigned);
             Console.WriteLine("Is Encrypted: {0}", stream.IsEncrypted);
@@ -26,6 +29,7 @@ namespace IPRLib.helper
 
         public static void DisplayStreamProperties(SslStream stream)
         {
+
             Console.WriteLine("Can read: {0}, write {1}", stream.CanRead, stream.CanWrite);
             Console.WriteLine("Can timeout: {0}", stream.CanTimeout);
         }

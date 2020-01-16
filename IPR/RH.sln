@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPRLib", "IPRLib\IPRLib.csproj", "{9819DB1F-BD48-47AA-9F3B-007454882C2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHLib", "IPRLib\RHLib.csproj", "{9819DB1F-BD48-47AA-9F3B-007454882C2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPRClient", "IPRClient\IPRClient.csproj", "{4BD5B947-4F68-410F-AE7F-A1C1953994B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHClient", "IPRClient\RHClient.csproj", "{4BD5B947-4F68-410F-AE7F-A1C1953994B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPRServer", "IPRServer\IPRServer.csproj", "{D80C6BAF-DBBE-4C11-BA68-E01A23C1285A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHServer", "IPRServer\RHServer.csproj", "{D80C6BAF-DBBE-4C11-BA68-E01A23C1285A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPRDocter", "IPRDocter\IPRDocter.csproj", "{6EB9D5FA-7805-412A-BA19-68FE56AC8B35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHDocter", "IPRDocter\RHDocter.csproj", "{6EB9D5FA-7805-412A-BA19-68FE56AC8B35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

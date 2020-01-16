@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6EB9D5FA-7805-412A-BA19-68FE56AC8B35}</ProjectGuid>
+    <ProjectGuid>{4BD5B947-4F68-410F-AE7F-A1C1953994B5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>IPRDocter</RootNamespace>
-    <AssemblyName>IPRDocter</AssemblyName>
+    <RootNamespace>IPRClient</RootNamespace>
+    <AssemblyName>IPRClient</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,12 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BLELibrary">
+      <HintPath>..\..\Week 1 - 2\FietsDemo\FietsDemo\BLELibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,17 +52,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="docter\controller\Docter.cs" />
-    <Compile Include="docter\view\DocterForm.cs">
+    <Compile Include="client\controller\Client.cs" />
+    <Compile Include="client\model\BlueTooth.cs" />
+    <Compile Include="client\model\InputChecker.cs" />
+    <Compile Include="client\model\Ästrand.cs" />
+    <Compile Include="client\view\StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="docter\view\DocterForm.Designer.cs">
-      <DependentUpon>DocterForm.cs</DependentUpon>
+    <Compile Include="client\view\StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="client\view\ÄstrandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="client\view\ÄstrandForm.Designer.cs">
+      <DependentUpon>ÄstrandForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="docter\view\DocterForm.resx">
-      <DependentUpon>DocterForm.cs</DependentUpon>
+    <EmbeddedResource Include="client\view\StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="client\view\ÄstrandForm.resx">
+      <DependentUpon>ÄstrandForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,11 +100,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPRLib\IPRLib.csproj">
+    <ProjectReference Include="..\IPRLib\RHLib.csproj">
       <Project>{9819db1f-bd48-47aa-9f3b-007454882c2f}</Project>
-      <Name>IPRLib</Name>
+      <Name>RHLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

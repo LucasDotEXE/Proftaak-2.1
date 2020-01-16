@@ -1,4 +1,4 @@
-﻿namespace IPRClient
+﻿namespace RHClient
 {
     partial class StartForm
     {

@@ -1,4 +1,4 @@
-﻿namespace IPRDocter
+﻿namespace RHDocter
 {
     partial class DocterForm
     {
@@ -28,24 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.history = new System.Windows.Forms.TabPage();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.graph = new System.Windows.Forms.TabPage();
+            this.error = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.gender = new System.Windows.Forms.Label();
             this.weight = new System.Windows.Forms.Label();
             this.age = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
             this.VO2 = new System.Windows.Forms.CheckBox();
-            this.idBike = new System.Windows.Forms.TextBox();
-            this.labelIdBike = new System.Windows.Forms.Label();
+            this.bikeId = new System.Windows.Forms.TextBox();
+            this.labelBikeId = new System.Windows.Forms.Label();
             this.APower = new System.Windows.Forms.CheckBox();
             this.CPower = new System.Windows.Forms.CheckBox();
             this.Distance = new System.Windows.Forms.CheckBox();
@@ -58,8 +61,7 @@
             this.labelOffline = new System.Windows.Forms.Label();
             this.offlineNames = new System.Windows.Forms.TreeView();
             this.Refresh = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl.SuspendLayout();
             this.graph.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
@@ -88,15 +90,15 @@
             // 
             // graph
             // 
+            this.graph.Controls.Add(this.error);
             this.graph.Controls.Add(this.button2);
-            this.graph.Controls.Add(this.button1);
             this.graph.Controls.Add(this.gender);
             this.graph.Controls.Add(this.weight);
             this.graph.Controls.Add(this.age);
             this.graph.Controls.Add(this.name);
             this.graph.Controls.Add(this.VO2);
-            this.graph.Controls.Add(this.idBike);
-            this.graph.Controls.Add(this.labelIdBike);
+            this.graph.Controls.Add(this.bikeId);
+            this.graph.Controls.Add(this.labelBikeId);
             this.graph.Controls.Add(this.APower);
             this.graph.Controls.Add(this.CPower);
             this.graph.Controls.Add(this.Distance);
@@ -112,10 +114,30 @@
             this.graph.Text = "Graph";
             this.graph.UseVisualStyleBackColor = true;
             // 
+            // error
+            // 
+            this.error.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(727, 188);
+            this.error.Name = "error";
+            this.error.Padding = new System.Windows.Forms.Padding(5);
+            this.error.Size = new System.Drawing.Size(175, 50);
+            this.error.TabIndex = 21;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(730, 322);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(171, 29);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "STOP";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Stop_Click);
+            // 
             // gender
             // 
             this.gender.AutoSize = true;
-            this.gender.Location = new System.Drawing.Point(727, 162);
+            this.gender.Location = new System.Drawing.Point(727, 163);
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(45, 13);
             this.gender.TabIndex = 18;
@@ -160,21 +182,21 @@
             this.VO2.UseVisualStyleBackColor = true;
             this.VO2.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
-            // idBike
+            // bikeId
             // 
-            this.idBike.Location = new System.Drawing.Point(730, 237);
-            this.idBike.Name = "idBike";
-            this.idBike.Size = new System.Drawing.Size(171, 20);
-            this.idBike.TabIndex = 13;
+            this.bikeId.Location = new System.Drawing.Point(730, 267);
+            this.bikeId.Name = "bikeId";
+            this.bikeId.Size = new System.Drawing.Size(171, 20);
+            this.bikeId.TabIndex = 13;
             // 
-            // labelIdBike
+            // labelBikeId
             // 
-            this.labelIdBike.AutoSize = true;
-            this.labelIdBike.Location = new System.Drawing.Point(727, 221);
-            this.labelIdBike.Name = "labelIdBike";
-            this.labelIdBike.Size = new System.Drawing.Size(40, 13);
-            this.labelIdBike.TabIndex = 12;
-            this.labelIdBike.Text = "Bike Id";
+            this.labelBikeId.AutoSize = true;
+            this.labelBikeId.Location = new System.Drawing.Point(727, 251);
+            this.labelBikeId.Name = "labelBikeId";
+            this.labelBikeId.Size = new System.Drawing.Size(40, 13);
+            this.labelBikeId.TabIndex = 12;
+            this.labelBikeId.Text = "Bike Id";
             // 
             // APower
             // 
@@ -238,58 +260,58 @@
             // 
             // start
             // 
-            this.start.Location = new System.Drawing.Point(730, 263);
+            this.start.Location = new System.Drawing.Point(730, 293);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(171, 23);
             this.start.TabIndex = 6;
-            this.start.Text = "Start Bike";
+            this.start.Text = "Start Ästrand Test";
             this.start.UseVisualStyleBackColor = true;
             this.start.Click += new System.EventHandler(this.Start_Click);
             // 
             // chart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
             this.chart.Location = new System.Drawing.Point(6, 6);
             this.chart.Name = "chart";
-            series7.BorderWidth = 3;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.Legend = "Legend1";
-            series7.Name = "BPM";
-            series8.BorderWidth = 3;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series8.Legend = "Legend1";
-            series8.Name = "Speed";
-            series9.BorderWidth = 3;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series9.Legend = "Legend1";
-            series9.Name = "Distance";
-            series10.BorderWidth = 3;
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series10.Legend = "Legend1";
-            series10.Name = "Current Power";
-            series11.BorderWidth = 3;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series11.Legend = "Legend1";
-            series11.Name = "Acumilated Power";
-            series12.BorderWidth = 3;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series12.Legend = "Legend1";
-            series12.Name = "VO2";
-            this.chart.Series.Add(series7);
-            this.chart.Series.Add(series8);
-            this.chart.Series.Add(series9);
-            this.chart.Series.Add(series10);
-            this.chart.Series.Add(series11);
-            this.chart.Series.Add(series12);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.Name = "BPM";
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "Speed";
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Legend = "Legend1";
+            series3.Name = "Distance";
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Current Power";
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series5.Legend = "Legend1";
+            series5.Name = "Acumilated Power";
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series6.Legend = "Legend1";
+            series6.Name = "VO2";
+            this.chart.Series.Add(series1);
+            this.chart.Series.Add(series2);
+            this.chart.Series.Add(series3);
+            this.chart.Series.Add(series4);
+            this.chart.Series.Add(series5);
+            this.chart.Series.Add(series6);
             this.chart.Size = new System.Drawing.Size(912, 388);
             this.chart.TabIndex = 4;
             this.chart.Text = "Session Chart";
@@ -338,23 +360,10 @@
             this.Refresh.UseVisualStyleBackColor = true;
             this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
-            // button1
+            // contextMenuStrip1
             // 
-            this.button1.Location = new System.Drawing.Point(730, 292);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Start Simulation";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(730, 322);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(171, 29);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "STOP";
-            this.button2.UseVisualStyleBackColor = true;
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // DocterForm
             // 
@@ -395,15 +404,16 @@
         private System.Windows.Forms.CheckBox Distance;
         private System.Windows.Forms.CheckBox Speed;
         private System.Windows.Forms.CheckBox BPM;
-        private System.Windows.Forms.TextBox idBike;
-        private System.Windows.Forms.Label labelIdBike;
+        private System.Windows.Forms.TextBox bikeId;
+        private System.Windows.Forms.Label labelBikeId;
         private System.Windows.Forms.CheckBox VO2;
         private System.Windows.Forms.Label gender;
         private System.Windows.Forms.Label weight;
         private System.Windows.Forms.Label age;
         private System.Windows.Forms.Label name;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label error;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

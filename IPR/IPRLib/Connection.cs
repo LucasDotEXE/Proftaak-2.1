@@ -1,5 +1,5 @@
-﻿using IPRLib.data;
-using IPRLib.helper;
+﻿using RHLib.data;
+using RHLib.helper;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -64,7 +64,7 @@ namespace RHLib
         }
 
         // messaging
-        protected void writeRequest(Request request)
+        public void writeRequest(Request request)
         {
 
             TCPHelper.write(this.stream, request);

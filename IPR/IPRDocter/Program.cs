@@ -1,11 +1,11 @@
-﻿using IPRDocter.docter.controller;
+﻿using RHDocter.docter.controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IPRDocter
+namespace RHDocter
 {
     static class Program
     {

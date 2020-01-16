@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IPRLib.data
+namespace RHLib.data
 {
 
     public class Measurement
@@ -58,7 +58,7 @@ namespace IPRLib.data
                 return null;
 
             // Speed
-            if (data[4] == 0x10)
+            if (data.Length > 10 && data[4] == 0x10)
             {
 
                 int totalDistance = data[7];
@@ -70,7 +70,7 @@ namespace IPRLib.data
             }
 
             // Bike data: power
-            if (data[4] == 0x19)
+            if (data.Length > 11 && data[4] == 0x19)
             {
 
                 int accumulatedPowerLSB = data[7];

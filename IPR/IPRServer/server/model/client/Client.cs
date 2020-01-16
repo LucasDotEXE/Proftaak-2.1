@@ -1,7 +1,7 @@
-﻿using IPRLib.data;
-using IPRLib.helper;
-using IPRServer.server.controller;
-using IPRServer.server.model.account;
+﻿using RHLib.data;
+using RHLib.helper;
+using RHServer.server.controller;
+using RHServer.server.model.account;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IPRServer.server.model.client
+namespace RHServer.server.model.client
 {
 
     class Client : ClientObserver
@@ -22,7 +22,6 @@ namespace IPRServer.server.model.client
         // attributes
         public bool isDocter;
         public Session session = null;
-        public Ästrand ästrand = new Ästrand();
 
         private Server server;
         private List<ClientObserver> observers = new List<ClientObserver>();
@@ -99,7 +98,6 @@ namespace IPRServer.server.model.client
             {
 
                 this.session.measurements.Add(measurement);
-                SessionManager.save();
             }
 
             this.sendObservers(request);
@@ -111,20 +109,6 @@ namespace IPRServer.server.model.client
 
             foreach (ClientObserver observer in this.observers)
                 observer.writeRequest(request);
-        }
-
-        public void startÄstrandAsDocter(Request request)
-        {
-
-            if (this.observers.Count() == 1)
-                this.observers[0].writeRequest(request);
-        }
-
-        public void startÄstrandAsClient(Request request)
-        {
-
-            if (!this.isDocter && request.get("hasBike"))
-                this.ästrand.start(this);
         }
 
         public void subscribe(ClientObserver observer)
@@ -139,11 +123,44 @@ namespace IPRServer.server.model.client
             this.observers.Remove(observer);
         }
 
+        // ästrand
+        public void startÄstrand(Request request)
+        {
+
+            if (this.observers.Count() == 1)
+                this.observers[0].writeRequest(request);
+        }
+
+        public void stopÄstrandAsClient(Request request)
+        {
+
+            if (request.get("stop") && !this.isDocter)
+            {
+
+                SessionManager sessionManager = SessionManager.getInstance();
+                sessionManager.addVO2ToSession(this.session);
+                sessionManager.save();
+
+                request.type = Config.subscribeType;
+                request.add("message", "Test successfully stopped");
+                request.add("session", JsonConvert.SerializeObject(this.session));
+
+                this.sendObservers(request);
+            }
+        }
+
+        public void stopÄstrandAsDoctor(Request request)
+        {
+
+            if (request.get("stop"))
+                this.observers[0].writeRequest(request);
+        }
+
         // account
         public void createSession(Request request)
         {
 
-            this.session = SessionManager.createSession(
+            this.session = SessionManager.getInstance().createSession(
                 (int) request.get("age"),
                 (int) request.get("weight"),
                 request.get("name"), 

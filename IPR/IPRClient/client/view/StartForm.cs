@@ -1,5 +1,6 @@
-﻿using IPRClient.client.model;
-using IPRLib.data;
+﻿using RHClient.client.model;
+using RHClient.client.view;
+using RHLib.data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IPRClient
+namespace RHClient
 {
     public partial class StartForm : Form
     {
@@ -29,11 +30,9 @@ namespace IPRClient
                 this.BeginInvoke(new Action(() =>
                 {
 
-                    TestForm testForm = new TestForm();
-                    testForm.Show();
-
+                    Program.client.ästrandForm.Show();
+                    Program.client.ästrandForm.setInfoText();
                     Program.client.startForm.Hide();
-                    Program.client.testForm = testForm;
                 }));
             else
                 this.BeginInvoke(new Action(() => this.error.Text = "Failed Creating Session!"));
@@ -50,6 +49,8 @@ namespace IPRClient
             int weight      = InputChecker.checkWeight(this.weight.Text);
             int age         = InputChecker.checkAge(this.age.Text);
             string name     = InputChecker.checkName(this.name.Text);
+
+            Program.client.ästrandForm.maxBpm = (210 - (age / 2));
 
             if (InputChecker.checkSessionInput(age, weight, name, gender))
                 Program.client.writeCreateSessionRequest(age, weight, name, gender);

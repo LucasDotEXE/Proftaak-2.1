@@ -3,23 +3,25 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace IPRLib.helper
+namespace RHLib.helper
 {
 
     public static class Config
     {
 
         // types
-        public const string testType = "testType";
-        public const string subscribeType = "subscribe";
-        public const string measurementType = "measurement";
-        public const string readSessionType = "readSession";
-        public const string createSessionType = "createSession";
+        public const string subscribeType       = "subscribe";
+        public const string measurementType     = "measurement";
+        public const string readSessionType     = "readSession";
+        public const string createSessionType   = "createSession";
+
+        public const string stopÄstrandType     = "stopÄstrand";
+        public const string startÄstrandType    = "startÄstrand";
+        public const string validateÄstrandType = "validateÄstrand"; 
 
         // connection
         public const string serverName          = "IPRServer";
         public const string host                = "127.0.0.1";
-        public const bool isBike                = false;
         public const int port                   = 6969;
 
         // paths

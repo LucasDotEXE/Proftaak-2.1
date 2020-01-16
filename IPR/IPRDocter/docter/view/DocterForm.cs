@@ -1,4 +1,4 @@
-﻿using IPRLib.data;
+﻿using RHLib.data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IPRDocter
+namespace RHDocter
 {
     public partial class DocterForm : Form
     {
@@ -61,6 +61,21 @@ namespace IPRDocter
             return -1;
         }
 
+        public void setValidation(Request request, bool isMessage)
+        {
+
+            this.BeginInvoke(new Action(() =>
+            {
+
+                if (isMessage)
+                    this.error.ForeColor = Color.Gray;
+                else
+                    this.error.ForeColor = Color.Red;
+
+                this.error.Text = request.get("message");
+            }));
+        }
+
         // chart
         public void buildChart()
         {
@@ -95,23 +110,23 @@ namespace IPRDocter
                     if (BPM.Checked && measurements[i].bpm != -1.0)
                         chart.Series["BPM"].Points.AddXY(i, measurements[i].bpm);
 
-                    if (VO2.Checked && measurements[i].vo2 != -1.0)
-                        chart.Series["V02"].Points.AddXY(i, measurements[i].vo2);
+                    if (VO2.Checked && measurements[i].vo2 > 0 && measurements[i].vo2 < 25)
+                        chart.Series["VO2"].Points.AddXY(i, measurements[i].vo2);
                 }
             }));
         }
 
         // history
-        public void buildHistory()
+        public void buildInformation()
         {
 
             this.BeginInvoke(new Action(() =>
             {
 
-                this.name.Text   = "Name:    " + Program.docter.subscribed.name;
-                this.age.Text    = "Age:    " + Program.docter.subscribed.age;
-                this.weight.Text = "Weight:    " + Program.docter.subscribed.weight;
-                this.gender.Text = "Gender:    " + Program.docter.subscribed.gender;
+                this.name.Text   = "Name: " + Program.docter.subscribed.name;
+                this.age.Text    = "Age: " + Program.docter.subscribed.age;
+                this.weight.Text = "Weight: " + Program.docter.subscribed.weight;
+                this.gender.Text = "Gender: " + Program.docter.subscribed.gender;
             }));
         }
 
@@ -137,7 +152,13 @@ namespace IPRDocter
         private void Start_Click(object sender, EventArgs e)
         {
 
-            Program.docter.writeTestRequest(this.idBike.Text);
+            Program.docter.writeTestRequest(this.bikeId.Text);
+        }
+
+        private void Stop_Click(object sender, EventArgs e)
+        {
+
+            Program.docter.writeStopÄstrandRequest(true);
         }
 
         private void CheckedChanged(object sender, EventArgs e)

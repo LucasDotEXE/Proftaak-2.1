@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace IPRLib.data
+namespace RHLib.data
 {
+
     public class Request
     {
 
@@ -33,6 +34,9 @@ namespace IPRLib.data
 
         public void add(string id, dynamic data)
         {
+
+            if (this.parameters.ContainsKey(id))
+                this.parameters.Remove(id);
 
             this.parameters.Add(id, data);
         }

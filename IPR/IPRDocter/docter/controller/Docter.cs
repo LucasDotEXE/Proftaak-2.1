@@ -1,5 +1,5 @@
-﻿using IPRLib.data;
-using IPRLib.helper;
+﻿using RHLib.data;
+using RHLib.helper;
 using Newtonsoft.Json;
 using RHLib;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IPRDocter.docter.controller
+namespace RHDocter.docter.controller
 {
 
     class Docter : Connection
@@ -31,8 +31,11 @@ namespace IPRDocter.docter.controller
         {
 
             this.subscribed = JsonConvert.DeserializeObject<Session>(request.get("session"));
-            this.docterForm.buildHistory();
+            this.docterForm.buildInformation();
             this.docterForm.buildChart();
+
+            if (request.get("stop"))
+                this.docterForm.setValidation(request, true);
         }
 
         private void receivedMeasurement(Request request)
@@ -49,9 +52,10 @@ namespace IPRDocter.docter.controller
             switch(request.type)
             {
 
-                case Config.readSessionType: this.docterForm.setSessions(request); break;
+                case Config.subscribeType: this.receivedSession(request); break;
                 case Config.measurementType: this.receivedMeasurement(request); break;
-                case Config.subscribeType:   this.receivedSession(request); break;
+                case Config.readSessionType: this.docterForm.setSessions(request); break;
+                case Config.validateÄstrandType: this.docterForm.setValidation(request, request.get("started")); break;
             }
         }
 
@@ -64,12 +68,21 @@ namespace IPRDocter.docter.controller
             this.writeRequest(request);
         }
 
-        public void writeTestRequest(string idBike)
+        public void writeTestRequest(string bikeId)
         {
 
-            Request request = Request.newRequest(Config.testType);
-            request.add("idbike", idBike);
+            Request request = Request.newRequest(Config.startÄstrandType);
+            request.add("bikeId", bikeId);
             request.add("start", true);
+
+            this.writeRequest(request);
+        }
+
+        public void writeStopÄstrandRequest(bool stop)
+        {
+
+            Request request = Request.newRequest(Config.stopÄstrandType);
+            request.add("stop", stop);
 
             this.writeRequest(request);
         }

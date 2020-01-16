@@ -1,4 +1,4 @@
-﻿using IPRServer.server.controller;
+﻿using RHServer.server.controller;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IPRServer
+namespace RHServer
 {
     class Program
     {

@@ -1,7 +1,7 @@
-﻿using IPRLib.data;
-using IPRLib.helper;
-using IPRServer.server.model.account;
-using IPRServer.server.model.client;
+﻿using RHLib.data;
+using RHLib.helper;
+using RHServer.server.model.account;
+using RHServer.server.model.client;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IPRServer.server.controller
+namespace RHServer.server.controller
 {
 
     class Server
@@ -70,11 +70,38 @@ namespace IPRServer.server.controller
             }
         }
 
+        // messaging
+        public void receiveRequest(Client client, Request request)
+        {
+
+            switch (request.type)
+            {
+
+                case Config.stopÄstrandType: client.stopÄstrandAsClient(request); break;
+                case Config.measurementType: client.receiveMeasurement(request); break;
+                case Config.createSessionType: client.createSession(request); break;
+                case Config.validateÄstrandType: client.sendObservers(request); break;
+            }
+
+            if (client.isDocter)
+            {
+
+                switch (request.type)
+                {
+
+                    case Config.subscribeType: this.subscribe(client, request); break;
+                    case Config.readSessionType: this.getSessionNames(client, request); break;
+                    case Config.stopÄstrandType: client.stopÄstrandAsDoctor(request); break;
+                    case Config.startÄstrandType: client.startÄstrand(request); break;
+                }
+            }
+        }
+
         // Request
         private void getSessionNames(Client client, Request request)
         {
 
-            List<string[]> offline = SessionManager.getSessionNames();
+            List<string[]> offline = SessionManager.getInstance().getSessionNames();
             List<string[]> online = this.getOnlineNames();
 
             request.add("offline", JsonConvert.SerializeObject(offline));
@@ -91,15 +118,18 @@ namespace IPRServer.server.controller
             foreach (Client client in this.clients)
                 if (client.session != null)
                     online.Add(new string[2] { client.session.name, client.session.id.ToString() });
-                    
+
             return online;
         }
 
         private void subscribe(Client docter, Request request)
         {
 
+            SessionManager sessionManager = SessionManager.getInstance();
+            sessionManager.save();
+
             Client foundClient = null;
-            int id = (int) request.get("id");
+            int id = (int)request.get("id");
 
             foreach (Client client in this.clients)
             {
@@ -112,7 +142,7 @@ namespace IPRServer.server.controller
             }
 
             if (foundClient == null)
-                request.add("session", JsonConvert.SerializeObject(SessionManager.getById(id)));
+                request.add("session", JsonConvert.SerializeObject(sessionManager.getById(id)));
             else
             {
 
@@ -122,32 +152,8 @@ namespace IPRServer.server.controller
                 request.add("session", JsonConvert.SerializeObject(foundClient.session));
             }
 
+            request.add("stop", false);
             docter.writeRequest(request);
-        }
-
-        // messaging
-        public void receiveRequest(Client client, Request request)
-        {
-
-            switch (request.type)
-            {
-
-                case Config.testType: client.startÄstrandAsClient(request); break;
-                case Config.measurementType: client.receiveMeasurement(request); break;
-                case Config.createSessionType: client.createSession(request); break;
-            }
-
-            if (client.isDocter)
-            {
-
-                switch (request.type)
-                {
-
-                    case Config.testType: client.startÄstrandAsDocter(request); break;
-                    case Config.subscribeType: this.subscribe(client, request); break;
-                    case Config.readSessionType: this.getSessionNames(client, request); break;
-                }
-            }
         }
     }   
 }

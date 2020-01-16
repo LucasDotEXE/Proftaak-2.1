@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IPRDocter.Properties
+namespace RHDocter.Properties
 {
 
 

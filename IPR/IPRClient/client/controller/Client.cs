@@ -1,6 +1,7 @@
-﻿using IPRClient.client.model;
-using IPRLib.data;
-using IPRLib.helper;
+﻿using RHClient.client.model;
+using RHClient.client.view;
+using RHLib.data;
+using RHLib.helper;
 using Newtonsoft.Json;
 using RHLib;
 using System;
@@ -11,19 +12,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IPRClient.client
+namespace RHClient.client
 {
 
     class Client : Connection
     {
 
         public StartForm startForm = new StartForm();
-        public TestForm testForm = new TestForm();
+        public ÄstrandForm ästrandForm = new ÄstrandForm();
 
-        // remove after test
-        private Test test = new Test();
-
-        public object AsyncContext { get; private set; }
+        public BlueTooth blueTooth;
 
         // startup
         public override void startClient()
@@ -32,35 +30,32 @@ namespace IPRClient.client
             this.startConnection(false);
         }
 
-        // test
-        public void startTest(Request request)
+        // bluetooth
+        public void startBluetooth(Request request)
         {
+
+            request.type = Config.validateÄstrandType;
 
             try
             {
 
-
-                BlueTooth blueTooth = new BlueTooth(request.get("idbike"));
-                blueTooth.start().Wait();
-                //new Thread(new ThreadStart(test.startTest)).Start();
-
-                request.add("hasBike", true);
+                this.blueTooth = new BlueTooth(request);
+                this.blueTooth.start().Wait();
             }
             catch (Exception e)
             {
 
-                request.add("hasBike", false);
-                SSLHelper.printException("Client::startTest", e);
+                Program.client.ästrandForm.stopÄstrand(true);
+
+                request.add("started", false);
+                request.add("message", SSLHelper.getMessage("Client", e));
+
+                if (e.InnerException != null && e.InnerException.Message.Length == 1)
+                    if (e.InnerException.Message == "1")
+                        request.add("message", "The bike is already in use or the bike id is incorrect");
+
+                this.writeRequest(request);
             }
-
-            this.writeRequest(request);
-        }
-
-        public void stopTest()
-        {
-
-            //Program.blueTooth.stop();
-            this.test.running = false;
         }
 
         // requests
@@ -70,8 +65,9 @@ namespace IPRClient.client
             switch (request.type)
             {
 
+                case Config.stopÄstrandType: this.ästrandForm.stopÄstrand(); break;
+                case Config.startÄstrandType: this.ästrandForm.startÄstrand(request); break;
                 case Config.createSessionType: this.startForm.createdSession(request); break;
-                case Config.testType:          this.testForm.receiveTest(request);     break;
             }
         }
 
@@ -92,6 +88,15 @@ namespace IPRClient.client
 
             Request request = Request.newRequest(Config.measurementType);
             request.add("measurement", JsonConvert.SerializeObject(measurement));
+
+            this.writeRequest(request);
+        }
+
+        public void writeStopÄstrandRequest(bool stop)
+        {
+
+            Request request = Request.newRequest(Config.stopÄstrandType);
+            request.add("stop", stop);
 
             this.writeRequest(request);
         }

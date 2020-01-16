@@ -1,4 +1,4 @@
-﻿using IPRLib.data;
+﻿using RHLib.data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IPRLib.helper
+namespace RHLib.helper
 {
 
     public static class TCPHelper
