@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRDocter\bin\Debug\IPRDocter.exe.config
 C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRDocter\bin\Debug\IPRDocter.exe
 C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRDocter\bin\Debug\IPRDocter.pdb
@@ -22,3 +23,20 @@ C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRDocter\obj\Debug\RHDoc
 C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRDocter\obj\Debug\RHDocter.csproj.CopyComplete
 C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRDocter\obj\Debug\IPRDocter.exe
 C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRDocter\obj\Debug\IPRDocter.pdb
+=======
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\bin\Debug\IPRDocter.exe.config
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\bin\Debug\IPRDocter.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\bin\Debug\IPRDocter.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\bin\Debug\IPRLib.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\bin\Debug\IPRLib.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\obj\Debug\RHDocter.csprojAssemblyReference.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\obj\Debug\RHDocter.DocterForm.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\obj\Debug\IPRDocter.Properties.Resources.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\obj\Debug\RHDocter.csproj.GenerateResource.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\obj\Debug\RHDocter.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\obj\Debug\RHDocter.csproj.CopyComplete
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\obj\Debug\IPRDocter.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRDocter\obj\Debug\IPRDocter.pdb
+>>>>>>> VR

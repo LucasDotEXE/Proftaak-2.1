@@ -1,4 +1,5 @@
-﻿using RHClient.client.model;
+﻿using IPRClient.client.vr;
+using RHClient.client.model;
 using RHClient.client.view;
 using RHLib.data;
 using System;
@@ -27,6 +28,8 @@ namespace RHClient
         {
 
             if (request.get("successful"))
+            {
+
                 this.BeginInvoke(new Action(() =>
                 {
 
@@ -34,6 +37,9 @@ namespace RHClient
                     Program.client.ästrandForm.setInfoText();
                     Program.client.startForm.Hide();
                 }));
+
+                VRManager.getInstance().startVR();
+            }
             else
                 this.BeginInvoke(new Action(() => this.error.Text = "Failed Creating Session!"));
         }

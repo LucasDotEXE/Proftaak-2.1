@@ -1,4 +1,5 @@
-﻿using RHClient.client.view;
+﻿using IPRClient.client.vr;
+using RHClient.client.view;
 using RHLib.data;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,8 @@ namespace RHClient.client.model
             this.form.setTimerText(this.seconds);
             this.form.setFaseText(this.fase);
             this.form.setTipText("");
+
+            VRManager.getInstance().startCycling();
         }
 
         // methods
@@ -52,22 +55,21 @@ namespace RHClient.client.model
                 return;
             }
 
-            /*
-            if ((bpm > Program.client.ästrandForm.maxBpm || bpm < 110) && this.fase == "Ästrand test"))
-            {
+            if (bpm != -1)
+                if ((bpm > Program.client.ästrandForm.maxBpm || bpm < 110) && this.fase == "Ästrand test")
+                {
 
-                this.form.stopÄstrand();
-                this.form.setTipText("Test stopped due to emergancy");
-                this.form.setFaseText("Emergancy stop");
-            }
-            else */ 
-            if (bpm != -1 && this.measures % 2 == 0)
-            {
+                    this.form.stopÄstrand();
+                    this.form.setTipText("Test stopped due to emergancy");
+                    this.form.setFaseText("Emergancy stop");
+                }
+                else if (this.measures % 2 == 0)
+                {
 
-                this.form.setHRText(bpm);
-                this.setResistance(bpm);
-                this.setTip(bpm);
-            }
+                    this.form.setHRText(bpm);
+                    this.setResistance(bpm);
+                    this.setTip(bpm);
+                }
         }
 
         private void setResistance(double bpm)
