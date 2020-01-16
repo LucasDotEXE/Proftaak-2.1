@@ -92,5 +92,14 @@ namespace RHDocter.docter.controller
 
             this.writeRequest(Request.newRequest(Config.readSessionType));
         }
+
+        public void writeMessageRequest(string message)
+        {
+
+            Request request = Request.newRequest(Config.messageType);
+            request.add("message", message);
+
+            this.writeRequest(request);
+        }
     }
 }

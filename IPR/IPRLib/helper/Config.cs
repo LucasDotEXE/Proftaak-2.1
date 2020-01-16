@@ -10,6 +10,7 @@ namespace RHLib.helper
     {
 
         // types
+        public const string messageType         = "message";
         public const string subscribeType       = "subscribe";
         public const string measurementType     = "measurement";
         public const string readSessionType     = "readSession";
