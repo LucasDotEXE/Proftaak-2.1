@@ -172,5 +172,12 @@ namespace RHServer.server.model.client
 
             this.writeRequest(request);
         }
+
+        public void login(Request request)
+        {
+
+            request.add("successful", (request.get("name") == Config.name && request.get("password") == Config.pass));
+            this.writeRequest(request);
+        }
     }
 }

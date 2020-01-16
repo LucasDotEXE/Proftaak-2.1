@@ -1,0 +1,6 @@
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csprojAssemblyReference.cache
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.StartForm.resources
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.client.view.ÄstrandForm.resources
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRClient\obj\Debug\IPRClient.Properties.Resources.resources
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csproj.GenerateResource.cache
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csproj.CoreCompileInputs.cache

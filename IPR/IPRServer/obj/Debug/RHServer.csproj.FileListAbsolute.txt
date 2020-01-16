@@ -1,0 +1,11 @@
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\bin\Debug\IPRServer.exe.config
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\bin\Debug\IPRServer.exe
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\bin\Debug\IPRServer.pdb
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\bin\Debug\IPRLib.dll
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\bin\Debug\IPRLib.pdb
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\obj\Debug\RHServer.csprojAssemblyReference.cache
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\obj\Debug\RHServer.csproj.CoreCompileInputs.cache
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\obj\Debug\RHServer.csproj.CopyComplete
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\obj\Debug\IPRServer.exe
+C:\Users\lucas\source\repos\LucasDotEXE\Proftaak-2.1\Proftaak-2.1\IPR\IPRServer\obj\Debug\IPRServer.pdb

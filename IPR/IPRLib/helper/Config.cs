@@ -10,6 +10,7 @@ namespace RHLib.helper
     {
 
         // types
+        public const string loginType           = "login";
         public const string messageType         = "message";
         public const string subscribeType       = "subscribe";
         public const string measurementType     = "measurement";
@@ -24,6 +25,10 @@ namespace RHLib.helper
         public const string serverName          = "IPRServer";
         public const string host                = "127.0.0.1";
         public const int port                   = 6969;
+
+        // login
+        public const string name                = "admin";
+        public const string pass                = "admin";
 
         // paths
         public static string certificatePath    = getBasePath() + @"\IPRServer\server\controller\certificate\cert.crt";
