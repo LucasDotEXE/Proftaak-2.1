@@ -89,6 +89,7 @@ namespace RHServer.server.controller
                 switch (request.type)
                 {
 
+                    case Config.messageType: client.sendObservers(request); break;
                     case Config.subscribeType: this.subscribe(client, request); break;
                     case Config.readSessionType: this.getSessionNames(client, request); break;
                     case Config.stopÄstrandType: client.stopÄstrandAsDoctor(request); break;
