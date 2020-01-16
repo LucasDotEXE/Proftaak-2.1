@@ -1,0 +1,39 @@
+﻿<Window x:Class="GUI_VR_interfacing.ControlPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_VR_interfacing"
+        mc:Ignorable="d"
+        Title="ControlPanel" Height="450" Width="800">
+    <Grid>
+        <Label Content="Time:" HorizontalAlignment="Left" Margin="664,10,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="TimeOfDay" HorizontalAlignment="Left" Margin="592,41,0,0" VerticalAlignment="Top" Width="182" ValueChanged="valChanged" Maximum="24"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="163" SelectionChanged="ComboBox_SelectionChanged_1"/>
+        <Label Content="Preset" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="GenButton" Content="Generate" HorizontalAlignment="Left" Margin="98,68,0,0" VerticalAlignment="Top" Width="75" Click="GenbuttonClicked"/>
+        <DataGrid x:Name="ObjList" HorizontalAlignment="Left" Height="186" Margin="221,15,0,0" VerticalAlignment="Top" Width="366" SelectionChanged="ObjList_SelectionChanged"/>
+        <Label Content="Selected Node:&#xD;&#xA;" HorizontalAlignment="Left" Margin="15,136,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboBox_SelectNode" HorizontalAlignment="Left" Margin="15,156,0,0" VerticalAlignment="Top" Width="158"/>
+        <Button x:Name="Button_Edit" Content="Info" HorizontalAlignment="Left" Margin="98,186,0,0" VerticalAlignment="Top" Width="75" Click="Button_EditClick"/>
+        <Button x:Name="Button_Delete" Content="Delete" HorizontalAlignment="Left" Margin="15,186,0,0" VerticalAlignment="Top" Width="75" Click="Button_DeleteClick"/>
+        <Button x:Name="Button_AddNode" Content="Add Node" HorizontalAlignment="Left" Margin="664,347,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="TextBox_NewNodeName" HorizontalAlignment="Left" Height="23" Margin="627,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="New Nodes:&#xD;&#xA;" HorizontalAlignment="Left" Margin="643,70,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_X" HorizontalAlignment="Left" Height="23" Margin="716,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" RenderTransformOrigin="0.555,-0.567"/>
+        <TextBox x:Name="TextBox_Y" HorizontalAlignment="Left" Height="23" Margin="716,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31"/>
+        <Label Content="X:" HorizontalAlignment="Left" Margin="691,146,0,0" VerticalAlignment="Top"/>
+        <Label Content="Y:" HorizontalAlignment="Left" Margin="691,177,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBox_Z" HorizontalAlignment="Left" Height="23" Margin="716,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31"/>
+        <Label Content="Z:" HorizontalAlignment="Left" Margin="691,205,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.63,2.989"/>
+        <ComboBox x:Name="ComboBox_SelectNodeParent" HorizontalAlignment="Left" Margin="616,257,0,0" VerticalAlignment="Top" Width="158"/>
+        <ComboBox x:Name="ComboBox_Models" HorizontalAlignment="Left" Margin="616,301,0,0" VerticalAlignment="Top" Width="158" Height="20" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Label Content="Model" HorizontalAlignment="Left" Margin="673,277,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.843,-1.069"/>
+        <Label Content="Parent" HorizontalAlignment="Left" Margin="673,231,0,0" VerticalAlignment="Top"/>
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="15,216,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Start Route" HorizontalAlignment="Left" Height="27" Margin="40,321,0,0" VerticalAlignment="Top" Width="133" Click="Button_Click_1"/>
+        <Label Content="Messages" HorizontalAlignment="Left" Margin="372,226,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="MessageListBo" HorizontalAlignment="Left" Height="131" Margin="221,257,0,0" VerticalAlignment="Top" Width="366"/>
+
+    </Grid>
+</Window>
