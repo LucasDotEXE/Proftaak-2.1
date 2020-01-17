@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csprojAssemblyReference.cache
+C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.StartForm.resources
+C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.client.view.ÄstrandForm.resources
+C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRClient\obj\Debug\IPRClient.Properties.Resources.resources
+C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csproj.GenerateResource.cache
+C:\Users\tjall\Desktop\Kanker Project\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csproj.CoreCompileInputs.cache
+=======
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\IPRClient.exe.config
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\IPRClient.exe
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\IPRClient.pdb
@@ -14,3 +22,4 @@ C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPR
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csproj.CopyComplete
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\IPRClient.exe
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\IPRClient.pdb
+>>>>>>> VR
