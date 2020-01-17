@@ -12,6 +12,7 @@ namespace RHLib.helper
         // types
         public const string VRType              = "VR";
 
+        public const string loginType           = "login";
         public const string messageType         = "message";
         public const string subscribeType       = "subscribe";
         public const string measurementType     = "measurement";
@@ -26,11 +27,6 @@ namespace RHLib.helper
         public const string serverName          = "RHServer";
         public const string host                = "127.0.0.1";
         public const int port                   = 6969;
-
-        // conntection VR
-        public const string VRServerName        = "VRServer";
-        public const string VRHost              = "127.0.0.1";
-        public const int VRPort                 = 420;
 
         // paths
         public static string certificatePath    = getBasePath() + @"\IPRServer\server\controller\certificate\cert.crt";

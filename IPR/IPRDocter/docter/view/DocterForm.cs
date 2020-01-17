@@ -76,6 +76,20 @@ namespace RHDocter
             }));
         }
 
+        internal void wasSuccessful(bool successful)
+        {
+
+            if (successful)
+            {
+
+                Program.docter.writeReadSessionRequest();
+                coverPanel.Visible = false;
+            }
+            else
+                this.login_statuslabel.Text = "Wrong Login";
+
+        }
+
         // chart
         public void buildChart()
         {
@@ -179,6 +193,15 @@ namespace RHDocter
 
                 this.Input.Text = "";
             }
+        }
+
+        private void Login_loginbutton_Click(object sender, EventArgs e)
+        {
+            String name = login_name.Text;
+            String password = login_password.Text;
+
+            Program.docter.writeLoginRequest(name, password);
+           
         }
     }
 }

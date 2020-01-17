@@ -22,8 +22,6 @@ namespace RHDocter.docter.controller
         {
 
             this.startConnection(true);
-
-            this.writeReadSessionRequest();
         }
 
         // methods
@@ -52,6 +50,7 @@ namespace RHDocter.docter.controller
             switch(request.type)
             {
 
+                case Config.loginType: this.docterForm.wasSuccessful(request.get("successful")); break;
                 case Config.subscribeType: this.receivedSession(request); break;
                 case Config.measurementType: this.receivedMeasurement(request); break;
                 case Config.readSessionType: this.docterForm.setSessions(request); break;
@@ -98,6 +97,16 @@ namespace RHDocter.docter.controller
 
             Request request = Request.newRequest(Config.messageType);
             request.add("message", message);
+
+            this.writeRequest(request);
+        }
+
+        public void writeLoginRequest(string name, string password)
+        {
+
+            Request request = Request.newRequest(Config.loginType);
+            request.add("name", name);
+            request.add("password", password);
 
             this.writeRequest(request);
         }
