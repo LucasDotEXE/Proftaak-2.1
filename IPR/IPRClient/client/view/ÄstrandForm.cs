@@ -42,7 +42,7 @@ namespace RHClient.client.view
                 this.ästrand = new Ästrand();
                 this.ästrand.startÄstrand();
 
-                VRConnection.getInstance().writeVRStartCycling(true);
+                VRClientConnection.getInstance().writeVRStartCycling(true);
 
                 this.BeginInvoke(new Action(() => {
 
@@ -64,7 +64,7 @@ namespace RHClient.client.view
             Program.client.blueTooth.stop();
             Program.client.blueTooth = null;
 
-            VRConnection.getInstance().writeVRStartCycling(false);
+            VRClientConnection.getInstance().writeVRStartCycling(false);
 
             if (!bikeError)
                 Program.client.writeStopÄstrandRequest(true);

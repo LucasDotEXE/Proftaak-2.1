@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\wessel\\Desktop\\Avans\\Periode 2.1\\Remote Healthcare\\Proftaak-2.1\\IPR\\RHLib\\RHLib.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\wessel\\Desktop\\Avans\\Periode 2.1\\Remote Healthcare\\Proftaak-2.1\\IPR\\RHLib\\RHLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wessel\\Desktop\\Avans\\Periode 2.1\\Remote Healthcare\\Proftaak-2.1\\IPR\\RHLib\\RHLib.csproj",
+        "projectName": "RHLib",
+        "projectPath": "C:\\Users\\wessel\\Desktop\\Avans\\Periode 2.1\\Remote Healthcare\\Proftaak-2.1\\IPR\\RHLib\\RHLib.csproj",
+        "packagesPath": "C:\\Users\\wessel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wessel\\Desktop\\Avans\\Periode 2.1\\Remote Healthcare\\Proftaak-2.1\\IPR\\RHLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\wessel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

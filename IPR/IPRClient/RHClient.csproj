@@ -74,7 +74,7 @@
     <Compile Include="client\view\ÄstrandForm.Designer.cs">
       <DependentUpon>ÄstrandForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="client\vr\VRManager.cs" />
+    <Compile Include="client\vr\VRClientConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="client\view\StartForm.resx">
@@ -107,8 +107,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPRLib\RHLib.csproj">
-      <Project>{9819db1f-bd48-47aa-9f3b-007454882c2f}</Project>
+    <ProjectReference Include="..\RHLib\RHLib.csproj">
+      <Project>{918e4e6b-5e3f-46ca-a3b0-de32a22e5ff6}</Project>
       <Name>RHLib</Name>
     </ProjectReference>
   </ItemGroup>

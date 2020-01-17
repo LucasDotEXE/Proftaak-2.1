@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\IPR",
-    "\\IPR\\IPRClient",
-    "\\IPR\\IPRClient\\client",
-    "\\IPR\\IPRClient\\client\\vr"
+    "\\IPR\\IPRClient\\client\\vr",
+    "\\IPR\\RHLib"
   ],
-  "SelectedNode": "\\IPR\\RH.sln",
+  "SelectedNode": "\\IPR\\IPRServer",
   "PreviewInSolutionExplorer": false
 }
