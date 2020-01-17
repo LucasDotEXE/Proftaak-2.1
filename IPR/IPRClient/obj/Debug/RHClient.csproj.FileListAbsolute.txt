@@ -1,0 +1,16 @@
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\IPRClient.exe.config
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\IPRClient.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\IPRClient.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\IPRLib.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\IPRLib.pdb
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csprojAssemblyReference.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.StartForm.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.client.view.ÄstrandForm.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\IPRClient.Properties.Resources.resources
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csproj.GenerateResource.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csproj.CoreCompileInputs.cache
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\RHClient.csproj.CopyComplete
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\IPRClient.exe
+C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\IPR\IPRClient\obj\Debug\IPRClient.pdb

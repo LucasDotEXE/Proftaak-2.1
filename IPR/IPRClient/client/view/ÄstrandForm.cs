@@ -1,4 +1,5 @@
-﻿using RHClient.client.model;
+﻿using IPRClient.client.vr;
+using RHClient.client.model;
 using RHLib.data;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,8 @@ namespace RHClient.client.view
                 this.ästrand = new Ästrand();
                 this.ästrand.startÄstrand();
 
+                VRConnection.getInstance().writeVRStartCycling(true);
+
                 this.BeginInvoke(new Action(() => {
 
                     this.timer.Start();
@@ -60,6 +63,8 @@ namespace RHClient.client.view
 
             Program.client.blueTooth.stop();
             Program.client.blueTooth = null;
+
+            VRConnection.getInstance().writeVRStartCycling(false);
 
             if (!bikeError)
                 Program.client.writeStopÄstrandRequest(true);

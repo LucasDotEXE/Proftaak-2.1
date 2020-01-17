@@ -166,5 +166,19 @@ namespace RHDocter
 
             this.buildChart();
         }
+
+        private void Input_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                this.chat.Text = this.chat.Text + "\n" + this.Input.Text;
+
+                Program.docter.writeMessageRequest(this.Input.Text);
+
+                this.Input.Text = "";
+            }
+        }
     }
 }
