@@ -66,7 +66,7 @@ namespace RHClient.client
             switch (request.type)
             {
 
-                case Config.messageType: VRManager.getInstance().recieveMessage(request.get("message")); break;
+                case Config.messageType: VRConnection.getInstance().writeRequest(request); break;
                 case Config.stopÄstrandType: this.ästrandForm.stopÄstrand(); break;
                 case Config.startÄstrandType: this.ästrandForm.startÄstrand(request); break;
                 case Config.createSessionType: this.startForm.createdSession(request); break;

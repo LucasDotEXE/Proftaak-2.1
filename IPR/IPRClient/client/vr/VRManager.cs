@@ -1,4 +1,7 @@
-﻿using System;
+﻿using RHLib;
+using RHLib.data;
+using RHLib.helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,47 +9,40 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace IPRClient.client.vr
-{
-    class VRManager
+{ 
+
+    public class VRConnection : Connection
     {
 
-        Thread connectionThread;
+        private static VRConnection instance;
+        private VRConnection() { }
 
-        public void startVR()
-        {
-
-        }
-
-        public void startCycling()
-        {
-
-        }
-
-        public void recieveMessage(String message)
-        {
-
-        }
-
-        public void stopCycling()
-        {
-
-        }
-
-
-
-
-
-
-        private static VRManager instance;
-        private VRManager() { }
-
-        public static VRManager getInstance()
+        public static VRConnection getInstance()
         {
 
             if (instance == null)
-                instance = new VRManager();
+                instance = new VRConnection();
 
             return instance;
+        }
+
+        public override void startClient()
+        {
+
+            this.startConnection(false);
+        }
+
+        public override void receiveRequest(Request request)
+        {
+
+            // it won't receive!
+        }        
+
+        public void writeVRStartCycling(bool start)
+        {
+
+            Request request = Request.newRequest(Config.VRType);
+            request.add("start", start);
         }
     }
 }

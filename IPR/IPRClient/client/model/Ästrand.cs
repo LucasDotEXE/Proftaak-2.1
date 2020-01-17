@@ -38,8 +38,6 @@ namespace RHClient.client.model
             this.form.setTimerText(this.seconds);
             this.form.setFaseText(this.fase);
             this.form.setTipText("");
-
-            VRManager.getInstance().startCycling();
         }
 
         // methods

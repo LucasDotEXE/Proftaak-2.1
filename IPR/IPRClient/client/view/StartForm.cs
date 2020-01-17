@@ -37,8 +37,6 @@ namespace RHClient
                     Program.client.ästrandForm.setInfoText();
                     Program.client.startForm.Hide();
                 }));
-
-                VRManager.getInstance().startVR();
             }
             else
                 this.BeginInvoke(new Action(() => this.error.Text = "Failed Creating Session!"));
