@@ -15,10 +15,17 @@ using System.Threading.Tasks;
 namespace GUI_VR_interfacing
 {
 
-    abstract class VRServerConnection
+    public class VRServerConnection
     {
 
+        private ControlPanel observer;
         private X509Certificate2 certificate;
+
+        public VRServerConnection(ControlPanel observer)
+        {
+
+            this.observer = observer;
+        }
 
         public void buildVRClientConnectionReceiver()
         {
@@ -99,6 +106,15 @@ namespace GUI_VR_interfacing
             }
         }
 
-        protected abstract void receiveRequest(Request request);
+        private void receiveRequest(Request request)
+        {
+
+            switch (request.type)
+            {
+
+                case Config.VRType: this.observer.receiveStart(request.get("start")); break;
+                case Config.messageType: this.observer.receiveMessage(request.get("message")); break;
+            }
+        }
     }
 }

@@ -12,10 +12,31 @@ namespace GUI_VR_interfacing
     /// </summary>
     public partial class ControlPanel : Window
     {
-        Client _client;
+
+        private Client _client;
+        private VRServerConnection connection;
+
         public ControlPanel()
         {
+
             InitializeComponent();
+
+            this.connection = new VRServerConnection(this);
+            this.connection.buildVRClientConnectionReceiver();
+        }
+
+        // TODO: fix this shit
+        public void receiveStart(bool start)
+        {
+
+            // wanneer true. begin fietsen.
+            // wanneer false. stop fietsen.
+        }
+
+        public void receiveMessage(string message)
+        {
+
+            // print message in vr.
         }
 
         private void GenbuttonClicked(object sender, RoutedEventArgs e)
