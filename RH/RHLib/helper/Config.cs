@@ -24,7 +24,7 @@ namespace RHLib.helper
         public const string validateÄstrandType = "validateÄstrand"; 
 
         // connection
-        public const string serverName          = "RHServer";
+        public const string serverName          = "IPRServer";
         public const string host                = "127.0.0.1";
         public const int port                   = 6969;
 
@@ -37,9 +37,9 @@ namespace RHLib.helper
         public const string pass                = "admin";
 
         // paths
-        public static string certificatePath    = getBasePath() + @"\IPRServer\server\controller\certificate\cert.crt";
-        public static string certificateKey     = getBasePath() + @"\IPRServer\server\controller\certificate\cert.key";
-        public static string serverAccountPath  = getBasePath() + @"\IPRServer\server\model\session\Sessions.txt";
+        public static string certificatePath    = getBasePath() + @"\RHServer\server\controller\certificate\cert.crt";
+        public static string certificateKey     = getBasePath() + @"\RHServer\server\controller\certificate\cert.key";
+        public static string serverAccountPath  = getBasePath() + @"\RHServer\server\model\session\Sessions.txt";
 
         private static string getBasePath()
         {
