@@ -97,6 +97,10 @@
       },
       "RHLib/1.0.0": {
         "type": "project",
+        "framework": ".NETFramework,Version=v4.7.2",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
         "compile": {
           "bin/placeholder/RHLib.dll": {}
         },
@@ -201,6 +205,10 @@
       },
       "RHLib/1.0.0": {
         "type": "project",
+        "framework": ".NETFramework,Version=v4.7.2",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
         "compile": {
           "bin/placeholder/RHLib.dll": {}
         },
@@ -305,6 +313,10 @@
       },
       "RHLib/1.0.0": {
         "type": "project",
+        "framework": ".NETFramework,Version=v4.7.2",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
         "compile": {
           "bin/placeholder/RHLib.dll": {}
         },
@@ -409,6 +421,10 @@
       },
       "RHLib/1.0.0": {
         "type": "project",
+        "framework": ".NETFramework,Version=v4.7.2",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
         "compile": {
           "bin/placeholder/RHLib.dll": {}
         },

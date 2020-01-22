@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37274C67-4245-459E-B4D1-5BB855E87F5D}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>RHDocter</RootNamespace>
-    <AssemblyName>RHDocter</AssemblyName>
+    <ProjectGuid>{5B7A1CAD-1166-42B0-8CF1-1C71213698A4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RHServer</RootNamespace>
+    <AssemblyName>RHServer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,65 +33,43 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
-    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="docter\controller\Docter.cs" />
-    <Compile Include="docter\view\DocterForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="docter\view\DocterForm.Designer.cs">
-      <DependentUpon>DocterForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="docter\view\DocterForm.resx">
-      <DependentUpon>DocterForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <Compile Include="server\controller\Server.cs" />
+    <Compile Include="server\model\client\Client.cs" />
+    <Compile Include="server\model\client\ClientObserver.cs" />
+    <Compile Include="server\model\session\SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="server\controller\certificate\cert.crt" />
+    <None Include="server\controller\certificate\cert.csr" />
+    <None Include="server\controller\certificate\cert.key" />
+    <None Include="server\controller\certificate\cert.p7b" />
+    <None Include="server\controller\certificate\cert.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="server\model\session\Sessions.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RHLib\RHLib.csproj">
       <Project>{0d3d1cf2-0d30-44f7-8ef9-e7f43a89ec77}</Project>
       <Name>RHLib</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.3</Version>
-    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\RHVR.csproj": {}
+    "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHServer\\RHServer.csproj": {}
   },
   "projects": {
     "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj": {
@@ -53,14 +53,14 @@
         }
       }
     },
-    "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\RHVR.csproj": {
+    "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHServer\\RHServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\RHVR.csproj",
-        "projectName": "RHVR",
-        "projectPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\RHVR.csproj",
+        "projectUniqueName": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHServer\\RHServer.csproj",
+        "projectName": "RHServer",
+        "projectPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHServer\\RHServer.csproj",
         "packagesPath": "C:\\Users\\tjall\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\obj\\",
+        "outputPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHServer\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -87,33 +87,9 @@
       "frameworks": {
         "net472": {
           "dependencies": {
-            "Hangfire": {
-              "target": "Package",
-              "version": "[1.7.9, )"
-            },
-            "Hangfire.Core": {
-              "target": "Package",
-              "version": "[1.7.9, )"
-            },
-            "Hangfire.SqlServer": {
-              "target": "Package",
-              "version": "[1.7.9, )"
-            },
-            "Microsoft.Owin": {
-              "target": "Package",
-              "version": "[3.0.0, )"
-            },
-            "Microsoft.Owin.Host.SystemWeb": {
-              "target": "Package",
-              "version": "[3.0.0, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
-            },
-            "Owin": {
-              "target": "Package",
-              "version": "[1.0.0, )"
             }
           }
         }

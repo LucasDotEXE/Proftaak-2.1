@@ -1,9 +1,62 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\RHVR.csproj": {}
+    "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHDocter\\RHDocter.csproj": {}
   },
   "projects": {
+    "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHDocter\\RHDocter.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHDocter\\RHDocter.csproj",
+        "projectName": "RHDocter",
+        "projectPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHDocter\\RHDocter.csproj",
+        "packagesPath": "C:\\Users\\tjall\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHDocter\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\tjall\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj": {
+                "projectPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
     "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -37,83 +90,6 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
-            }
-          }
-        }
-      },
-      "runtimes": {
-        "win": {
-          "#import": []
-        },
-        "win-x64": {
-          "#import": []
-        },
-        "win-x86": {
-          "#import": []
-        }
-      }
-    },
-    "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\RHVR.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\RHVR.csproj",
-        "projectName": "RHVR",
-        "projectPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\RHVR.csproj",
-        "packagesPath": "C:\\Users\\tjall\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHVR\\obj\\",
-        "projectStyle": "PackageReference",
-        "skipContentFileWrite": true,
-        "configFilePaths": [
-          "C:\\Users\\tjall\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net472"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net472": {
-            "projectReferences": {
-              "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj": {
-                "projectPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj"
-              }
-            }
-          }
-        }
-      },
-      "frameworks": {
-        "net472": {
-          "dependencies": {
-            "Hangfire": {
-              "target": "Package",
-              "version": "[1.7.9, )"
-            },
-            "Hangfire.Core": {
-              "target": "Package",
-              "version": "[1.7.9, )"
-            },
-            "Hangfire.SqlServer": {
-              "target": "Package",
-              "version": "[1.7.9, )"
-            },
-            "Microsoft.Owin": {
-              "target": "Package",
-              "version": "[3.0.0, )"
-            },
-            "Microsoft.Owin.Host.SystemWeb": {
-              "target": "Package",
-              "version": "[3.0.0, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[12.0.3, )"
-            },
-            "Owin": {
-              "target": "Package",
-              "version": "[1.0.0, )"
             }
           }
         }
