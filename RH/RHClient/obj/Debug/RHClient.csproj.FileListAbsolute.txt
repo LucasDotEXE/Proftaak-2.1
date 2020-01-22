@@ -15,3 +15,8 @@ C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHCl
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.csproj.CopyComplete
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.exe
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.pdb
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.csprojAssemblyReference.cache
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.StartForm.resources
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.client.view.ÄstrandForm.resources
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.Properties.Resources.resources
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.csproj.GenerateResource.cache

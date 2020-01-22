@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows;
-
-using System.Collections.Generic;
 
 namespace GUI_VR_interfacing
 {
@@ -15,6 +14,7 @@ namespace GUI_VR_interfacing
 
         private Client _client;
         private VRServerConnection connection;
+        private List<string> messages;
 
         public ControlPanel()
         {
@@ -23,20 +23,24 @@ namespace GUI_VR_interfacing
 
             this.connection = new VRServerConnection(this);
             this.connection.buildVRClientConnectionReceiver();
+
+            messages = new List<string>();
         }
 
         // TODO: fix this shit
         public void receiveStart(bool start)
         {
 
-            // wanneer true. begin fietsen.
+            if (start) VREnviorment.startRoute(_client);
             // wanneer false. stop fietsen.
+            else ;
         }
 
         public void receiveMessage(string message)
         {
 
             // print message in vr.
+            messages.Add(message);
         }
 
         private void GenbuttonClicked(object sender, RoutedEventArgs e)

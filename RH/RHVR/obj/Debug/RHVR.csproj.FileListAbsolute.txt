@@ -39,3 +39,9 @@ C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHVR
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHVR\obj\Debug\RHVR.csproj.CopyComplete
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHVR\obj\Debug\RHVR.exe
 C:\Users\wessel\Desktop\Avans\Periode 2.1\Remote Healthcare\Proftaak-2.1\RH\RHVR\obj\Debug\RHVR.pdb
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHVR\obj\Debug\RHVR.csprojAssemblyReference.cache
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHVR\obj\Debug\Windows\ControlPanel.g.cs
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHVR\obj\Debug\Windows\MainWindow.g.cs
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHVR\obj\Debug\App.g.cs
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHVR\obj\Debug\RHVR_MarkupCompile.cache
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHVR\obj\Debug\RHVR_MarkupCompile.lref
