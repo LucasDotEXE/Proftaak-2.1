@@ -20,3 +20,13 @@ C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.St
 C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.client.view.ÄstrandForm.resources
 C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.Properties.Resources.resources
 C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.csproj.GenerateResource.cache
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\bin\Debug\RHClient.exe.config
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\bin\Debug\RHClient.exe
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\bin\Debug\RHClient.pdb
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\bin\Debug\BLELibrary.dll
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\bin\Debug\RHLib.dll
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\bin\Debug\RHLib.pdb
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.csproj.CopyComplete
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.exe
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHClient\obj\Debug\RHClient.pdb

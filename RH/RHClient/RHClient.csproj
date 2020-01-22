@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BLELibrary">
-      <HintPath>..\..\..\Week 1 - 2\FietsDemo\FietsDemo\BLELibrary.dll</HintPath>
+      <HintPath>..\..\..\IPR 2.1\IPR 2.1\FietsLib\BLELibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

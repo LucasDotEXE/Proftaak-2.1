@@ -17,3 +17,12 @@ C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\obj\Debug\RHDocter.cs
 C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\obj\Debug\RHDocter.DocterForm.resources
 C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\obj\Debug\RHDocter.Properties.Resources.resources
 C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\obj\Debug\RHDocter.csproj.GenerateResource.cache
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\bin\Debug\RHDocter.exe.config
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\bin\Debug\RHDocter.exe
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\bin\Debug\RHDocter.pdb
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\bin\Debug\RHLib.dll
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\bin\Debug\RHLib.pdb
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\obj\Debug\RHDocter.csproj.CopyComplete
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\obj\Debug\RHDocter.exe
+C:\Users\tjall\Documents\1GitProj\Proftaak-2.1\RH\RHDocter\obj\Debug\RHDocter.pdb
