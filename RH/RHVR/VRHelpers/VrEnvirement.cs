@@ -1,5 +1,6 @@
 ﻿using CommandHelperObjects;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace GUI_VR_interfacing
 {
@@ -50,10 +51,6 @@ namespace GUI_VR_interfacing
                 routeNodes: route);
 
 
-
-
-
-
         }
 
         public static void startRoute(Client vrClient)
@@ -63,23 +60,30 @@ namespace GUI_VR_interfacing
             nodeID: vrClient.nodeDict["Bike"],
             speed: 2,
             offset: 0,
-            rotate: 0.ToString(),
-            smoothing: 1,
+            rotate: "XYZ",
+            smoothing: 0,
             followHeight: false,
             rotateOfset: new double[] { 0, 0, 0 },
             positionOffset: new double[] { 0, -200, 0 }
             );
+
             followRoute(vrClient,
               routeID: vrClient.nodeDict["Route"],
               nodeID: vrClient.nodeDict["Camera"],
               speed: 2,
               offset: 0,
-              rotate: "XZ",
-              smoothing: 1,
-              followHeight: true,
+              rotate: "XYZ",
+              smoothing: 0,
+              followHeight: false,
               rotateOfset: new double[] { 0, 0, 0 },
               positionOffset: new double[] { 0, -200, 0 }
               );
+        }
+
+        public static void setSpeed(Client client,  double speed) 
+        {
+            //client.AddToQueue(Commands.Route.followSpeed(client.nodeDict["Route"], speed));
+           // client.AddToQueue(Commands.Route.followSpeed(client.nodeDict["Camera"], speed));
 
         }
 

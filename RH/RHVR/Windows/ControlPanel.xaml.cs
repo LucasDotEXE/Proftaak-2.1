@@ -25,6 +25,7 @@ namespace GUI_VR_interfacing
             this.connection.buildVRClientConnectionReceiver();
 
             messages = new List<string>();
+            MessageListBo.Items.Add("Welkom bij deze Controlpaneel");
         }
 
         // TODO: fix this shit
@@ -32,8 +33,7 @@ namespace GUI_VR_interfacing
         {
 
             if (start) VREnviorment.startRoute(_client);
-            // wanneer false. stop fietsen.
-            else ;
+            else VREnviorment.setSpeed(_client,0);
         }
 
         public void receiveMessage(string message)
@@ -41,6 +41,8 @@ namespace GUI_VR_interfacing
 
             // print message in vr.
             messages.Add(message);
+
+            MessageListBo.Items.Add(message);
         }
 
         private void GenbuttonClicked(object sender, RoutedEventArgs e)
@@ -109,6 +111,11 @@ namespace GUI_VR_interfacing
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             VREnviorment.startRoute(_client);  
+        }
+
+        private void StopRoute(object sender, RoutedEventArgs e)
+        {
+            VREnviorment.setSpeed(_client, 0);
         }
     }
 }

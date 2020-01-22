@@ -546,7 +546,7 @@ namespace CommandHelperObjects
     {
         public static String lowerAndRemoveSpace(String input)
         {
-            return input.Replace(" ", "").ToLower();
+            return input.Replace(" ", "");
         }
     }
 
