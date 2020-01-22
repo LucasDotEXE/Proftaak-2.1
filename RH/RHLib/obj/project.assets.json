@@ -85,27 +85,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tjall\\.nuget\\packages\\": {}
+    "C:\\Users\\wessel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj",
+      "projectUniqueName": "C:\\Users\\wessel\\Desktop\\Avans\\Periode 2.1\\Remote Healthcare\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj",
       "projectName": "RHLib",
-      "projectPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj",
-      "packagesPath": "C:\\Users\\tjall\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tjall\\Documents\\1GitProj\\Proftaak-2.1\\RH\\RHLib\\obj\\",
+      "projectPath": "C:\\Users\\wessel\\Desktop\\Avans\\Periode 2.1\\Remote Healthcare\\Proftaak-2.1\\RH\\RHLib\\RHLib.csproj",
+      "packagesPath": "C:\\Users\\wessel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\wessel\\Desktop\\Avans\\Periode 2.1\\Remote Healthcare\\Proftaak-2.1\\RH\\RHLib\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\tjall\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\wessel\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net472"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

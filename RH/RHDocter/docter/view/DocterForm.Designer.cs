@@ -85,7 +85,7 @@
             this.history.Controls.Add(this.Input);
             this.history.Location = new System.Drawing.Point(4, 22);
             this.history.Name = "history";
-            this.history.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.history.Padding = new System.Windows.Forms.Padding(3);
             this.history.Size = new System.Drawing.Size(924, 400);
             this.history.TabIndex = 1;
             this.history.Text = "Chat";
@@ -138,7 +138,7 @@
             this.graph.Controls.Add(this.chart);
             this.graph.Location = new System.Drawing.Point(4, 22);
             this.graph.Name = "graph";
-            this.graph.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.graph.Padding = new System.Windows.Forms.Padding(3);
             this.graph.Size = new System.Drawing.Size(924, 400);
             this.graph.TabIndex = 0;
             this.graph.Text = "Graph";
@@ -150,7 +150,7 @@
             this.error.ForeColor = System.Drawing.Color.Red;
             this.error.Location = new System.Drawing.Point(727, 188);
             this.error.Name = "error";
-            this.error.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.error.Padding = new System.Windows.Forms.Padding(5);
             this.error.Size = new System.Drawing.Size(175, 50);
             this.error.TabIndex = 21;
             // 
@@ -411,7 +411,7 @@
             this.coverPanel.Controls.Add(this.login_password);
             this.coverPanel.Controls.Add(this.login_name);
             this.coverPanel.Location = new System.Drawing.Point(12, -56);
-            this.coverPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.coverPanel.Margin = new System.Windows.Forms.Padding(2);
             this.coverPanel.Name = "coverPanel";
             this.coverPanel.Size = new System.Drawing.Size(1133, 496);
             this.coverPanel.TabIndex = 6;
@@ -419,7 +419,7 @@
             // login_statuslabel
             // 
             this.login_statuslabel.AutoSize = true;
-            this.login_statuslabel.Location = new System.Drawing.Point(322, 240);
+            this.login_statuslabel.Location = new System.Drawing.Point(310, 237);
             this.login_statuslabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.login_statuslabel.Name = "login_statuslabel";
             this.login_statuslabel.Size = new System.Drawing.Size(0, 13);
@@ -448,7 +448,7 @@
             // login_loginbutton
             // 
             this.login_loginbutton.Location = new System.Drawing.Point(385, 237);
-            this.login_loginbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.login_loginbutton.Margin = new System.Windows.Forms.Padding(2);
             this.login_loginbutton.Name = "login_loginbutton";
             this.login_loginbutton.Size = new System.Drawing.Size(75, 30);
             this.login_loginbutton.TabIndex = 2;
@@ -459,7 +459,7 @@
             // login_password
             // 
             this.login_password.Location = new System.Drawing.Point(385, 212);
-            this.login_password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.login_password.Margin = new System.Windows.Forms.Padding(2);
             this.login_password.Name = "login_password";
             this.login_password.PasswordChar = '*';
             this.login_password.Size = new System.Drawing.Size(76, 20);
@@ -468,7 +468,7 @@
             // login_name
             // 
             this.login_name.Location = new System.Drawing.Point(385, 189);
-            this.login_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.login_name.Margin = new System.Windows.Forms.Padding(2);
             this.login_name.Name = "login_name";
             this.login_name.Size = new System.Drawing.Size(76, 20);
             this.login_name.TabIndex = 0;

@@ -17,7 +17,6 @@ namespace RHDocter
 
         // attributes
         private List<string[]> names;
-        private int ATD; // ammount to diplay
 
         // startup
         public DocterForm()
@@ -37,6 +36,8 @@ namespace RHDocter
             this.names = new List<string[]>();
             this.names.AddRange(online);
             this.names.AddRange(offline);
+
+            this.chat.Text = "";
 
             this.BeginInvoke(new Action(() =>
             {
@@ -188,7 +189,12 @@ namespace RHDocter
             if (e.KeyCode == Keys.Enter)
             {
 
-                this.chat.Text = this.chat.Text + "\n" + this.Input.Text;
+                string message = "To " + Program.docter.subscribed.name + ": " + this.Input.Text;
+
+                if (this.chat.Text != "")
+                    message = "\n" + message;
+
+                this.chat.Text += message;
 
                 Program.docter.writeMessageRequest(this.Input.Text);
 
